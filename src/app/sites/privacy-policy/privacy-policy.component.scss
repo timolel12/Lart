@@ -1,0 +1,15 @@
+@import "../../../styles.scss";
+
+.page{
+    padding: 20px;
+    margin: 100px auto;
+    max-width: 1200px;
+}
+
+.content-card {
+    background-color: $transparent-color;
+    color: black;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }

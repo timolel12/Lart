@@ -1,0 +1,36 @@
+@import "../../../styles.scss";
+
+.main-content {
+    padding: 20px;
+    margin: 100px auto;
+    max-width: 800px;
+    height: 95%;
+  }
+  
+  .content-card {
+    background-color: $full-transparent-color;
+    color: black;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    .primary-button{
+      margin-top: 20px;
+    }
+  }
+
+  .logo-contact{
+    height: 200px;
+    width: 200px;
+}
+
+.icon-button {
+  border: none!important;
+  background-color: transparent!important;
+  cursor: pointer!important;
+}

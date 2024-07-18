@@ -1,0 +1,35 @@
+.footer {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add padding to the toolbar */
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow the content to grow and take available space */
+}
+
+.footer-text {
+  flex-grow: 1; /* Allow the text to grow and take available space */
+  margin-right: auto; /* Pushes buttons to the right */
+  font-size: medium;
+}
+
+.spacer {
+  flex-grow: 1; /* Pushes buttons to the right */
+  margin-left: auto; /* Pushes buttons to the right */
+}
+
+.logo-footer{
+  height: 90px;
+  width: 90px;
+}
+
+.icon-button {
+  border: none!important;
+  background-color: transparent!important;
+  cursor: pointer!important;
+}

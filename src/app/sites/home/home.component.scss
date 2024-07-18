@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+
+.main-content {
+  padding: 20px;
+  margin: 100px auto;
+  max-width: 800px;
+  height: 95%;
+}
+
+.content-card {
+  background-color: $full-transparent-color;
+  color: black;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.diashow{
+  margin-bottom: 20px;
+}

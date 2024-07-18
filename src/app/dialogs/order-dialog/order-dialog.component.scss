@@ -1,0 +1,38 @@
+/* order.component.css */
+.order-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+  }
+  
+  .order-card {
+    width: 600px;
+    max-width: 90%;
+    height: 650px;
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  button[type='submit'] {
+    width: 100%;
+  }
+  
+  .custom-card-header{
+    margin-bottom: 20px;
+  }
+
+  .custom-card-actions {
+    display: flex;
+    justify-content: space-between; /* Distribute space between the buttons */
+  }
+  
+  .half-width-button {
+    flex: 1; /* Each button takes equal space */
+    margin: 0 4px; /* Optional margin between buttons */
+  }
+  

@@ -1,0 +1,50 @@
+@import "../../../styles.scss";
+
+.mat-toolbar{
+  height: 140px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $transparent-color;
+}
+
+.nav-bar{
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  outline: 1px solid #000; /* Set outline color to black */
+  outline-offset: 2px;
+}
+
+/* Style for each nav bar item */
+.nav-bar-list-item {
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.nav-bar-list-item:hover {
+  background-color:  $primary-color;
+  color: white;
+}
+
+/* Active link style */
+.nav-bar-list-item.active {
+  color: #fff;
+  background-color:  $primary-color
+}
+
+.logo{
+    height: 140px;
+    width: 140px;
+    margin-right: 90px;
+    cursor: pointer;
+}
