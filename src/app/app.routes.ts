@@ -4,9 +4,10 @@ import { AboutUsComponent } from './sites/about-us/about-us.component';
 import { ContactComponent } from './sites/contact/contact.component';
 import { PrivacyPolicyComponent } from './sites/privacy-policy/privacy-policy.component';
 import { ImpressumComponent } from './sites/impressum/impressum.component';
+import { StartComponent } from './sites/start/start.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', component: StartComponent},
     { path: 'home', component: HomeComponent },
     { path: 'about-us', component: AboutUsComponent },
     { path: 'contact', component: ContactComponent },

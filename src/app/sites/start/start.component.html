@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="left-side">
+      <img src="path/to/your/image1.jpg" alt="Image 1">
+      <img src="path/to/your/image2.jpg" alt="Image 2">
+      <!-- Add more images as needed -->
+    </div>
+    <div class="right-side">
+        <div class="header-container">
+            <h1>Willkommen bei</h1>
+            <img src="assets/images/logo_weiß_transparent.png" alt="" class="logo">            
+          </div>
+        <div class="button-container">
+          <button mat-raised-button
+                  class="rectangle-button"
+                  *ngFor="let label of buttonLabels" 
+                  (click)="buttonClicked(label)" 
+                  class="rectangle-button">
+            {{ label }}
+          </button>
+        </div>
+    </div>
+</div>

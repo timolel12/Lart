@@ -1,0 +1,55 @@
+@import "../../../styles.scss";
+
+/* Ensure the component takes up the full height of the viewport */
+:host {
+    display: block;
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    background-color: $primary-dark-color; /* Desired background color */
+    color: white; /* Optional: Set text color to white for better contrast */
+    margin: 0; /* Ensure no margin is applied */
+    padding: 0; /* Ensure no padding is applied */
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh; /* Ensure the container takes up full viewport height */
+    padding: 0 20px; /* Optional: add padding to the container for spacing */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+  }
+  
+  .left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+ .right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  align-items: center; /* Center content horizontally */
+  padding-left: 20px; /* Space between images and text */
+}
+
+.header-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+.logo {
+    width: 250px; /* Adjust as needed */
+    height: auto;
+  }
+  
+.button-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the buttons horizontally */
+}
+  
