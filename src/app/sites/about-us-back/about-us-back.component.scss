@@ -1,0 +1,70 @@
+@import "../../../styles.scss";
+
+.main-content {
+    padding: 20px;
+    margin: 100px auto;
+    max-width: 800px; 
+    height: 95%;
+  }
+  
+  .content-card {
+    background-color: $full-transparent-color;
+    color: black;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .info-content {
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(to right, #DDD4B0, #B09F7D);
+    font-family: Garamond, serif;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+
+  .centered-items {
+    text-align: center;
+  }
+
+  .mat-divider {
+    height: 3px;
+    background-color: $primary-color;
+  }
+
+  .logo-about-us{
+    height: 230px;
+    width: 230px;
+}
+
+/* Style the header */
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the main content */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Style sections */
+section {
+  margin-bottom: 20px;
+}
+
+/* Style the footer */
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 0 10px;
+  }
+}

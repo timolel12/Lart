@@ -16,13 +16,23 @@ export class RouteService {
     ).subscribe(() => {
       const isSingleSegment = this.checkSingleSegmentRoute();
       this.singleSegmentRouteSubject.next(isSingleSegment);
-      console.log(isSingleSegment)
     });
   }
 
   private checkSingleSegmentRoute(): boolean {
     const currentUrl = this.router.url;
     const segments = currentUrl.split('/').filter(segment => segment.length > 0);
-    return segments.length === 0; // Return true if it's the root route
+    /*if (segments.length === 0 || this.router.url.includes("about-us")) {
+      return true;
+    }
+    else {
+      return false;
+    }*/
+    if (segments.length === 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }

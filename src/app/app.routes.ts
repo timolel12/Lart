@@ -8,7 +8,7 @@ import { StartComponent } from './sites/start/start.component';
 
 export const routes: Routes = [
     { path: '', component: StartComponent},
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: StartComponent },
     { path: 'about-us', component: AboutUsComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'datenschutz', component: PrivacyPolicyComponent },

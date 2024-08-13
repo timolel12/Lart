@@ -1,12 +1,45 @@
 <header>
     <mat-card>
-        <mat-toolbar>     
-            <img src="assets/images/logo_transparent.png" (click)="navigateHome()" class="logo" alt="">
-            <mat-nav-list class="nav-bar">
-                <a [class.active]="activeLink === 'home'" class="nav-bar-list-item" (click)="navigateHome()">Home</a>
-                <a [class.active]="activeLink === 'about-us'" class="nav-bar-list-item" (click)="navigateAboutUs()">Über uns</a>
-                <a [class.active]="activeLink === 'contact'" class="nav-bar-list-item" (click)="navigateContact()">Kontakt</a>
-            </mat-nav-list>      
-        </mat-toolbar>
+      <mat-toolbar>
+        <img
+          src="assets/images/logo_weiß_transparent.png"
+          (click)="navigateHome()"
+          class="logo"
+          alt=""
+        />
+        <mat-nav-list class="nav-bar">
+          <a
+            [class.active]="(activeLink$ | async) === ''"
+            class="nav-bar-list-item"
+            (click)="navigateHome()"
+            >Home</a
+          >
+          <a
+            [class.active]="(activeLink$ | async) === 'products'"
+            class="nav-bar-list-item"
+            (click)="navigateProducts()"
+            >Produktbeispiele</a
+          >
+          <a
+            [class.active]="(activeLink$ | async) === 'requests'"
+            class="nav-bar-list-item"
+            (click)="navigateRequests()"
+            >Anfragen</a
+          >
+          <a
+            [class.active]="(activeLink$ | async) === 'about-us'"
+            class="nav-bar-list-item"
+            (click)="navigateAboutUs()"
+            >Über uns</a
+          >
+          <a
+            [class.active]="(activeLink$ | async) === 'contact'"
+            class="nav-bar-list-item"
+            (click)="navigateContact()"
+            >Kontakt</a
+          >
+        </mat-nav-list>
+      </mat-toolbar>
     </mat-card>
-</header>
+  </header>
+  

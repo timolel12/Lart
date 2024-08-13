@@ -30,18 +30,17 @@ $Lart-theme: mat.define-light-theme((
   density: 0
 ));
 
-$primary-color: #795548;
-$primary-dark-color: #5d4037;
+$primary-color: #5d4037;
+$primary-dark-color: #3d2a24;
 $complementary-color: #486C79;
-$complementary-dark-color: #2C454f;
+$complementary-dark-color: #2c454fba;
 
-$transparent-color: rgba(255, 255, 255, 0.5);
+$transparent-color: rgba(255, 255, 255, 0.1);
 $full-transparent-color: rgba(255, 255, 255, 0.0);
 
 
 @include mat.all-component-themes($Lart-theme);
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Arial, "Helvetica Neue", sans-serif; }
 
 body {
@@ -49,11 +48,17 @@ body {
   background-size: cover; 
   background-position: center; 
   background-repeat: repeat-y;
+  background-color: $primary-color;
 }
 
 h1 {
   display: flex;
   justify-content: center;
+}
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
 }
 
 // primary buttons
@@ -85,7 +90,7 @@ h1 {
 
 .rectangle-button:hover {
   background-color: #fff;
-  color: $primary-color;
+  color: $primary-dark-color;
 }
 
 .mdc-dialog__surface {

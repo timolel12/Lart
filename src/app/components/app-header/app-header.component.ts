@@ -1,35 +1,52 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-
+import { CommonModule } from '@angular/common'; // Import CommonModule
+import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatListModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatListModule, MatCardModule], // Add CommonModule here
   templateUrl: './app-header.component.html',
-  styleUrl: './app-header.component.scss'
+  styleUrls: ['./app-header.component.scss']
 })
 export class AppHeaderComponent {
+  activeLink$: Observable<string>;
 
-  activeLink: string = 'home';
-
-  constructor(private router: Router)  {
-
+  constructor(private router: Router) {
+    this.activeLink$ = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => {
+        const currentUrl = this.router.url;
+        const activeLink = currentUrl.split('/').pop() || 'home';
+        console.log('Current router URL:', currentUrl);
+        console.log('Active link:', activeLink);
+        return activeLink;
+      })
+    );
   }
 
-  navigateContact(){
-    this.activeLink = 'contact';
-    this.router.navigate(['/contact'])
+  navigateContact() {
+    this.router.navigate(['/contact']);
   }
-  navigateAboutUs(){
-    this.activeLink = 'about-us';
-    this.router.navigate(['/about-us'])
+
+  navigateAboutUs() {
+    this.router.navigate(['/about-us']);
   }
-  navigateHome(){
-    this.activeLink = 'home';
-    this.router.navigate(['/home'])
+
+  navigateProducts() {
+    this.router.navigate(['/products']);
+  }
+
+  navigateRequests() {
+    this.router.navigate(['/requests']);
+  }
+
+  navigateHome() {
+    this.router.navigate(['']);
   }
 }

@@ -1,6 +1,6 @@
 @import "../../../styles.scss";
 
-.mat-toolbar{
+.mat-toolbar {
   height: 140px;
   position: fixed;
   top: 0;
@@ -9,14 +9,13 @@
   background-color: $transparent-color;
 }
 
-.nav-bar{
+.nav-bar {
   display: flex;
   flex-direction: row; /* Align items horizontally */
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  outline: 1px solid #000; /* Set outline color to black */
-  outline-offset: 2px;
+  border-bottom: 2px solid $primary-dark-color; /* Bottom border on the entire nav-bar */
+  padding-bottom: 5px; /* Optional: Adds some space above the bottom border */
 }
 
 /* Style for each nav bar item */
@@ -26,25 +25,25 @@
   margin: 5px;
   border-radius: 3px;
   transition: background-color 0.3s ease;
-  color: $primary-color;
+  color: $primary-dark-color;
   cursor: pointer;
 }
 
 /* Hover effect */
 .nav-bar-list-item:hover {
-  background-color:  $primary-color;
+  background-color: $primary-dark-color;
   color: white;
 }
 
 /* Active link style */
 .nav-bar-list-item.active {
-  color: #fff;
-  background-color:  $primary-color
+  background-color: $primary-dark-color;
+  color: white;
 }
 
-.logo{
-    height: 140px;
-    width: 140px;
-    margin-right: 90px;
-    cursor: pointer;
+.logo {
+  height: 140px;
+  width: 140px;
+  margin-right: 90px;
+  cursor: pointer;
 }
