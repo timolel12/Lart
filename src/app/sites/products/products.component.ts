@@ -22,10 +22,10 @@ import { OrderDialogComponent } from '../../dialogs/order-dialog/order-dialog.co
     MatIconModule,
     DiashowComponent
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './products.component.html',
+  styleUrl: './products.component.scss'
 })
-export class HomeComponent {
+export class ProductsComponent {
   constructor(public dialog: MatDialog){}
 
   diashowImages = [
