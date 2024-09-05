@@ -1,5 +1,5 @@
 <!-- order.component.html -->
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
+<form [formGroup]="orderForm" (ngSubmit)="sendRequest()" class="order-form">
     <mat-card class="order-card">
       <mat-card-header class="custom-card-header">
         <mat-card-title>Anfrage stellen</mat-card-title>
@@ -29,8 +29,8 @@
             <mat-icon>info</mat-icon>
           </button>
           <mat-label>Produkt</mat-label>
-          <mat-select formControlName="productId">
-              <mat-option *ngFor="let product of products" [value]="product.id">
+          <mat-select formControlName="product">
+              <mat-option *ngFor="let product of products" [value]="product.name">
                 {{ product.name }}
               </mat-option>
             </mat-select>
@@ -43,7 +43,7 @@
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions class="custom-card-actions">
-        <button mat-button mat-dialog-close class="primary-button half-width-button" (click)="closeDialog()">Abbrechen</button>
+        <button mat-button mat-dialog-close class="primary-button half-width-button" type="button" (click)="closeDialog()">Abbrechen</button>
         <button mat-button mat-dialog-close class="primary-button half-width-button" type="submit">Anfrage abschicken</button>
       </mat-card-actions>
     </mat-card>

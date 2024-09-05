@@ -27,8 +27,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy{
       map(() => {
         const currentUrl = this.router.url;
         const activeLink = currentUrl.split('/').pop() || 'home';
-        console.log('Current router URL:', currentUrl);
-        console.log('Active link:', activeLink);
         return activeLink;
       })
     );
@@ -44,8 +42,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy{
       map(() => {
         const currentUrl = this.router.url;
         const activeLink = currentUrl.split('/').pop() || 'home';
-        console.log('Current router URL:', currentUrl);
-        console.log('Active link:', activeLink);
         return activeLink;
       })
     );

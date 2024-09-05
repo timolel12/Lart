@@ -22,12 +22,7 @@ export class RouteService {
   private checkSingleSegmentRoute(): boolean {
     const currentUrl = this.router.url;
     const segments = currentUrl.split('/').filter(segment => segment.length > 0);
-    /*if (segments.length === 0 || this.router.url.includes("about-us")) {
-      return true;
-    }
-    else {
-      return false;
-    }*/
+    
     if (segments.length === 0) {
       return true;
     }

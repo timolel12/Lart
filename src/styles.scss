@@ -94,13 +94,13 @@ h1 {
 
 .mdc-dialog__surface {
   background-color: transparent !important;
-}   
+}  
 
 .transparent-dialog{
   mat-dialog-container {
       background-color: transparent !important;
-      width: 100vw !important;
-      height: 100vh !important;
+      width: 100% !important;
+      height: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
       position: fixed !important;

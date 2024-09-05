@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-start',
@@ -11,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class StartComponent {
 
-  constructor (private router: Router){
-
+  constructor (private router: Router, private routeService: RouteService){
   }
 
   buttonLabels: string[] = [
@@ -27,10 +27,10 @@ export class StartComponent {
       this.router.navigate(['/about-us'])
     }
     if (label === "Produktbeispiele") {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/products'])
     }
     if (label === "Anfragen") {
-      this.router.navigate(['/request'])
+      this.router.navigate(['/requests'])
     }
     if (label === "Kontakt") {
       this.router.navigate(['/contact'])

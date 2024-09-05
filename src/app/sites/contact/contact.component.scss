@@ -1,15 +1,22 @@
 @import "../../../styles.scss";
 
 .main-content {
-    padding: 20px;
-    margin: 100px auto;
-    max-width: 800px;
+    width: 100%;
+    text-align: center;
     height: 95%;
+  }
+
+  .banner {
+    width: 100%;
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 20vh; /* Limit the height to 20% of the viewport height */
+    object-fit: cover; /* Ensure the image covers the width without distorting */
+    margin-top: 160px;
   }
   
   .content-card {
     background-color: $full-transparent-color;
-    color: black;
+    color: white;
     padding: 20px;
     margin-top: 60px;
   }
