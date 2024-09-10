@@ -10,10 +10,10 @@ progress::-moz-progress-bar { background: none }
 progress::-webkit-progress-bar { display: none }
 progress::-ms-fill { animation-name: none }
 
-/* Centers the spinner */
-html, body { height: 100%; }
-body {
+.spinner-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-}
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }

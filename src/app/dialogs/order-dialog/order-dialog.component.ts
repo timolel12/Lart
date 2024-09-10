@@ -1,4 +1,4 @@
-import { Component, Input  } from '@angular/core';
+import { Component, Input, ViewContainerRef  } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Order} from '../../models/order.model';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +14,6 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.component';
-import { GenericDialogComponent } from '../generic-dialog/generic-dialog.component';
 
 @Component({
   selector: 'app-order-dialog',
@@ -35,6 +34,10 @@ import { GenericDialogComponent } from '../generic-dialog/generic-dialog.compone
   styleUrl: './order-dialog.component.scss'
 })
 export class OrderDialogComponent {
+
+  showOrderForm = true;
+  showSuccessMessage = false;
+  showErrorMessage = false;
   orderForm: FormGroup;
 
   @Input() selectedProductId!: number | null;  // Input to receive the selected product ID
@@ -47,6 +50,7 @@ export class OrderDialogComponent {
 
   constructor(private formBuilder: FormBuilder,
               private emailService: EmailService,
+              private viewContainerRef: ViewContainerRef,
               public dialog: MatDialog,
               public dialogRef: MatDialogRef<OrderDialogComponent>) {
 
@@ -86,59 +90,40 @@ export class OrderDialogComponent {
   }
 
   sendRequest() {
-    console.log('Submit');
-
     if (this.orderForm.invalid) {
       return;
     }
 
     let loadingDialog = this.dialog.open(LoadingDialogComponent, {
-      panelClass: "transparent-dialog"
+      panelClass: "transparent-dialog",
+      width: '100vw',
+      height: '100vh',
+      maxWidth: 'none',
+      maxHeight: 'none',
+      disableClose: true
     });
 
     const orderData: Order = this.orderForm.value;
 
-    console.log(orderData);
-
-    console.log('Try send');
     this.emailService.sendEmail(orderData)
       .then(response => {
         // sending email success
+        this.showOrderForm = false;
+        this.showSuccessMessage = true;
+
         loadingDialog.close()
 
-        console.log('Email sent successfully!', response.status, response.text);
-
-        const successDialog = this.dialog.open(GenericDialogComponent, {
-          data: { type: "success", message: "Anfrage verschickt" },
-          disableClose: true,
-          width: '400px', 
-          height: 'auto', 
-          maxWidth: '90vw',
-          maxHeight: '90vh',
-          position: { top: '50%', left: '50%' }, // Ensure the dialog is centered
-        });
-
         setTimeout(() => {
-          successDialog.close();
+         this.closeDialog();
         }, 5000);
+
       }, error => {
         // sending email failed
         loadingDialog.close()
 
-        console.error('Failed to send email:', error);
-
-        const failureDialog = this.dialog.open(GenericDialogComponent, {
-          data: { type: "success", message: "Anfrage verschickt" },
-          disableClose: true,
-          width: '400px', 
-          height: 'auto', 
-          maxWidth: '90vw',
-          maxHeight: '90vh',
-        });
-
         setTimeout(() => {
-          failureDialog.close();
-        }, 5000);
+          this.closeDialog();
+         }, 5000);
         
       });
   }

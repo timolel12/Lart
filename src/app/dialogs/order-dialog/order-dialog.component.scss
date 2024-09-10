@@ -51,6 +51,41 @@
     height: 650px;
     padding: 20px;
   }
+
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .message-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .message-content {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+    color: green;
+  }
+
+  .error-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+    color: red;
+  }
   
   mat-form-field {
     width: 100%;

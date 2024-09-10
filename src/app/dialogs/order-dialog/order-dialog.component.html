@@ -1,5 +1,5 @@
 <!-- order.component.html -->
-<form [formGroup]="orderForm" (ngSubmit)="sendRequest()" class="order-form">
+<form *ngIf="showOrderForm" [formGroup]="orderForm" (ngSubmit)="sendRequest()" class="order-form">
     <mat-card class="order-card">
       <mat-card-header class="custom-card-header">
         <mat-card-title>Anfrage stellen</mat-card-title>
@@ -48,4 +48,24 @@
       </mat-card-actions>
     </mat-card>
 </form>
+<div class="centered-container" *ngIf="showSuccessMessage">
+  <mat-card class="message-card">
+    <mat-card-header class="custom-card-header">
+      <mat-card-title>Anfrage wurde versendet</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="message-content">
+      <mat-icon color="primary" class="success-icon">check_circle</mat-icon>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="centered-container" *ngIf="showErrorMessage">
+  <mat-card class="message-card">
+    <mat-card-header class="custom-card-header">
+      <mat-card-title>Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="message-content">
+      <mat-icon color="primary" class="error-icon">error</mat-icon>
+    </mat-card-content>
+  </mat-card>
+</div>
   
