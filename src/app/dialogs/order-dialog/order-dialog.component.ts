@@ -40,12 +40,15 @@ export class OrderDialogComponent {
   showErrorMessage = false;
   orderForm: FormGroup;
 
-  @Input() selectedProductId!: number | null;  // Input to receive the selected product ID
+  @Input() selectedProductId!: number | null;
 
   products = [
-    { id: 1, name: 'Farb Gemälde' },
+    { id: 1, name: 'Haarreif' },
     { id: 2, name: 'Stick Gemälde' },
-    { id: 3, name: 'Sonstige Anfrage' },
+    { id: 3, name: 'Gipsfigur' },
+    { id: 4, name: 'Blumenstrauß (mit Flasche nach Wahl)' },
+    { id: 5, name: 'Bilder mit Zeitungsformen (3D)' },
+    { id: 7, name: 'Sonstige Anfrage' },
   ];
 
   constructor(private formBuilder: FormBuilder,

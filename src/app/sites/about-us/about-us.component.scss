@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  height: 100vh; /* Full viewport height */
   width: 100%; /* Full width */
   background-color: $primary-color; /* Desired background color */
   color: white; /* Optional: Set text color to white for better contrast */
@@ -28,6 +27,7 @@
 /* Box that contains the headline */
 .headline-box {
   margin: 20px auto;
+  margin-top: 60px;
   padding: 20px;
   width: 80%; /* Adjust to make it smaller or bigger */
   background-color: $primary-color;
@@ -46,6 +46,7 @@
 /* Box that contains the text */
 .text-box {
   margin: 20px auto;
+  margin-bottom: 60px;
   padding: 20px;
   width: 80%; /* Adjust to make it smaller or bigger */
   background-color: $primary-color;

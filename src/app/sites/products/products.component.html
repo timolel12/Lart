@@ -1,8 +1,14 @@
 <!-- Main Content -->
 <div class="main-content">
+  <img
+  src="assets/images/other_background.png"
+  alt=""
+  class="banner"
+  />
+  <h1 class="headline">Produktbeispiele</h1>
   <mat-card class="content-card" style="text-align: center;">
     <mat-card-content>
-      <diashow [slides]="diashowImages" [indicatorsVisible]="true"></diashow>
+      <diashow [slides]="diashowImages" [indicatorsVisible]="false"></diashow>
       <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
     </mat-card-content>
   </mat-card>
