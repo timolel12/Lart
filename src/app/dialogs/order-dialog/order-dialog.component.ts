@@ -118,7 +118,7 @@ export class OrderDialogComponent {
 
         setTimeout(() => {
          this.closeDialog();
-        }, 5000);
+        }, 5500);
 
       }, error => {
         // sending email failed
