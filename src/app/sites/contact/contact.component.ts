@@ -19,6 +19,10 @@ export class ContactComponent {
     window.open('https://www.instagram.com/l.art_handmade/', '_blank');
   }
 
+   openEtsy(){
+    window.open('https://www.etsy.com/de/shop/LarthandmadeShop', '_blank');
+  }
+
   openOrderDialog(){
     let dialog = this.dialog.open(OrderDialogComponent, {
       disableClose: true,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { DiashowComponent } from '../../components/diashow/diashow.component';
 import { OrderDialogComponent } from '../../dialogs/order-dialog/order-dialog.component';
+import { LoadingDialogComponent } from '../../dialogs/loading-dialog/loading-dialog.component';
 
 
 @Component({
@@ -25,7 +26,7 @@ import { OrderDialogComponent } from '../../dialogs/order-dialog/order-dialog.co
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
   constructor(public dialog: MatDialog){}
 
   diashowImages = [
@@ -58,6 +59,19 @@ export class ProductsComponent {
     { img: "assets/images/slideshow/slide15.1.jpeg", id: 'img15.1', alt: 'Slide 15.1' },
     { img: "assets/images/slideshow/slide16.jpeg", id: 'img16', alt: 'Slide 16' }
   ];
+
+  ngOnInit(): void {
+    let dialog = this.dialog.open(LoadingDialogComponent, {
+      disableClose: true,
+      height: '100vh', 
+      width: '100vw',
+      maxWidth: '100vw'
+    });
+
+    setTimeout(() => {
+      this.dialog.closeAll();
+     }, 2000);
+  }
 
   openOrderDialog(){
     let dialog = this.dialog.open(OrderDialogComponent, {
