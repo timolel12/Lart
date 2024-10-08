@@ -41,6 +41,10 @@
   padding-left: 20px; /* Space between images and text */
 }
 
+.home-image-mobile {
+  display: none;
+}
+
 .header-container {
     display: flex;
     align-items: center; /* Align items vertically */
@@ -52,9 +56,72 @@
   }
   
 .button-container {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the buttons horizontally */
 }
   
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Stack left and right sides vertically */
+      align-items: center; /* Center contents */
+      justify-content: center; /* Center vertically */
+      height: auto; /* Allow the container to resize dynamically */
+  }
+
+  .left-side, .right-side {
+      width: 100%;
+      align-items: center; /* Center images and content on smaller screens */
+      padding: 10px 0; /* Reduce padding for smaller screens */
+  }
+
+  .home-image-mobile {
+    display: block;
+    width: 100vw;
+  }
+
+  .home-image {
+      display: none;
+  }
+
+  .logo {
+      width: 250px; /* Scale down the logo for smaller screens */
+  }
+
+  .button-container {
+      width: 100%;
+      margin-top: 20px;
+  }
+
+  .rectangle-button {
+      width: 90%; /* Buttons take most of the screen width */
+      margin-bottom: 10px; /* Add spacing between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 1.5rem; /* Smaller font size for the header */
+      margin-left: 10px;
+  }
+
+  .home-image-mobile {
+    display: block;
+    width: 100vw;
+    object-fit: cover; /* Ensure the image covers the width without distorting */
+  }
+
+  .home-image {
+     display: none;
+  }
+
+  .logo {
+      width: 150px; /* Further scale down logo */
+  }
+
+  .rectangle-button {
+      width: 95%; /* Full width for very small screens */
+  }
+}

@@ -7,6 +7,7 @@
 
 .footer {
   height: 90px;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,4 +40,33 @@
   border: none!important;
   background-color: transparent!important;
   cursor: pointer!important;
+}
+@media (max-width: 1000px) {
+  .footer-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-text {
+    display: none;
+  }
+
+  .spacer{
+    display: none;
+  }
+
+  .formal-links{    
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+
+  .icon-button{
+    margin-right: 5px;
+  }
+
+  .footer {
+    padding: 0;
+  }
 }

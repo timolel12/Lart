@@ -18,6 +18,7 @@ import { Subscription, Observable } from 'rxjs';
 export class AppHeaderComponent implements OnInit, OnDestroy{
   activeLink$: Observable<string>;
   isMainPage: boolean = false;
+  menuOpen: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
   constructor(private router: Router, private routeService: RouteService) 
@@ -54,23 +55,32 @@ export class AppHeaderComponent implements OnInit, OnDestroy{
     }
   }
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
   navigateContact() {
+    this.menuOpen = false;
     this.router.navigate(['/contact']);
   }
 
   navigateAboutUs() {
+    this.menuOpen = false;
     this.router.navigate(['/about-us']);
   }
 
   navigateProducts() {
+    this.menuOpen = false;
     this.router.navigate(['/products']);
   }
 
   navigateRequests() {
+    this.menuOpen = false;
     this.router.navigate(['/requests']);
   }
 
   navigateHome() {
+    this.menuOpen = false;
     this.router.navigate(['']);
   }
 }

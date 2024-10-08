@@ -1,45 +1,50 @@
 <header *ngIf="!isMainPage">
-    <mat-card>
-      <mat-toolbar>
-        <img
-          src="assets/images/logo_weiß_transparent.png"
+  <mat-card>
+    <mat-toolbar>
+      <img
+        src="assets/images/logo_weiß_transparent.png"
+        (click)="navigateHome()"
+        class="logo"
+        alt="Logo"
+      />
+      
+      <!-- Burger Menu Icon for mobile -->
+      <button class="burger-menu" (click)="toggleMenu()">
+        &#9776;
+      </button>
+      
+      <mat-nav-list class="nav-bar" [class.active]="menuOpen">
+        <a
+          [class.active]="(activeLink$ | async) === ''"
+          class="nav-bar-list-item"
           (click)="navigateHome()"
-          class="logo"
-          alt=""
-        />
-        <mat-nav-list class="nav-bar">
-          <a
-            [class.active]="(activeLink$ | async) === ''"
-            class="nav-bar-list-item"
-            (click)="navigateHome()"
-            >Home</a
-          >
-          <a
-            [class.active]="(activeLink$ | async) === 'products'"
-            class="nav-bar-list-item"
-            (click)="navigateProducts()"
-            >Produktbeispiele</a
-          >
-          <a
-            [class.active]="(activeLink$ | async) === 'requests'"
-            class="nav-bar-list-item"
-            (click)="navigateRequests()"
-            >Anfragen</a
-          >
-          <a
-            [class.active]="(activeLink$ | async) === 'about-us'"
-            class="nav-bar-list-item"
-            (click)="navigateAboutUs()"
-            >Über uns</a
-          >
-          <a
-            [class.active]="(activeLink$ | async) === 'contact'"
-            class="nav-bar-list-item"
-            (click)="navigateContact()"
-            >Kontakt</a
-          >
-        </mat-nav-list>
-      </mat-toolbar>
-    </mat-card>
-  </header>
-  
+          >Home</a
+        >
+        <a
+          [class.active]="(activeLink$ | async) === 'products'"
+          class="nav-bar-list-item"
+          (click)="navigateProducts()"
+          >Produktbeispiele</a
+        >
+        <a
+          [class.active]="(activeLink$ | async) === 'requests'"
+          class="nav-bar-list-item"
+          (click)="navigateRequests()"
+          >Anfragen</a
+        >
+        <a
+          [class.active]="(activeLink$ | async) === 'about-us'"
+          class="nav-bar-list-item"
+          (click)="navigateAboutUs()"
+          >Über uns</a
+        >
+        <a
+          [class.active]="(activeLink$ | async) === 'contact'"
+          class="nav-bar-list-item"
+          (click)="navigateContact()"
+          >Kontakt</a
+        >
+      </mat-nav-list>
+    </mat-toolbar>
+  </mat-card>
+</header>

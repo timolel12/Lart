@@ -82,3 +82,32 @@
     height: 50px;
     width: 50px;
 }
+
+/* Responsive Styles for Mobile Screens */
+@media (max-width: 768px) {
+    .slides {
+        height: 100vh; /* Full viewport height */
+        border-radius: 0; /* Remove border radius for full screen effect */
+    }
+
+    .slide {
+        height: 100%; /* Ensure slide fills the container */
+    }
+
+    #indicators {
+        bottom: 10px; /* Position indicators closer to the bottom */
+        width: 90%; /* Allow indicators to take more space */
+    }
+
+    .indicator {
+        width: 15px; /* Smaller indicators for mobile */
+        height: 15px;
+        margin: 0 2px; /* Reduce margin */
+    }
+
+    .diashowNext,
+    .diashowPrev {
+        width: 50px !important; /* Slightly smaller next/prev buttons */
+        height: 50px !important;
+    }
+}
