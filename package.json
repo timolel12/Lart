@@ -5,9 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "publish": "ng build --configuration production && npm run copy",
+    "publish": "ng build --configuration production && npm run postbuild && npm run copy",
     "watch": "ng build --watch --configuration development",
     "copy": "copyfiles CNAME docs/",
+    "postbuild": "ncp docs/index.html docs/404.html",
     "test": "ng test"
   },
   "private": true,
