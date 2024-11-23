@@ -5,10 +5,17 @@
   alt=""
   class="banner"
   />
-  <h1 class="headline">Produktbeispiele</h1>
   <mat-card class="content-card" style="text-align: center;">
+    <h1 class="slideshowHeader">Weihnachtsmarkt Angebote</h1>
     <mat-card-content>
-      <diashow [slides]="diashowImages" [indicatorsVisible]="false"></diashow>
+      <diashow [slides]="xmasImages" [indicatorsVisible]="false"></diashow>
+      <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="content-card" style="text-align: center;">
+    <h1 class="slideshowHeader">Bilder und mehr</h1>
+    <mat-card-content>
+      <diashow [slides]="picsAndMoreImages" [indicatorsVisible]="false"></diashow>
       <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
     </mat-card-content>
   </mat-card>

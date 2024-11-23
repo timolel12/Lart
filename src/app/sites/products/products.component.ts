@@ -29,7 +29,27 @@ import { LoadingDialogComponent } from '../../dialogs/loading-dialog/loading-dia
 export class ProductsComponent implements OnInit{
   constructor(public dialog: MatDialog){}
 
-  diashowImages = [
+  xmasImages = [
+    { img: "assets/images/slideshow_xmas/slide171.jpeg", id: 'img171', alt: 'Slide 171' },
+    { img: "assets/images/slideshow_xmas/slide172.jpeg", id: 'img172', alt: 'Slide 172' },
+    { img: "assets/images/slideshow_xmas/slide181.jpeg", id: 'img181', alt: 'Slide 181' },
+    { img: "assets/images/slideshow_xmas/slide182.jpeg", id: 'img182', alt: 'Slide 182' },
+    { img: "assets/images/slideshow_xmas/slide191.jpeg", id: 'img191', alt: 'Slide 191' },
+    { img: "assets/images/slideshow_xmas/slide192.jpeg", id: 'img192', alt: 'Slide 192' },
+    { img: "assets/images/slideshow_xmas/slide193.jpeg", id: 'img193', alt: 'Slide 193' },
+    { img: "assets/images/slideshow_xmas/slide20.jpeg", id: 'img20', alt: 'Slide 20' },
+    { img: "assets/images/slideshow_xmas/slide211.jpeg", id: 'img211', alt: 'Slide 211' },
+    { img: "assets/images/slideshow_xmas/slide212.jpeg", id: 'img212', alt: 'Slide 212' },
+    { img: "assets/images/slideshow_xmas/slide221.jpeg", id: 'img221', alt: 'Slide 221' },
+    { img: "assets/images/slideshow_xmas/slide222.jpeg", id: 'img222', alt: 'Slide 222' },
+    { img: "assets/images/slideshow_xmas/slide23.jpeg", id: 'img23', alt: 'Slide 23' },
+    { img: "assets/images/slideshow_xmas/slide241.jpeg", id: 'img241', alt: 'Slide 241' },
+    { img: "assets/images/slideshow_xmas/slide242.jpeg", id: 'img242', alt: 'Slide 242' },
+    { img: "assets/images/slideshow_xmas/slide25.jpeg", id: 'img25', alt: 'Slide 25' },
+    { img: "assets/images/slideshow_xmas/slide26.jpeg", id: 'img26', alt: 'Slide 26' }
+  ];
+
+  picsAndMoreImages = [
     { img: "assets/images/slideshow/slide1.jpeg", id: 'img1', alt: 'Slide 1' },
     { img: "assets/images/slideshow/slide2.jpeg", id: 'img2', alt: 'Slide 2' },
     { img: "assets/images/slideshow/slide2.1.jpeg", id: 'img2.1', alt: 'Slide 2.1' },
