@@ -46,7 +46,21 @@ export class ProductsComponent implements OnInit{
     { img: "assets/images/slideshow_xmas/slide241.jpeg", id: 'img241', alt: 'Slide 241' },
     { img: "assets/images/slideshow_xmas/slide242.jpeg", id: 'img242', alt: 'Slide 242' },
     { img: "assets/images/slideshow_xmas/slide25.jpeg", id: 'img25', alt: 'Slide 25' },
-    { img: "assets/images/slideshow_xmas/slide26.jpeg", id: 'img26', alt: 'Slide 26' }
+    { img: "assets/images/slideshow_xmas/slide26.jpeg", id: 'img26', alt: 'Slide 26' },
+    { img: "assets/images/slideshow_xmas/slide271.jpeg", id: 'img271', alt: 'Slide 271' },
+    { img: "assets/images/slideshow_xmas/slide272.jpeg", id: 'img272', alt: 'Slide 272' },
+    { img: "assets/images/slideshow_xmas/slide273.jpeg", id: 'img273', alt: 'Slide 273' },
+    { img: "assets/images/slideshow_xmas/slide274.jpeg", id: 'img274', alt: 'Slide 274' },
+    { img: "assets/images/slideshow_xmas/slide275.jpeg", id: 'img275', alt: 'Slide 275' },
+    { img: "assets/images/slideshow_xmas/slide276.jpeg", id: 'img276', alt: 'Slide 276' },
+    { img: "assets/images/slideshow_xmas/slide281.jpeg", id: 'img281', alt: 'Slide 281' },
+    { img: "assets/images/slideshow_xmas/slide282.jpeg", id: 'img282', alt: 'Slide 282' },
+    { img: "assets/images/slideshow_xmas/slide29.jpeg", id: 'img29', alt: 'Slide 29' },
+    { img: "assets/images/slideshow_xmas/slide311.jpeg", id: 'img311', alt: 'Slide 311' },
+    { img: "assets/images/slideshow_xmas/slide312.jpeg", id: 'img312', alt: 'Slide 312' },
+    { img: "assets/images/slideshow_xmas/slide321.jpeg", id: 'img321', alt: 'Slide 321' },
+    { img: "assets/images/slideshow_xmas/slide322.jpeg", id: 'img322', alt: 'Slide 322' },
+    { img: "assets/images/slideshow_xmas/slide323.jpeg", id: 'img323', alt: 'Slide 323' }
   ];
 
   picsAndMoreImages = [
