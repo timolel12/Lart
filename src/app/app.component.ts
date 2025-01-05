@@ -25,6 +25,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(isSingleSegment => {
       this.isMainPage = isSingleSegment;
     });
+
+    //show loading animation for some seconds until page is loaded
   }
 
   ngOnDestroy(): void {
