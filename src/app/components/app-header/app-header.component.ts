@@ -79,6 +79,11 @@ export class AppHeaderComponent implements OnInit, OnDestroy{
     this.router.navigate(['/requests']);
   }
 
+  navigateWhereToFindUs() {
+    this.menuOpen = false;
+    this.router.navigate(['/where-to-find-us']);
+  }
+
   navigateHome() {
     this.menuOpen = false;
     this.router.navigate(['']);

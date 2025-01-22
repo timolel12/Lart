@@ -6,6 +6,7 @@ import { PrivacyPolicyComponent } from './sites/privacy-policy/privacy-policy.co
 import { ImpressumComponent } from './sites/impressum/impressum.component';
 import { StartComponent } from './sites/start/start.component';
 import { RequestsComponent } from './sites/requests/requests.component';
+import { WhereToFindUsComponent } from './sites/where-to-find-us/where-to-find.us.component';
 
 export const routes: Routes = [
     { path: '', component: StartComponent},
@@ -16,4 +17,5 @@ export const routes: Routes = [
     { path: 'impressum', component: ImpressumComponent },
     { path: 'products', component: ProductsComponent },
     { path: 'requests', component: RequestsComponent },
+    { path: 'where-to-find-us', component: WhereToFindUsComponent },
 ];

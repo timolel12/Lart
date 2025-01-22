@@ -33,6 +33,12 @@
           >Anfragen</a
         >
         <a
+        [class.active]="(activeLink$ | async) === 'where-to-find-us'"
+        class="nav-bar-list-item"
+        (click)="navigateWhereToFindUs()"
+        >Wo finden Sie uns?</a
+        >
+        <a
           [class.active]="(activeLink$ | async) === 'about-us'"
           class="nav-bar-list-item"
           (click)="navigateAboutUs()"

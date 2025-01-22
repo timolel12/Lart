@@ -17,7 +17,8 @@ export class StartComponent {
 
   buttonLabels: string[] = [
     'Über Uns', 
-    'Produktbeispiele', 
+    'Produktbeispiele',
+    'Wo finden Sie uns?', 
     'Anfragen', 
     'Kontakt', 
   ];
@@ -28,6 +29,9 @@ export class StartComponent {
     }
     if (label === "Produktbeispiele") {
       this.router.navigate(['/products'])
+    }
+    if (label === "Wo finden Sie uns?") {
+      this.router.navigate(['/where-to-find-us'])
     }
     if (label === "Anfragen") {
       this.router.navigate(['/requests'])
