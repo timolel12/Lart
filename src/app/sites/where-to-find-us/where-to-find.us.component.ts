@@ -15,11 +15,39 @@ import { MatListModule } from '@angular/material/list';
 export class WhereToFindUsComponent {
   appointments = [
     { 
+      startDate: new Date(2025, 2, 16), 
+      endDate: new Date(2025, 2, 16), 
+      time: '11:00 - 18:00',  
+      description: 'Frühlingsmarkt Großheubach', 
+      url: 'https://www.grossheubach.de/freizeit-veranstaltungen/termine/veranstaltungskalender/fruehlingsmarkt/' 
+    },
+    { 
+      startDate: new Date(2025, 2, 30), 
+      endDate: new Date(2025, 2, 30), 
+      time: '13:00 - 18:00',  
+      description: 'Dürmer Frühling - Walldürn', 
+      url: 'https://www.wallduern.de/de/Rathaus-Leben/Aktuelles/Stadtnachrichten/Stadtnachricht?view=publish&item=article&id=3486' 
+    },
+    { 
       startDate: new Date(2025, 3, 13), 
       endDate: new Date(2025, 3, 13), 
       time: '11:00 - 18:00',  
       description: 'Frühlingsmarkt Klingenberg', 
       url: 'https://www.stadt-klingenberg.de/seite/de/churfranken/036:584/-/Maerkte_in_Klingenberg.html' 
+    },
+    { 
+      startDate: new Date(2025, 4, 4), 
+      endDate: new Date(2025, 4, 4), 
+      time: '11:00 - 18:00',  
+      description: 'Frühjahrsmarkt Großwallstadt', 
+      url: 'https://grosswallstadt.de/freizeit-tourismus/veranstaltungen/veranstaltungskalender' 
+    },
+    { 
+      startDate: new Date(2025, 4, 18), 
+      endDate: new Date(2025, 4, 18), 
+      time: '13:00 - 18:00',  
+      description: 'Kunst Genuss Markt - Elsenfeld', 
+      url: 'https://www.elsenfeld.de/freizeit-vereine/veranstaltungen/2505-kunstgenuss/' 
     },
     { 
       startDate: new Date(2025, 11, 5), 

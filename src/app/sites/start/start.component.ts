@@ -30,7 +30,7 @@ export class StartComponent {
     if (label === "Produktbeispiele") {
       this.router.navigate(['/products'])
     }
-    if (label === "Wo finden Sie uns?") {
+    if (label === "Märkte 2025") {
       this.router.navigate(['/where-to-find-us'])
     }
     if (label === "Anfragen") {
