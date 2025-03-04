@@ -18,7 +18,7 @@ export class StartComponent {
   buttonLabels: string[] = [
     'Über Uns', 
     'Produktbeispiele',
-    'Wo finden Sie uns?', 
+    'Märkte 2025', 
     'Anfragen', 
     'Kontakt', 
   ];
