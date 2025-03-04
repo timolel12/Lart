@@ -95,7 +95,7 @@ export class ProductsComponent implements OnInit{
   ];
 
   ngOnInit(): void {
-    let dialog = this.dialog.open(LoadingDialogComponent, {
+    this.dialog.open(LoadingDialogComponent, {
       disableClose: true,
       height: '100vh', 
       width: '100vw',

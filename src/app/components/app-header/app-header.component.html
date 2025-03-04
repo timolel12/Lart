@@ -33,6 +33,12 @@
           >Anfragen</a
         >
         <a
+        [class.active]="(activeLink$ | async) === 'where-to-find-us'"
+        class="nav-bar-list-item"
+        (click)="navigateWhereToFindUs()"
+        >Märkte 2025</a
+        >
+        <a
           [class.active]="(activeLink$ | async) === 'about-us'"
           class="nav-bar-list-item"
           (click)="navigateAboutUs()"

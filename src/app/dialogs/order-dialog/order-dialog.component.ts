@@ -53,7 +53,6 @@ export class OrderDialogComponent {
 
   constructor(private formBuilder: FormBuilder,
               private emailService: EmailService,
-              private viewContainerRef: ViewContainerRef,
               public dialog: MatDialog,
               public dialogRef: MatDialogRef<OrderDialogComponent>) {
 
