@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DiashowComponent } from '../../components/diashow/diashow.component';
 import { OrderDialogComponent } from '../../dialogs/order-dialog/order-dialog.component';
 import { LoadingDialogComponent } from '../../dialogs/loading-dialog/loading-dialog.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @Component({
@@ -21,13 +22,20 @@ import { LoadingDialogComponent } from '../../dialogs/loading-dialog/loading-dia
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatDividerModule,
     DiashowComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit{
-  constructor(public dialog: MatDialog){}
+  constructor(  public dialog: MatDialog,
+                public router: Router  ){}
+
+  products = [
+    { id: 'christmas', name: 'Weihnachten', image: 'assets/images/slideshow_xmas/slide171.jpeg' },
+    { id: 'other', name: 'Bilder und mehr', image: 'assets/images/slideshow/slide1.jpeg' },
+  ];
 
   xmasImages = [
     { img: "assets/images/slideshow_xmas/slide171.jpeg", id: 'img171', alt: 'Slide 171' },
@@ -104,7 +112,11 @@ export class ProductsComponent implements OnInit{
 
     setTimeout(() => {
       this.dialog.closeAll();
-     }, 2000);
+     }, 500);
+  }
+
+  viewProductDetails(id: string) {
+    this.router.navigate(['/products', id]);
   }
 
   openOrderDialog(){

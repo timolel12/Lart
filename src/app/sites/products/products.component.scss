@@ -10,6 +10,102 @@
   justify-content: center; /* Optional: Center items vertically */
 }
 
+.banner {
+  width: 100%;
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 20vh; /* Limit the height to 20% of the viewport height */
+  object-fit: cover; /* Ensure the image covers the width without distorting */
+  margin-top: 160px;
+}
+
+.product-gallery {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product-gallery h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: white; /* h1 text color white */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+  max-width: 1200px;
+  margin-top: 40px;
+}
+
+.product-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10px; /* Push the box slightly above the bottom */
+  left: 15px;  /* Adjust left side spacing */
+  right: 15px; /* Adjust right side spacing */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for better text visibility */
+  color: white;
+  text-align: center;
+  padding: 4px 10px; /* Reduced padding to make the box more compact */
+  font-size: 1.3rem; /* Adjust font size slightly smaller */
+  font-weight: 600;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Fade in on hover */
+  border-radius: 12px; /* Rounded corners on all sides */
+}
+
+.product-card:hover .overlay {
+  opacity: 1; /* Show text when hovering */
+}
+
+.product-info h3 {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .product-gallery h1 {
+    font-size: 2rem;
+  }
+
+  .overlay {
+    font-size: 1.2rem;
+    padding: 3px 8px; /* Smaller padding for even more compact box on mobile */
+  }
+}
+
+/*
+@media (max-width: 768px) {
+  .content-card {
+    padding: 10px; // Adjust padding for mobile //
+    margin-top: 20px; // Adjust margin for mobile //
+    margin-bottom: 20px; // Adjust margin for mobile //
+    width: 100%; // Full width for mobile //
+  }
+  
+}
 .content-card {
   background-color: $full-transparent-color;
   padding: 20px;
@@ -23,24 +119,6 @@
   font-family:'Times New Roman', Times, serif;
 }
 
-.banner {
-    width: 100%;
-    height: auto; /* Maintain the aspect ratio */
-    max-height: 20vh; /* Limit the height to 20% of the viewport height */
-    object-fit: cover; /* Ensure the image covers the width without distorting */
-    margin-top: 160px;
-  }
-
 .diashow{
   margin-bottom: 20px;
-}
-
-/* Responsive Styles for Mobile Screens */
-@media (max-width: 768px) {
-  .content-card {
-    padding: 10px; /* Adjust padding for mobile */
-    margin-top: 20px; /* Adjust margin for mobile */
-    margin-bottom: 20px; /* Adjust margin for mobile */
-    width: 100%; /* Full width for mobile */
-  }
-}
+}*/
