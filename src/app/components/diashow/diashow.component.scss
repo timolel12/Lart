@@ -1,10 +1,15 @@
+@import "../../../styles.scss";
+
 .slides {
     width: 100%;
-    height: 400px;
+    height: 500px; /* Increased image size */
     border-radius: 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .slide{
+    .slide {
         width: 100%;
         height: 100%;
         border-radius: 10px;
@@ -14,100 +19,151 @@
         position: relative;     
     }
 
-    #indicators{
-        position:absolute;
-        left: 0px;
-        right: 0px;
-        margin: auto;
-        bottom: 20px;
-        width: 200px;
-        .indicator{           
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: white;
-            display: inline-block;
-            margin: 0px 5px;
-            cursor: pointer;
-            transition: background-color 0.5s ease-in-out;
-            &.active{
-                background-color: black;
-            }
+    #indicators {
+        position: absolute;
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust both axes */
+        display: flex;
+        gap: 8px;
+    }
+
+    .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+        transition: background-color 0.5s ease-in-out;
+
+        &.active {
+            background-color: black;
         }
     }
 }
 
+/* === Updated Description Styling (NatGeo Style) === */
+.description-container {
+    width: 65%; /* More narrow for article-like formatting */
+    max-width: 700px;
+    text-align: left;
+    padding: 25px;
+    color: #333;
+    border-radius: 5px;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.8;
+}
+
+.marker {
+    width: 8px;
+    height: 8px;
+    background-color: $complementary-color; /* Gold marker like NatGeo */
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.slide-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.slide-description {
+    font-size: 13px;
+    color: #444;
+    text-align: justify;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.3px;
+}
+
+/* === Navigation Buttons === */
 .diashowNext,
 .diashowPrev {
-    //postion and color
-    position:absolute !important;
+    position: absolute !important;
     top: 50% !important;
+    transform: translateY(-50%);
     border: 0px !important;
     background-color: transparent !important;
-    color: white!important;
+    color: white !important;
 
-    //size
-    width: 60px !important;
-    height: 60px !important;
+    width: 70px !important;
+    height: 70px !important;
     padding: 0px !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
  
     & > *[role=img] {
-       width: 32px;
-       height: 32px;
-       font-size: 32px;
+       width: 36px;
+       height: 36px;
+       font-size: 36px;
  
        svg {
-          width: 32px;
-          height: 32px;
+          width: 36px;
+          height: 36px;
        }
     }
  
     .mat-mdc-button-touch-target {
-       width: 48px !important;
-       height: 48px !important;
+       width: 50px !important;
+       height: 50px !important;
     }
 }
-.diashowNext{
-    right: 20px !important;
+
+.diashowNext {
+    right: 30px !important;
 }
 
-.diashowPrev{
-    left: 20px!important;
+.diashowPrev {
+    left: 30px !important;
 }
 
-.mat-icon{
-    height: 50px;
-    width: 50px;
-}
-
-/* Responsive Styles for Mobile Screens */
+/* === Responsive Styles === */
 @media (max-width: 768px) {
     .slides {
-        height: 100vh; /* Full viewport height */
-        border-radius: 0; /* Remove border radius for full screen effect */
+        height: 85vh; /* Bigger images on mobile */
+        border-radius: 0;
     }
 
     .slide {
-        height: 100%; /* Ensure slide fills the container */
+        height: 100%;
     }
 
     #indicators {
-        bottom: 10px; /* Position indicators closer to the bottom */
-        width: 90%; /* Allow indicators to take more space */
+        bottom: 50%;
     }
 
     .indicator {
-        width: 15px; /* Smaller indicators for mobile */
-        height: 15px;
-        margin: 0 2px; /* Reduce margin */
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
     }
 
     .diashowNext,
     .diashowPrev {
-        width: 50px !important; /* Slightly smaller next/prev buttons */
+        width: 50px !important;
         height: 50px !important;
+    }
+
+    .description-container {
+        width: 85%;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .slide-title {
+        font-size: 16px;
+    }
+
+    .slide-description {
+        font-size: 12px;
     }
 }
