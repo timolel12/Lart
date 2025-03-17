@@ -10,7 +10,7 @@
     <mat-divider></mat-divider>
     <div class="product-grid">
       <div class="product-card" *ngFor="let product of products" (click)="viewProductDetails(product.id)">
-        <img [src]="product.image" [alt]="product.name" class="product-image">
+        <img [src]="product.mainImage" [alt]="product.name" class="product-image">
         <div class="overlay">
           <h3>{{ product.name }}</h3>
         </div>

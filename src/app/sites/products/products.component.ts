@@ -31,8 +31,18 @@ export class ProductsComponent implements OnInit{
                 public router: Router  ){}
 
   products = [
-    { id: 'christmas', name: 'Weihnachten', image: 'assets/images/slideshow_xmas/slide171.jpeg' },
-    { id: 'other', name: 'Bilder und mehr', image: 'assets/images/slideshow/slide1.jpeg' },
+    { id: 'other', name: 'Allgemein', mainImage: 'assets/images/Allgemein/1.jpeg' },
+    { id: 'family', name: 'Familien Geschenke', mainImage: 'assets/images/Familien_Geschenke/1.jpeg' },
+    { id: 'presents', name: 'Geschenk Sets', mainImage: 'assets/images/Geschenk_Set/1.jpeg' },
+    { id: 'luck', name: 'Viel Glück', mainImage: 'assets/images/Glueck/1.jpeg' },
+    { id: 'autumn', name: 'Herbst', mainImage: 'assets/images/Herbst/1.jpeg' },
+    { id: 'mariage', name: 'Hochzeitsgeschenke', mainImage: 'assets/images/Hochzeit/1.jpeg' },
+    { id: 'candles', name: 'Kerzen und Kerzenhalter', mainImage: 'assets/images/Kerzen_Kerzenhalter/1.jpeg' },
+    { id: 'headdress', name: 'Kopfschumck', mainImage: 'assets/images/Kopfschmuck/grgoe2.jpeg' },
+    { id: 'paintings', name: 'Leinwand Gemälde', mainImage: 'assets/images/Leinwaende/1.jpeg' },
+    { id: 'easter', name: 'Ostern', mainImage: 'assets/images/Ostern/1.jpeg' },
+    { id: 'religion', name: 'Kommunion, Konfirmation, Taufe', mainImage: 'assets/images/Taufe_und_mehr/1.jpeg' },
+    { id: 'christmas', name: 'Weihnachten', mainImage: 'assets/images/Weihnachten_Winter/1.jpeg' },
   ];
 
   ngOnInit(): void {
