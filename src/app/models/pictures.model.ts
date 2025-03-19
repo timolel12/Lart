@@ -8,12 +8,14 @@ export const allgemeinImages: ImageData[] = [
   {
     img: 'assets/images/Allgemein/1.jpeg',
     id: 'Süße Herzen',
-    description: 'Dieses kleine süße Herz eignet sich super dazu wenn man einen Gutschein, Geld o.ä. auf eine besondere Art verscheken will. Dabei können wie zu sehen verschieden Farbkombinationen angenommen werden. Einfrabig, weiß, schwarz oder farblich marmoriert.',
+    description:
+      'Dieses kleine süße Herz eignet sich super dazu wenn man einen Gutschein, Geld o.ä. auf eine besondere Art verscheken will. Dabei können wie zu sehen verschieden Farbkombinationen angenommen werden. Einfrabig, weiß, schwarz oder farblich marmoriert.',
   },
   {
     img: 'assets/images/Allgemein/2.jpeg',
     id: 'Süßes Herz',
-    description: 'Hier nochmal ein einzelnes Herz in der Farbe Braun marmoriert.',
+    description:
+      'Hier nochmal ein einzelnes Herz in der Farbe Braun marmoriert.',
   },
   {
     img: 'assets/images/Allgemein/3.jpeg',
@@ -23,7 +25,8 @@ export const allgemeinImages: ImageData[] = [
   {
     img: 'assets/images/Allgemein/4.jpeg',
     id: 'Aplaka',
-    description: 'Fun Fact: Die Stimmung von Lamas und Alpakas lässt sich unter anderem an ihren Ohren ablesen. Steil aufgerichtete Ohren sind ein Zeichen von Wachsamkeit oder freundlicher Neugier. Stark nach hinten gerichtete Ohren deuten hingegen auf Ablehnung oder Ärger hin.',
+    description:
+      'Fun Fact: Die Stimmung von Lamas und Alpakas lässt sich unter anderem an ihren Ohren ablesen. Steil aufgerichtete Ohren sind ein Zeichen von Wachsamkeit oder freundlicher Neugier. Stark nach hinten gerichtete Ohren deuten hingegen auf Ablehnung oder Ärger hin.',
   },
   {
     img: 'assets/images/Allgemein/5.jpeg',
@@ -33,22 +36,26 @@ export const allgemeinImages: ImageData[] = [
   {
     img: 'assets/images/Allgemein/7.jpeg',
     id: 'Lieblingsplatz',
-    description: 'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+    description:
+      'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/8.jpeg',
     id: 'Lieblingsplatz',
-    description: 'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+    description:
+      'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/9.jpeg',
     id: 'Geschenke',
-    description: 'Wieder eine Möglichkeit um Sachen auf eine tolle Art zu verschenken.',
+    description:
+      'Wieder eine Möglichkeit um Sachen auf eine tolle Art zu verschenken.',
   },
   {
     img: 'assets/images/Allgemein/10.jpeg',
     id: 'Wichtel',
-    description: 'Ein Wichtel ist ein kleiner, frecher Kobold mit einer Vorliebe für Unsinn und heimliche Streiche!',
+    description:
+      'Ein Wichtel ist ein kleiner, frecher Kobold mit einer Vorliebe für Unsinn und heimliche Streiche!',
   },
   {
     img: 'assets/images/Allgemein/11.jpeg',
@@ -63,17 +70,20 @@ export const allgemeinImages: ImageData[] = [
   {
     img: 'assets/images/Allgemein/13.jpeg',
     id: 'Bierdeckel',
-    description: 'Inspirationen für weitere Sprüche können gerne an uns gesendet werden ;)',
+    description:
+      'Inspirationen für weitere Sprüche können gerne an uns gesendet werden ;)',
   },
   {
     img: 'assets/images/Allgemein/14.jpeg',
     id: 'Untersetzer - Lillet Edition',
-    description: 'Wie man sieht, mit jedem alkoholischen und nicht alkoholischen Getränk anpassbar',
+    description:
+      'Wie man sieht, mit jedem alkoholischen und nicht alkoholischen Getränk anpassbar',
   },
   {
     img: 'assets/images/Allgemein/15.jpeg',
     id: 'Untersetzer',
-    description: 'Diese hier sind immer möglich zum untersetzen, egal was getrunken wird.',
+    description:
+      'Diese hier sind immer möglich zum untersetzen, egal was getrunken wird.',
   },
 ];
 
@@ -128,170 +138,223 @@ export const familienGeschenkeImages: ImageData[] = [
 export const geschenkSetImages: ImageData[] = [
   {
     img: 'assets/images/Geschenk_Set/1.png',
-    id: 'GeschenkSet1',
-    description: 'Slide 1',
+    id: 'Weingeschenk',
+    description:
+      'Diese Weinflasche wird mit einer schönen Auswahl an Kunstblumen getoppt und bietet so eine Kombination aus Wein und Blumen als Geschenk.',
   },
   {
     img: 'assets/images/Geschenk_Set/2.jpeg',
-    id: 'GeschenkSet2',
-    description: 'Slide 2',
+    id: 'Weingeschenk',
+    description:
+      'Die Blumen können gerne selbst ausgewählt werden. Der Wein natürlich auch ;)',
   },
   {
     img: 'assets/images/Geschenk_Set/3.jpeg',
-    id: 'GeschenkSet3',
-    description: 'Slide 3',
+    id: 'Weingeschenk',
+    description:
+      'Die Blumen können gerne selbst ausgewählt werden. Der Wein natürlich auch ;)',
   },
   {
     img: 'assets/images/Geschenk_Set/4.jpeg',
-    id: 'GeschenkSet4',
-    description: 'Slide 4',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/5.jpeg',
-    id: 'GeschenkSet5',
-    description: 'Slide 5',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/6.jpeg',
-    id: 'GeschenkSet6',
-    description: 'Slide 6',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/7.jpeg',
-    id: 'GeschenkSet7',
-    description: 'Slide 7',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/8.jpeg',
-    id: 'GeschenkSet8',
-    description: 'Slide 8',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/9.jpeg',
-    id: 'GeschenkSet9',
-    description: 'Slide 9',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/10.jpeg',
-    id: 'GeschenkSet10',
-    description: 'Slide 10',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/11.jpeg',
-    id: 'GeschenkSet11',
-    description: 'Slide 11',
+    id: 'Geschenk Set',
+    description:
+      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/12.jpeg',
-    id: 'GeschenkSet12',
-    description: 'Slide 12',
+    id: 'Lama Set',
+    description: 'Gegen Ende noch weitere Sprüche, für die Lama/Alpaka Sets',
   },
   {
     img: 'assets/images/Geschenk_Set/13.jpeg',
-    id: 'GeschenkSet13',
-    description: 'Slide 13',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/14.jpeg',
-    id: 'GeschenkSet14',
-    description: 'Slide 14',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/15.jpeg',
-    id: 'GeschenkSet15',
-    description: 'Slide 15',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/16.jpeg',
-    id: 'GeschenkSet16',
-    description: 'Slide 16',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/17.jpeg',
-    id: 'GeschenkSet17',
-    description: 'Slide 17',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/18.jpeg',
-    id: 'GeschenkSet18',
-    description: 'Slide 18',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/19.jpeg',
-    id: 'GeschenkSet19',
-    description: 'Slide 19',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/20.jpeg',
-    id: 'GeschenkSet20',
-    description: 'Slide 20',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/21.jpeg',
-    id: 'GeschenkSet21',
-    description: 'Slide 21',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/22.jpeg',
-    id: 'GeschenkSet22',
-    description: 'Slide 22',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/23.jpeg',
-    id: 'GeschenkSet23',
-    description: 'Slide 23',
-  },
-  {
-    img: 'assets/images/Geschenk_Set/24.jpeg',
-    id: 'GeschenkSet24',
-    description: 'Slide 24',
+    id: 'Glücksbärchen',
+    description:
+      '...bringt wissenschaftlichen bewiesen den Leuten mehr Glück. Quelle: Facebook',
   },
   {
     img: 'assets/images/Geschenk_Set/25.jpeg',
-    id: 'GeschenkSet25',
-    description: 'Slide 25',
+    id: 'Glücksbärchen',
+    description:
+      '...bringt wissenschaftlichen bewiesen den Leuten mehr Glück. Quelle: Facebook',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/14.jpeg',
+    id: 'Kerzen Set',
+    description: 'Ein Geschenkset bestehend aus Kerzen.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/15.jpeg',
+    id: 'Kerzen Set',
+    description: 'Ein Geschenkset bestehend aus Kerzen.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/16.jpeg',
+    id: 'Kerzen Set',
+    description: 'Ein Geschenkset bestehend aus Kerzen.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/17.jpeg',
+    id: 'Personalisiertes Geschenk',
+    description:
+      'Dieses Geschenk eignet sich perfekt für Geburtstage und können persönlich gestaltet werden.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/18.jpeg',
+    id: 'Erinnerungen Set',
+    description: 'Für abenteuerlustige Entdecker',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/19.jpeg',
+    id: 'Wichtel Set',
+    description: 'Kann auch als Wichtelgeschenk verwendet werden.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/20.jpeg',
+    id: 'Wichtel Set',
+    description: 'Kann auch als Wichtelgeschenk verwendet werden.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/21.jpeg',
+    id: 'Wichtel Set',
+    description: 'Kann auch als Wichtelgeschenk verwendet werden.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/22.jpeg',
+    id: 'Fussball',
+    description: 'Gut Kick!',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/23.jpeg',
+    id: 'Grüße',
+    description: 'Wundervolle Botschaften auf einem Holzuntergrund.',
+  },
+  {
+    img: 'assets/images/Geschenk_Set/24.jpeg',
+    id: 'Grüße',
+    description: 'Wundervolle Botschaften auf einem Holzuntergrund.',
   },
   {
     img: 'assets/images/Geschenk_Set/26.jpeg',
-    id: 'GeschenkSet26',
-    description: 'Slide 26',
+    id: 'Lama Set',
+    description: '...Beschreibung überflüssig',
   },
   {
     img: 'assets/images/Geschenk_Set/27.jpeg',
-    id: 'GeschenkSet27',
-    description: 'Slide 27',
+    id: 'Lama Set',
+    description:
+      'Auch hier können weiter Sprüche und Ideen gerne an uns gesendet werden.',
   },
 ];
 
 export const glueckImages: ImageData[] = [
-  { img: 'assets/images/Glueck/1.jpeg', id: 'Kleeblatt', description: 'Ein Kleeblatt in der Farbe Grün - marmoriert. Egal in welcher Form, aber damit will man demjenigen ganz viel Glück wünschen.' },
-  { img: 'assets/images/Glueck/2.jpeg', id: 'Kleeblatt', description: 'Auch ein Kleeblatt, dieses Mal in der normalen weißen Farbe.' },
-  { img: 'assets/images/Glueck/3.jpeg', id: 'Wunscherfüller', description: 'In diesem Wunscherfüller Behälter kann man etwas hinzufügen, was dem Empfänger dabei hilft seinen Wunsch erfüllt zu bekommen.' },
-  { img: 'assets/images/Glueck/4.jpeg', id: 'Wunscherfüller', description: 'In diesem Wunscherfüller Behälter kann man etwas hinzufügen, was dem Empfänger dabei hilft seinen Wunsch erfüllt zu bekommen.' },
-  { img: 'assets/images/Glueck/5.jpeg', id: 'Glücksschweinchen', description: 'Dieses Glückschweinchen kann eine Kerze tragen.' },
+  {
+    img: 'assets/images/Glueck/1.jpeg',
+    id: 'Kleeblatt',
+    description:
+      'Ein Kleeblatt in der Farbe Grün - marmoriert. Egal in welcher Form, aber damit will man demjenigen ganz viel Glück wünschen.',
+  },
+  {
+    img: 'assets/images/Glueck/2.jpeg',
+    id: 'Kleeblatt',
+    description: 'Auch ein Kleeblatt, dieses Mal in der normalen weißen Farbe.',
+  },
+  {
+    img: 'assets/images/Glueck/3.jpeg',
+    id: 'Wunscherfüller',
+    description:
+      'In diesem Wunscherfüller Behälter kann man etwas hinzufügen, was dem Empfänger dabei hilft seinen Wunsch erfüllt zu bekommen.',
+  },
+  {
+    img: 'assets/images/Glueck/4.jpeg',
+    id: 'Wunscherfüller',
+    description:
+      'In diesem Wunscherfüller Behälter kann man etwas hinzufügen, was dem Empfänger dabei hilft seinen Wunsch erfüllt zu bekommen.',
+  },
+  {
+    img: 'assets/images/Glueck/5.jpeg',
+    id: 'Glücksschweinchen',
+    description: 'Dieses Glückschweinchen kann eine Kerze tragen.',
+  },
 ];
 
 export const herbstImages: ImageData[] = [
-  { img: 'assets/images/Herbst/1.jpeg', id: 'Kürbis', description: 'Kürbispyramide!' },
-  { img: 'assets/images/Herbst/2.jpeg', id: 'Kürbis', description: 'Kürbisbehälter offen!' },
-  { img: 'assets/images/Herbst/3.jpeg', id: 'Kürbis', description: 'Kürbisbehälter geschlossen!' },
+  {
+    img: 'assets/images/Herbst/1.jpeg',
+    id: 'Kürbis',
+    description: 'Kürbispyramide!',
+  },
+  {
+    img: 'assets/images/Herbst/2.jpeg',
+    id: 'Kürbis',
+    description: 'Kürbisbehälter offen!',
+  },
+  {
+    img: 'assets/images/Herbst/3.jpeg',
+    id: 'Kürbis',
+    description: 'Kürbisbehälter geschlossen!',
+  },
 ];
 
 export const hochzeitImages: ImageData[] = [
   {
     img: 'assets/images/Hochzeit/1.jpeg',
     id: 'Du und Ich',
-    description: 'Dieses Präsent muss nicht unbedingt auf eine Hochzeit hindeuten, aber ein schönes Geschenk für den Partner ist es aufjedenfall.',
+    description:
+      'Dieses Präsent muss nicht unbedingt auf eine Hochzeit hindeuten, aber ein schönes Geschenk für den Partner ist es aufjedenfall.',
   },
   {
     img: 'assets/images/Hochzeit/2.jpeg',
     id: 'Fahrt ins Glück',
-    description: 'Eine schöne Idee um als Gast auf einer Hochzeit, stilvoll ein Geldgeschenk zu machen.',
+    description:
+      'Eine schöne Idee um als Gast auf einer Hochzeit, stilvoll ein Geldgeschenk zu machen.',
   },
   {
     img: 'assets/images/Hochzeit/3.jpeg',
     id: 'Just Married',
-    description: 'Eine schöne Idee um als Gast auf einer Hochzeit, stilvoll ein Geldgeschenk zu machen.',
+    description:
+      'Eine schöne Idee um als Gast auf einer Hochzeit, stilvoll ein Geldgeschenk zu machen.',
   },
   {
     img: 'assets/images/Hochzeit/4.jpeg',
@@ -301,27 +364,32 @@ export const hochzeitImages: ImageData[] = [
   {
     img: 'assets/images/Hochzeit/5.jpeg',
     id: 'JA',
-    description: 'Das Wort Ja ist eines der kürzesten und zugleich mächtigsten Wörter in der deutschen Sprache – es öffnet Türen, startet Abenteuer und kann manchmal sogar Hochzeiten besiegeln! ',
+    description:
+      'Das Wort Ja ist eines der kürzesten und zugleich mächtigsten Wörter in der deutschen Sprache – es öffnet Türen, startet Abenteuer und kann manchmal sogar Hochzeiten besiegeln! ',
   },
   {
     img: 'assets/images/Hochzeit/6.jpeg',
     id: 'Herzschatulle',
-    description: 'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+    description:
+      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/7.jpeg',
     id: 'Herzschatulle',
-    description: 'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+    description:
+      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/8.jpeg',
     id: 'Herzschatulle',
-    description: 'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+    description:
+      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/9.jpeg',
     id: 'Herzschatulle',
-    description: 'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+    description:
+      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/10.jpeg',
@@ -447,27 +515,32 @@ export const kopfschmuckImages: ImageData[] = [
   {
     img: 'assets/images/Kopfschmuck/medusa.jpeg',
     id: 'Medusa Haarreif',
-    description: 'Ein Haarreif mit Gummischlangen. Perfekt für ein Medusa Kostüm.',
+    description:
+      'Ein Haarreif mit Gummischlangen. Perfekt für ein Medusa Kostüm.',
   },
   {
     img: 'assets/images/Kopfschmuck/eisk1.JPG',
     id: 'Eiskönigin Krone',
-    description: 'Auch wenn die Fähigkeiten von Elsa mit dieser Krone nicht kommen, verleiht sie einem Eiskönigin Kostüm noch die passende Königlichkeit',
+    description:
+      'Auch wenn die Fähigkeiten von Elsa mit dieser Krone nicht kommen, verleiht sie einem Eiskönigin Kostüm noch die passende Königlichkeit',
   },
   {
     img: 'assets/images/Kopfschmuck/eisk2.jpeg',
     id: 'Eiskönigin Krone',
-    description: 'Auch wenn die Fähigkeiten von Elsa mit dieser Krone nicht kommen, verleiht sie einem Eiskönigin Kostüm noch die passende Königlichkeit',
+    description:
+      'Auch wenn die Fähigkeiten von Elsa mit dieser Krone nicht kommen, verleiht sie einem Eiskönigin Kostüm noch die passende Königlichkeit',
   },
   {
     img: 'assets/images/Kopfschmuck/grgoe2.jpeg',
     id: 'Griechische Göttin Krone',
-    description: 'Und noch ein goldener Haarreif, bspw. für Kostüme in die Richtung griechische Göttin',
+    description:
+      'Und noch ein goldener Haarreif, bspw. für Kostüme in die Richtung griechische Göttin',
   },
   {
     img: 'assets/images/Kopfschmuck/grgoe1.jpeg',
     id: 'Griechische Göttin Krone',
-    description: 'Und noch ein goldener Haarreif, bspw. für Kostüme in die Richtung griechische Göttin',
+    description:
+      'Und noch ein goldener Haarreif, bspw. für Kostüme in die Richtung griechische Göttin',
   },
 ];
 
@@ -475,22 +548,26 @@ export const leinwaendeImages: ImageData[] = [
   {
     img: 'assets/images/Leinwaende/1.jpeg',
     id: 'Yoshi',
-    description: 'Yoshi ist ein grüner, eierwerfender Super-Dino mit einer unendlichen Liebe zu Äpfeln und dem einzigartigen Talent, alles und jeden mit seiner klebrigen Zunge einzusaugen – inklusive Gegner, Schildkröten und manchmal sogar Mario selbst.',
+    description:
+      'Yoshi ist ein grüner, eierwerfender Super-Dino mit einer unendlichen Liebe zu Äpfeln und dem einzigartigen Talent, alles und jeden mit seiner klebrigen Zunge einzusaugen – inklusive Gegner, Schildkröten und manchmal sogar Mario selbst.',
   },
   {
     img: 'assets/images/Leinwaende/2.jpeg',
     id: 'Hirsch',
-    description: 'Hirsche sind echte Wald-Athleten – sie können bis zu 3 Meter hoch und 10 Meter weit springen!',
+    description:
+      'Hirsche sind echte Wald-Athleten – sie können bis zu 3 Meter hoch und 10 Meter weit springen!',
   },
   {
     img: 'assets/images/Leinwaende/3.jpeg',
     id: 'Pinguin',
-    description: 'Pinguine machen ihren Heiratsantrag mit Steinen! Männliche Pinguine suchen den perfekten Kieselstein und schenken ihn ihrer Auserwählten. Wenn das Weibchen den Stein annimmt, sind sie offiziell ein Paar – romantischer geht’s kaum!',
+    description:
+      'Pinguine machen ihren Heiratsantrag mit Steinen! Männliche Pinguine suchen den perfekten Kieselstein und schenken ihn ihrer Auserwählten. Wenn das Weibchen den Stein annimmt, sind sie offiziell ein Paar – romantischer geht’s kaum!',
   },
   {
     img: 'assets/images/Leinwaende/4.jpeg',
     id: 'Schmetterling',
-    description: 'Schmetterlinge schmecken mit ihren Füßen! Anstatt eine Zunge zu benutzen, haben sie spezielle Sinneszellen an ihren Beinen, mit denen sie erkennen, ob eine Pflanze essbar ist oder nicht. Das heißt, jedes Mal, wenn ein Schmetterling auf einer Blume landet, macht er eigentlich eine kleine "Geschmacksprobe" mit seinen Füßen!',
+    description:
+      'Schmetterlinge schmecken mit ihren Füßen! Anstatt eine Zunge zu benutzen, haben sie spezielle Sinneszellen an ihren Beinen, mit denen sie erkennen, ob eine Pflanze essbar ist oder nicht. Das heißt, jedes Mal, wenn ein Schmetterling auf einer Blume landet, macht er eigentlich eine kleine "Geschmacksprobe" mit seinen Füßen!',
   },
   {
     img: 'assets/images/Leinwaende/5.jpeg',
@@ -510,22 +587,26 @@ export const leinwaendeImages: ImageData[] = [
   {
     img: 'assets/images/Leinwaende/8.jpeg',
     id: 'Gemälde',
-    description: 'Wenn man dieses Bild jetzt mit der Unterschrift von Picasso signiert, ist es dann mehr wert?',
+    description:
+      'Wenn man dieses Bild jetzt mit der Unterschrift von Picasso signiert, ist es dann mehr wert?',
   },
   {
     img: 'assets/images/Leinwaende/9.jpeg',
     id: 'Make Memories',
-    description: 'Sammle Momente, nicht Dinge – denn Erinnerungen sind das einzige Gepäck, das immer leichter wird, je mehr du davon hast.',
+    description:
+      'Sammle Momente, nicht Dinge – denn Erinnerungen sind das einzige Gepäck, das immer leichter wird, je mehr du davon hast.',
   },
   {
     img: 'assets/images/Leinwaende/10.jpeg',
     id: 'Doggo',
-    description: 'Ein handgezeichnetes Bild deines Hundes. Schick uns einfach ein Bild von deinem Hund und wir zeichnen ihn auf die Leinwand.',
+    description:
+      'Ein handgezeichnetes Bild deines Hundes. Schick uns einfach ein Bild von deinem Hund und wir zeichnen ihn auf die Leinwand.',
   },
   {
     img: 'assets/images/Leinwaende/11.jpeg',
     id: 'Gemälde',
-    description: 'Jeder Künstler taucht seine Pinsel in seine eigene Seele und malt seine eigene Welt.',
+    description:
+      'Jeder Künstler taucht seine Pinsel in seine eigene Seele und malt seine eigene Welt.',
   },
   {
     img: 'assets/images/Leinwaende/12.jpeg',
@@ -535,104 +616,114 @@ export const leinwaendeImages: ImageData[] = [
 ];
 
 export const osternImages: ImageData[] = [
-  { img: 'assets/images/Ostern/1.jpeg', id: 'Ostern1', description: 'Slide 1' },
-  { img: 'assets/images/Ostern/2.jpeg', id: 'Ostern2', description: 'Slide 2' },
-  { img: 'assets/images/Ostern/3.jpeg', id: 'Ostern3', description: 'Slide 3' },
-  { img: 'assets/images/Ostern/4.jpeg', id: 'Ostern4', description: 'Slide 4' },
-  { img: 'assets/images/Ostern/5.jpeg', id: 'Ostern5', description: 'Slide 5' },
-  { img: 'assets/images/Ostern/6.jpeg', id: 'Ostern6', description: 'Slide 6' },
-  { img: 'assets/images/Ostern/7.jpeg', id: 'Ostern7', description: 'Slide 7' },
-  { img: 'assets/images/Ostern/8.jpeg', id: 'Ostern8', description: 'Slide 8' },
-  { img: 'assets/images/Ostern/9.jpeg', id: 'Ostern9', description: 'Slide 9' },
+  {
+    img: 'assets/images/Ostern/1.jpeg',
+    id: 'Osterhasen',
+    description: 'Ein süßes Osterhasenpärchen mit oder Ohne Ü-Ei Inhalt.',
+  },
+  {
+    img: 'assets/images/Ostern/2.jpeg',
+    id: 'Osterhasen',
+    description: 'Ein süßer Osterhas mit Ü-Ei Inhalt.',
+  },
+  {
+    img: 'assets/images/Ostern/3.jpeg',
+    id: 'Ostereier',
+    description: 'Osterei mit geraden Ohren',
+  },
+  {
+    img: 'assets/images/Ostern/4.jpeg',
+    id: 'Ostereier',
+    description: 'Osterei mit einem abfallendem Ohr',
+  },
+  {
+    img: 'assets/images/Ostern/5.jpeg',
+    id: 'Kerze',
+    description: 'Eine Kerze in einer Ostereihälfte',
+  },
+  {
+    img: 'assets/images/Ostern/6.jpeg',
+    id: 'Geschenkset',
+    description:
+      '...bestehend aus einem Kerzenhalter mit Kerze und einem Osterei',
+  },
+  {
+    img: 'assets/images/Ostern/7.jpeg',
+    id: 'Geschenkset',
+    description: 'Inhalt variabel befüllbar.',
+  },
+  {
+    img: 'assets/images/Ostern/8.jpeg',
+    id: 'Geschenkset',
+    description: 'Ein weiteres Ostergeschenkset',
+  },
+  {
+    img: 'assets/images/Ostern/9.jpeg',
+    id: 'Platte',
+    description: 'Eine Ablageform aus Gips mit bunten Details.',
+  },
   {
     img: 'assets/images/Ostern/10.jpeg',
-    id: 'Ostern10',
-    description: 'Slide 10',
+    id: 'Platte mit Osterei',
+    description: 'Einzeln oder zusammen bestellbar.',
   },
   {
     img: 'assets/images/Ostern/11.jpeg',
-    id: 'Ostern11',
-    description: 'Slide 11',
+    id: 'Hasenkerze',
+    description: 'Dieser Hase brennt dafür gekauft zu werden.',
   },
   {
     img: 'assets/images/Ostern/12.jpeg',
-    id: 'Ostern12',
-    description: 'Slide 12',
+    id: 'Hasenkerze',
+    description: 'Dieser Hase brennt dafür gekauft zu werden.',
   },
   {
     img: 'assets/images/Ostern/13.jpeg',
-    id: 'Ostern13',
-    description: 'Slide 13',
+    id: 'Hasen',
+    description:
+      'Diese Hase brennen nicht wollen aber trotzdem gekauft werden.',
   },
   {
     img: 'assets/images/Ostern/14.jpeg',
-    id: 'Ostern14',
-    description: 'Slide 14',
+    id: 'Hasenkerze',
+    description:
+      'Diese Hase brennen nicht wollen aber trotzdem gekauft werden.',
   },
   {
     img: 'assets/images/Ostern/15.jpeg',
-    id: 'Ostern15',
-    description: 'Slide 15',
-  },
-  {
-    img: 'assets/images/Ostern/16.jpeg',
-    id: 'Ostern16',
-    description: 'Slide 16',
-  },
-  {
-    img: 'assets/images/Ostern/17.jpeg',
-    id: 'Ostern17',
-    description: 'Slide 17',
-  },
-  {
-    img: 'assets/images/Ostern/18.jpeg',
-    id: 'Ostern18',
-    description: 'Slide 18',
-  },
-  {
-    img: 'assets/images/Ostern/19.jpeg',
-    id: 'Ostern19',
-    description: 'Slide 19',
-  },
-  {
-    img: 'assets/images/Ostern/20.jpeg',
-    id: 'Ostern20',
-    description: 'Slide 20',
-  },
-  {
-    img: 'assets/images/Ostern/21.jpeg',
-    id: 'Ostern21',
-    description: 'Slide 21',
+    id: 'Geschenkset',
+    description: 'Ein weiteres Ostergeschenkset',
   },
   {
     img: 'assets/images/Ostern/22.jpeg',
-    id: 'Ostern22',
-    description: 'Slide 22',
+    id: 'Kerze mit Gruß',
+    description: 'Farbe rot',
   },
   {
     img: 'assets/images/Ostern/23.jpeg',
-    id: 'Ostern23',
-    description: 'Slide 23',
+    id: 'Kerze mit Gruß',
+    description: 'Farbe grün',
   },
   {
     img: 'assets/images/Ostern/24.jpeg',
-    id: 'Ostern24',
-    description: 'Slide 24',
+    id: 'Kerze mit Gruß',
+    description: 'Farbe weiß',
   },
   {
     img: 'assets/images/Ostern/25.jpeg',
-    id: 'Ostern25',
-    description: 'Slide 25',
+    id: 'Kerze mit Gruß',
+    description: 'Farbe blau',
   },
   {
     img: 'assets/images/Ostern/26.jpeg',
-    id: 'Ostern26',
-    description: 'Slide 26',
+    id: 'Kleiner Frühlingsgruß',
+    description: '...da gibt es nichts hinzuzufügen',
   },
   {
     img: 'assets/images/Ostern/27.jpeg',
-    id: 'Ostern27',
-    description: 'Slide 27',
+    id: 'Vogelhäusschen',
+    description:
+      'Auch gegenüber unseren fliegenden Gästen in unseren Gärten kann man gastfreundlich sein.',
   },
 ];
 
@@ -655,12 +746,14 @@ export const taufeUndMehrImages: ImageData[] = [
   {
     img: 'assets/images/Taufe_und_mehr/4.jpeg',
     id: 'Fische',
-    description: 'Im Christentum symbolisiert der Fisch das Zeichen des Christentums und wird als „Ichthys“ (griechisch für „Fisch“) bezeichnet. Es ist ein Akronym, das für „Jesus Christus, Gottes Sohn, Retter“ steht',
+    description:
+      'Im Christentum symbolisiert der Fisch das Zeichen des Christentums und wird als „Ichthys“ (griechisch für „Fisch“) bezeichnet. Es ist ein Akronym, das für „Jesus Christus, Gottes Sohn, Retter“ steht',
   },
   {
     img: 'assets/images/Taufe_und_mehr/5.jpeg',
     id: 'Engel',
-    description: 'Engel sind oft Boten Gottes, die Nachrichten überbringen und als Helfer des göttlichen Plans fungieren.',
+    description:
+      'Engel sind oft Boten Gottes, die Nachrichten überbringen und als Helfer des göttlichen Plans fungieren.',
   },
   {
     img: 'assets/images/Taufe_und_mehr/6.jpeg',
@@ -677,112 +770,119 @@ export const taufeUndMehrImages: ImageData[] = [
 export const weihnachtenWinterImages: ImageData[] = [
   {
     img: 'assets/images/Weihnachten_Winter/1.jpeg',
-    id: 'Weihnachten1',
-    description: 'Slide 1',
+    id: 'Weichnachtlicher Elch',
+    description:
+      'Ein Elch ist wie der gemütliche Onkel der Wälder – groß, mit einem dickem Pelzmantel, der aussieht, als ob er nie ganz weiß, ob er ein majestätisches Tier oder ein tollpatschiger Riese ist.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/2.jpeg',
-    id: 'Weihnachten2',
-    description: 'Slide 2',
+    id: 'Kerzenhalter',
+    description: 'Weihnachtlicher Kerzenhalter - Farbe Lila marmoriert.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/3.jpeg',
-    id: 'Weihnachten3',
-    description: 'Slide 3',
+    id: 'Kerzenhalter',
+    description: 'Weihnachtlicher Kerzenhalter - Farbe türkis marmoriert.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/4.jpeg',
-    id: 'Weihnachten4',
-    description: 'Slide 4',
+    id: 'Elch Familie',
+    description: 'Eine Elch-Familie: stolz, chaotisch, liebevoll, wild!',
   },
   {
     img: 'assets/images/Weihnachten_Winter/5.jpeg',
-    id: 'Weihnachten5',
-    description: 'Slide 5',
+    id: 'Elch',
+    description: 'Auch einzeln vefügbar.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/6.jpeg',
-    id: 'Weihnachten6',
-    description: 'Slide 6',
+    id: 'Holz Schneemänner',
+    description:
+      'Passt perfekt ins Wohnzimmer oder vor die Haustür als Winterdeko.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/7.jpeg',
-    id: 'Weihnachten7',
-    description: 'Slide 7',
+    id: 'Engel',
+    description:
+      'Engel passen auch als Deko in deine pesönliche Weihnachtswelt.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/8.jpeg',
-    id: 'Weihnachten8',
-    description: 'Slide 8',
+    id: 'Elch Gutschein',
+    description:
+      'In diesem 2D Elch kannst du einen Gutschein o.ä. stilvol verschenken.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/9.jpeg',
-    id: 'Weihnachten9',
-    description: 'Slide 9',
+    id: 'Adventskranz',
+    description: 'Adventskranz in der Farbe schwarz marmoriert',
   },
   {
     img: 'assets/images/Weihnachten_Winter/10.jpeg',
-    id: 'Weihnachten10',
-    description: 'Slide 10',
+    id: 'Adventskranz',
+    description: 'Adventskranz in der Farbe grün marmoriert',
   },
   {
     img: 'assets/images/Weihnachten_Winter/11.jpeg',
-    id: 'Weihnachten11',
-    description: 'Slide 11',
+    id: 'Adventskranz',
+    description: 'Adventskranz in der Farbe weiß',
   },
   {
     img: 'assets/images/Weihnachten_Winter/12.jpeg',
-    id: 'Weihnachten12',
-    description: 'Slide 12',
+    id: 'Ü-Ei Pinguin',
+    description: 'Ein roter Pinguin mit Ü-Ei Inhalt',
   },
   {
     img: 'assets/images/Weihnachten_Winter/13.jpeg',
-    id: 'Weihnachten13',
-    description: 'Slide 13',
+    id: 'Ü-Ei Pinguin',
+    description: 'Ein blauer Pinguin mit Ü-Ei Inhalt',
   },
   {
     img: 'assets/images/Weihnachten_Winter/14.jpeg',
-    id: 'Weihnachten14',
-    description: 'Slide 14',
+    id: 'Schneemann Set',
+    description:
+      'Diese süßen Pinguine sitzen gemütlich an einem Lagerfeuer und wäremen sich ihre Hände. Moment mal, ist das nicht kontraproduktiv? ',
   },
   {
     img: 'assets/images/Weihnachten_Winter/15.jpeg',
-    id: 'Weihnachten15',
-    description: 'Slide 15',
+    id: 'Wichtel Geschenk',
+    description:
+      'Für alle, die auf süße kleine Wichtel stehen und ihren Liebsten noch eine Botschaft mitgeben wollen.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/16.jpeg',
-    id: 'Weihnachten16',
-    description: 'Slide 16',
+    id: 'Wichtel Geschenk',
+    description:
+      'Für alle, die auf süße kleine Wichtel stehen und ihren Liebsten noch eine Botschaft mitgeben wollen.',
   },
   {
     img: 'assets/images/Weihnachten_Winter/17.jpeg',
-    id: 'Weihnachten17',
-    description: 'Slide 17',
+    id: 'Weihnachtskarten',
+    description: 'Mit einem Schneemann',
   },
   {
     img: 'assets/images/Weihnachten_Winter/18.jpeg',
-    id: 'Weihnachten18',
-    description: 'Slide 18',
+    id: 'Weihnachtskarten',
+    description: 'Mit einem Hirsch',
   },
   {
     img: 'assets/images/Weihnachten_Winter/19.jpeg',
-    id: 'Weihnachten19',
-    description: 'Slide 19',
+    id: 'Weihnachtskarten',
+    description: 'Mit einer Schneeflocke',
   },
   {
     img: 'assets/images/Weihnachten_Winter/20.jpeg',
-    id: 'Weihnachten20',
-    description: 'Slide 20',
+    id: 'Geschenkset',
+    description: 'Inhalt variabel befüllbar',
   },
   {
     img: 'assets/images/Weihnachten_Winter/21.jpeg',
-    id: 'Weihnachten21',
-    description: 'Slide 21',
+    id: 'Geschenkset',
+    description: 'Inhalt variabel befüllbar',
   },
   {
     img: 'assets/images/Weihnachten_Winter/22.jpeg',
-    id: 'Weihnachten22',
-    description: 'Slide 22',
+    id: 'Geschenkset',
+    description: 'Inhalt variabel befüllbar',
   },
 ];
