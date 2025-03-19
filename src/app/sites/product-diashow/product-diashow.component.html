@@ -1,0 +1,16 @@
+<!-- Main Content -->
+<div class="main-content">
+    <img
+    src="assets/images/other_background.png"
+    alt=""
+    class="banner"
+    />
+    <mat-card class="content-card" style="text-align: center;">
+      <mat-card-content>
+        <diashow [slides]="loadedDiashow.images" [indicatorsVisible]="false"></diashow>
+      </mat-card-content>
+    </mat-card>
+    <div class="buttons">
+        <button mat-raised-button class="primary-button" (click)="backToProducts()">Zurück</button>
+    </div>
+  </div>
