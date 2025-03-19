@@ -6,9 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "publish": "ng build --configuration production && npm run postbuild && npm run copy",
+    "format": "npx prettier --write src/**/*.{js,ts,html,scss}",
     "watch": "ng build --watch --configuration development",
     "copy": "copyfiles CNAME docs/",
-    "postbuild": "ncp docs/index.html docs/404.html",
+    "postbuild": "node -e \"require('ncp').ncp('docs/index.html', 'docs/404.html', function (err) { if (err) { return console.error(err); } console.log('Datei erfolgreich kopiert!'); })\"",
     "test": "ng test"
   },
   "private": true,
@@ -42,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ncp": "^2.0.0",
     "typescript": "~5.3.2"
   }
 }

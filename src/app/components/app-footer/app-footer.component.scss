@@ -31,15 +31,15 @@
   margin-left: auto; /* Pushes buttons to the right */
 }
 
-.logo-footer{
+.logo-footer {
   height: 90px;
   width: 90px;
 }
 
 .icon-button {
-  border: none!important;
-  background-color: transparent!important;
-  cursor: pointer!important;
+  border: none !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
 }
 @media (max-width: 1000px) {
   .footer-text {
@@ -52,17 +52,17 @@
     display: none;
   }
 
-  .spacer{
+  .spacer {
     display: none;
   }
 
-  .formal-links{    
+  .formal-links {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
   }
 
-  .icon-button{
+  .icon-button {
     margin-right: 5px;
   }
 

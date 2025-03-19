@@ -8,27 +8,24 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [MatToolbarModule, MatButtonModule],
   templateUrl: './app-footer.component.html',
-  styleUrl: './app-footer.component.scss'
+  styleUrl: './app-footer.component.scss',
 })
 export class AppFooterComponent {
-  
-  constructor(private router: Router){
+  constructor(private router: Router) {}
 
+  navigateImpressum() {
+    this.router.navigate(['/impressum']);
   }
 
-  navigateImpressum(){
-    this.router.navigate(['/impressum'])
+  navigateDatenschutz() {
+    this.router.navigate(['/datenschutz']);
   }
 
-  navigateDatenschutz(){
-    this.router.navigate(['/datenschutz'])
-  }
-
-  openInstagram(){
+  openInstagram() {
     window.open('https://www.instagram.com/l.art_handmade/', '_blank');
   }
 
-  openEtsy(){
+  openEtsy() {
     window.open('https://www.etsy.com/de/shop/LarthandmadeShop', '_blank');
   }
 }

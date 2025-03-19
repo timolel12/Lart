@@ -7,15 +7,17 @@ import { ImpressumComponent } from './sites/impressum/impressum.component';
 import { StartComponent } from './sites/start/start.component';
 import { RequestsComponent } from './sites/requests/requests.component';
 import { WhereToFindUsComponent } from './sites/where-to-find-us/where-to-find.us.component';
+import { ProductDiashowComponent } from './sites/product-diashow/product-diashow.component';
 
 export const routes: Routes = [
-    { path: '', component: StartComponent},
-    { path: 'home', component: StartComponent },
-    { path: 'about-us', component: AboutUsComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'datenschutz', component: PrivacyPolicyComponent },
-    { path: 'impressum', component: ImpressumComponent },
-    { path: 'products', component: ProductsComponent },
-    { path: 'requests', component: RequestsComponent },
-    { path: 'where-to-find-us', component: WhereToFindUsComponent },
+  { path: '', component: StartComponent },
+  { path: 'home', component: StartComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'datenschutz', component: PrivacyPolicyComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDiashowComponent },
+  { path: 'requests', component: RequestsComponent },
+  { path: 'where-to-find-us', component: WhereToFindUsComponent },
 ];

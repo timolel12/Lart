@@ -1,34 +1,46 @@
 <div class="main-content">
-  <img
-  src="assets/images/other_background.png"
-  alt=""
-  class="banner"
-  />
-  <mat-card class="content-card" style="text-align: center;">
+  <img src="assets/images/other_background.png" alt="" class="banner" />
+  <mat-card class="content-card" style="text-align: center">
     <mat-card-content>
       <h1>Kontakt</h1>
       <mat-divider></mat-divider>
       <h3>
-        <img src="assets/images/logo_weiß_transparent.png" class="logo-contact" alt="">
-        <br>
+        <img
+          src="assets/images/logo_weiß_transparent.png"
+          class="logo-contact"
+          alt=""
+        />
+        <br />
         Inh. Lara Peichl
-        <br>
+        <br />
         Ulmenweg 17
-        <br>
+        <br />
         63933 Mönchberg
-        <br>
+        <br />
         lara.peichl&#64;gmail.com
       </h3>
     </mat-card-content>
     <div class="contact-buttons">
       <button class="icon-button" (click)="openInstagram()">
-        <img src="assets/images/instagram.png" alt="Instagram Icon">
+        <img src="assets/images/instagram.png" alt="Instagram Icon" />
       </button>
       <button class="icon-button" (click)="openEtsy()">
-        <img src="assets/images/etsy.png" alt="Etsy Icon">
-      </button>         
-      <a mat-raised-button class="primary-button" href="mailto:lara.peichl@gmail.com" target="_blank">Per Email kontaktieren</a>
-      <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Direkt Anfrage stellen</button>
+        <img src="assets/images/etsy.png" alt="Etsy Icon" />
+      </button>
+      <a
+        mat-raised-button
+        class="primary-button"
+        href="mailto:lara.peichl@gmail.com"
+        target="_blank"
+        >Per Email kontaktieren</a
+      >
+      <button
+        mat-raised-button
+        class="primary-button"
+        (click)="openOrderDialog()"
+      >
+        Direkt Anfrage stellen
+      </button>
     </div>
   </mat-card>
 </div>

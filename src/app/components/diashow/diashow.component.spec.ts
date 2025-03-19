@@ -8,10 +8,9 @@ describe('DiashowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DiashowComponent]
-    })
-    .compileComponents();
-    
+      imports: [DiashowComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DiashowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

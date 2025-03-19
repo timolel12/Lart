@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [MatCardModule, MatDividerModule, MatButtonModule],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.scss'
+  styleUrl: './privacy-policy.component.scss',
 })
 export class PrivacyPolicyComponent {
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
-  navigateContact(){
-    this.router.navigate(['/contact'])
+  navigateContact() {
+    this.router.navigate(['/contact']);
   }
 }

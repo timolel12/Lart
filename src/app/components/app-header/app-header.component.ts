@@ -13,18 +13,17 @@ import { Subscription, Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MatToolbarModule, MatListModule, MatCardModule], // Add CommonModule here
   templateUrl: './app-header.component.html',
-  styleUrls: ['./app-header.component.scss']
+  styleUrls: ['./app-header.component.scss'],
 })
-export class AppHeaderComponent implements OnInit, OnDestroy{
+export class AppHeaderComponent implements OnInit, OnDestroy {
   activeLink$: Observable<string>;
   isMainPage: boolean = false;
   menuOpen: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router, private routeService: RouteService) 
-  {
+  constructor(private router: Router, private routeService: RouteService) {
     this.activeLink$ = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
+      filter((event) => event instanceof NavigationEnd),
       map(() => {
         const currentUrl = this.router.url;
         const activeLink = currentUrl.split('/').pop() || 'home';
@@ -34,19 +33,20 @@ export class AppHeaderComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(isSingleSegment => {
-      this.isMainPage = isSingleSegment;
-    });
+    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
+      (isSingleSegment) => {
+        this.isMainPage = isSingleSegment;
+      }
+    );
 
     this.activeLink$ = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
+      filter((event) => event instanceof NavigationEnd),
       map(() => {
         const currentUrl = this.router.url;
         const activeLink = currentUrl.split('/').pop() || 'home';
         return activeLink;
       })
     );
-
   }
 
   ngOnDestroy(): void {

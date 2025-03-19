@@ -1,43 +1,43 @@
 @import "../../../styles.scss";
 
 .main-content {
-    width: 100%;
-    text-align: center;
-    height: 95%;
-  }
+  width: 100%;
+  text-align: center;
+  height: 95%;
+}
 
-  .banner {
-    width: 100%;
-    height: auto; /* Maintain the aspect ratio */
-    max-height: 20vh; /* Limit the height to 20% of the viewport height */
-    object-fit: cover; /* Ensure the image covers the width without distorting */
-    margin-top: 160px;
-  }
-  
-  .content-card {
-    background-color: $full-transparent-color;
-    color: white;
-    padding: 20px;
-    margin-top: 60px;
-  }
+.banner {
+  width: 100%;
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 20vh; /* Limit the height to 20% of the viewport height */
+  object-fit: cover; /* Ensure the image covers the width without distorting */
+  margin-top: 160px;
+}
 
-  .contact-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    .primary-button{
-      margin-top: 20px;
-    }
-  }
+.content-card {
+  background-color: $full-transparent-color;
+  color: white;
+  padding: 20px;
+  margin-top: 60px;
+}
 
-  .logo-contact{
-    height: 200px;
-    width: 200px;
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  .primary-button {
+    margin-top: 20px;
+  }
+}
+
+.logo-contact {
+  height: 200px;
+  width: 200px;
 }
 
 .icon-button {
-  border: none!important;
-  background-color: transparent!important;
-  cursor: pointer!important;
+  border: none !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
 }

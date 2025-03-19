@@ -7,8 +7,6 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [MatCardModule, MatDividerModule],
   templateUrl: './impressum.component.html',
-  styleUrl: './impressum.component.scss'
+  styleUrl: './impressum.component.scss',
 })
-export class ImpressumComponent {
-
-}
+export class ImpressumComponent {}

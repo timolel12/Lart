@@ -7,12 +7,10 @@
         class="logo"
         alt="Logo"
       />
-      
+
       <!-- Burger Menu Icon for mobile -->
-      <button class="burger-menu" (click)="toggleMenu()">
-        &#9776;
-      </button>
-      
+      <button class="burger-menu" (click)="toggleMenu()">&#9776;</button>
+
       <mat-nav-list class="nav-bar" [class.active]="menuOpen">
         <a
           [class.active]="(activeLink$ | async) === ''"
@@ -33,10 +31,10 @@
           >Anfragen</a
         >
         <a
-        [class.active]="(activeLink$ | async) === 'where-to-find-us'"
-        class="nav-bar-list-item"
-        (click)="navigateWhereToFindUs()"
-        >Märkte 2025</a
+          [class.active]="(activeLink$ | async) === 'where-to-find-us'"
+          class="nav-bar-list-item"
+          (click)="navigateWhereToFindUs()"
+          >Märkte 2025</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'about-us'"

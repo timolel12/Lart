@@ -1,6 +1,13 @@
-import { Component, Input, ViewContainerRef  } from '@angular/core';
-import { FormBuilder, FormGroup, AbstractControl, Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { Order} from '../../models/order.model';
+import { Component, Input, ViewContainerRef } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  AbstractControl,
+  Validators,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
+import { Order } from '../../models/order.model';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +17,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatTooltipModule } from '@angular/material/tooltip' 
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.component';
@@ -28,13 +35,12 @@ import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.compone
     MatIconModule,
     MatTooltipModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './order-dialog.component.html',
-  styleUrl: './order-dialog.component.scss'
+  styleUrl: './order-dialog.component.scss',
 })
 export class OrderDialogComponent {
-
   showOrderForm = true;
   showSuccessMessage = false;
   showErrorMessage = false;
@@ -51,11 +57,12 @@ export class OrderDialogComponent {
     { id: 7, name: 'Sonstige Anfrage' },
   ];
 
-  constructor(private formBuilder: FormBuilder,
-              private emailService: EmailService,
-              public dialog: MatDialog,
-              public dialogRef: MatDialogRef<OrderDialogComponent>) {
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private emailService: EmailService,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<OrderDialogComponent>
+  ) {
     this.orderForm = this.formBuilder.group({
       product: [null, Validators.required],
       customerSurname: ['', Validators.required],
@@ -66,29 +73,32 @@ export class OrderDialogComponent {
   }
 
   ngOnInit() {
-    if (this.selectedProductId !== null && this.selectedProductId !== undefined) {
+    if (
+      this.selectedProductId !== null &&
+      this.selectedProductId !== undefined
+    ) {
       this.orderForm.patchValue({
         productId: this.selectedProductId,
       });
     }
   }
 
- // Custom validator function to allow only letters and numbers
- onlyLettersAndNumbersValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value) {
-      // Handle empty value
-      return null;
-    }
-    
-    const regex = /^[a-zA-ZäöüÄÖÜß0-9\s.,;:!?-]*$/;
-    const valid = regex.test(control.value);
-    return valid ? null : { 'invalidChars': true };
-  };
-}
+  // Custom validator function to allow only letters and numbers
+  onlyLettersAndNumbersValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (!control.value) {
+        // Handle empty value
+        return null;
+      }
+
+      const regex = /^[a-zA-ZäöüÄÖÜß0-9\s.,;:!?-]*$/;
+      const valid = regex.test(control.value);
+      return valid ? null : { invalidChars: true };
+    };
+  }
 
   get f() {
-    return this.orderForm.controls;  
+    return this.orderForm.controls;
   }
 
   sendRequest() {
@@ -97,40 +107,40 @@ export class OrderDialogComponent {
     }
 
     let loadingDialog = this.dialog.open(LoadingDialogComponent, {
-      panelClass: "transparent-dialog",
+      panelClass: 'transparent-dialog',
       width: '100vw',
       height: '100vh',
       maxWidth: 'none',
       maxHeight: 'none',
-      disableClose: true
+      disableClose: true,
     });
 
     const orderData: Order = this.orderForm.value;
 
-    this.emailService.sendEmail(orderData)
-      .then(response => {
+    this.emailService.sendEmail(orderData).then(
+      (response) => {
         // sending email success
         this.showOrderForm = false;
         this.showSuccessMessage = true;
 
-        loadingDialog.close()
-
-        setTimeout(() => {
-         this.closeDialog();
-        }, 5500);
-
-      }, error => {
-        // sending email failed
-        loadingDialog.close()
+        loadingDialog.close();
 
         setTimeout(() => {
           this.closeDialog();
-         }, 5000);
-        
-      });
+        }, 5500);
+      },
+      (error) => {
+        // sending email failed
+        loadingDialog.close();
+
+        setTimeout(() => {
+          this.closeDialog();
+        }, 5000);
+      }
+    );
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close();
   }
 }

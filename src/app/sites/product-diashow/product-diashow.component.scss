@@ -1,0 +1,36 @@
+@import "../../../styles.scss";
+
+@media (max-width: 768px) {
+  .content-card {
+    padding: 10px; // Adjust padding for mobile //
+    margin-top: 20px; // Adjust margin for mobile //
+    margin-bottom: 20px; // Adjust margin for mobile //
+    width: 100%; // Full width for mobile //
+  }
+}
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Optional: Center items vertically */
+}
+
+.content-card {
+  background-color: rgb(243, 243, 232);
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  width: 800px;
+}
+
+.diashow {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-bottom: 30px;
+}
