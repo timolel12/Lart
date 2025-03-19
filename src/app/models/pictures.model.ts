@@ -9,13 +9,13 @@ export const allgemeinImages: ImageData[] = [
     img: 'assets/images/Allgemein/1.jpeg',
     id: 'Süße Herzen',
     description:
-      'Dieses kleine süße Herz eignet sich super dazu wenn man einen Gutschein, Geld o.ä. auf eine besondere Art verscheken will. Dabei können wie zu sehen verschieden Farbkombinationen angenommen werden. Einfrabig, weiß, schwarz oder farblich marmoriert.',
+      'Dieses kleine, süße Herz eignet sich super, wenn man einen Gutschein, Geld o.ä. auf eine besondere Art verschenken will. Dabei können, wie zu sehen, verschiedene Farbkombinationen angenommen werden. Einfarbig, weiß, schwarz oder farblich marmoriert.',
   },
   {
     img: 'assets/images/Allgemein/2.jpeg',
     id: 'Süßes Herz',
     description:
-      'Hier nochmal ein einzelnes Herz in der Farbe Braun marmoriert.',
+      'Hier nochmal ein einzelnes Herz in der Farbe braun marmoriert.',
   },
   {
     img: 'assets/images/Allgemein/3.jpeg',
@@ -24,32 +24,32 @@ export const allgemeinImages: ImageData[] = [
   },
   {
     img: 'assets/images/Allgemein/4.jpeg',
-    id: 'Aplaka',
+    id: 'Alpaka',
     description:
       'Fun Fact: Die Stimmung von Lamas und Alpakas lässt sich unter anderem an ihren Ohren ablesen. Steil aufgerichtete Ohren sind ein Zeichen von Wachsamkeit oder freundlicher Neugier. Stark nach hinten gerichtete Ohren deuten hingegen auf Ablehnung oder Ärger hin.',
   },
   {
     img: 'assets/images/Allgemein/5.jpeg',
     id: 'Häuser',
-    description: 'Ein Set mit Deko-Häusern',
+    description: 'Ein Set mit Deko-Häusern.',
   },
   {
     img: 'assets/images/Allgemein/7.jpeg',
     id: 'Lieblingsplatz',
     description:
-      'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+      'Mit diesem Schmuckstand kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/8.jpeg',
     id: 'Lieblingsplatz',
     description:
-      'Mit diesem Schmuckstand, kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+      'Mit diesem Schmuckstand kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/9.jpeg',
     id: 'Geschenke',
     description:
-      'Wieder eine Möglichkeit um Sachen auf eine tolle Art zu verschenken.',
+      'Wieder eine Möglichkeit, Dinge auf eine tolle Art zu verschenken.',
   },
   {
     img: 'assets/images/Allgemein/10.jpeg',
@@ -60,12 +60,12 @@ export const allgemeinImages: ImageData[] = [
   {
     img: 'assets/images/Allgemein/11.jpeg',
     id: 'Wichtel',
-    description: 'Ein Wichtel kommt selten allein',
+    description: 'Ein Wichtel kommt selten allein.',
   },
   {
     img: 'assets/images/Allgemein/12.jpeg',
-    id: 'Untesetzer - Aperol Edition',
-    description: 'Lest euch die Sprüche einfach selber durch',
+    id: 'Untersetzer - Aperol Edition',
+    description: 'Lest euch die Sprüche einfach selber durch.',
   },
   {
     img: 'assets/images/Allgemein/13.jpeg',
@@ -77,13 +77,13 @@ export const allgemeinImages: ImageData[] = [
     img: 'assets/images/Allgemein/14.jpeg',
     id: 'Untersetzer - Lillet Edition',
     description:
-      'Wie man sieht, mit jedem alkoholischen und nicht alkoholischen Getränk anpassbar',
+      'Wie man sieht, sind sie mit jedem alkoholischen und nicht alkoholischen Getränk anpassbar.',
   },
   {
     img: 'assets/images/Allgemein/15.jpeg',
     id: 'Untersetzer',
     description:
-      'Diese hier sind immer möglich zum untersetzen, egal was getrunken wird.',
+      'Diese hier sind immer möglich zum Untersetzen, egal was getrunken wird.',
   },
 ];
 
@@ -91,17 +91,17 @@ export const familienGeschenkeImages: ImageData[] = [
   {
     img: 'assets/images/Familien_Geschenke/1.jpeg',
     id: 'Oma',
-    description: 'Perfekt um seinen Liebsten eine Freude zu machen.',
+    description: 'Perfekt, um seinen Liebsten eine Freude zu machen.',
   },
   {
     img: 'assets/images/Familien_Geschenke/2.jpeg',
     id: 'Mama',
-    description: 'Ohne sie würden wir nicht existieren',
+    description: 'Ohne sie würden wir nicht existieren.',
   },
   {
     img: 'assets/images/Familien_Geschenke/3.jpeg',
     id: 'Mama',
-    description: 'Ohne sie würden wir nicht existieren',
+    description: 'Ohne sie würden wir nicht existieren.',
   },
   {
     img: 'assets/images/Familien_Geschenke/4.jpeg',
@@ -111,7 +111,7 @@ export const familienGeschenkeImages: ImageData[] = [
   {
     img: 'assets/images/Familien_Geschenke/5.jpeg',
     id: 'Opa',
-    description: 'Die Großväter auch..',
+    description: 'Die Großväter auch...',
   },
   {
     img: 'assets/images/Familien_Geschenke/6.jpeg',
@@ -121,12 +121,12 @@ export const familienGeschenkeImages: ImageData[] = [
   {
     img: 'assets/images/Familien_Geschenke/7.jpeg',
     id: 'Mama',
-    description: 'Eine andere Variation um ein Geschenk für Mama zu machen.',
+    description: 'Eine andere Variation, um ein Geschenk für Mama zu machen.',
   },
   {
     img: 'assets/images/Familien_Geschenke/8.jpeg',
     id: 'Papa',
-    description: 'Eine andere Variation um ein Geschenk für Papa zu machen.',
+    description: 'Eine andere Variation, um ein Geschenk für Papa zu machen.',
   },
   {
     img: 'assets/images/Familien_Geschenke/9.jpeg',
@@ -158,66 +158,66 @@ export const geschenkSetImages: ImageData[] = [
     img: 'assets/images/Geschenk_Set/4.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/5.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/6.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/7.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/8.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/9.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/10.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/11.jpeg',
     id: 'Geschenk Set',
     description:
-      '... bestehende aus einem Untersetzer eine Schatulle mit Deckel und einer kleinen Vase.',
+      '... bestehend aus einem Untersetzer, einer Schatulle mit Deckel und einer kleinen Vase.',
   },
   {
     img: 'assets/images/Geschenk_Set/12.jpeg',
     id: 'Lama Set',
-    description: 'Gegen Ende noch weitere Sprüche, für die Lama/Alpaka Sets',
+    description: 'Gegen Ende noch weitere Sprüche für die Lama/Alpaka Sets.',
   },
   {
     img: 'assets/images/Geschenk_Set/13.jpeg',
     id: 'Glücksbärchen',
     description:
-      '...bringt wissenschaftlichen bewiesen den Leuten mehr Glück. Quelle: Facebook',
+      '...bringt wissenschaftlich bewiesen den Leuten mehr Glück. Quelle: Facebook',
   },
   {
     img: 'assets/images/Geschenk_Set/25.jpeg',
     id: 'Glücksbärchen',
     description:
-      '...bringt wissenschaftlichen bewiesen den Leuten mehr Glück. Quelle: Facebook',
+      '...bringt wissenschaftlich bewiesen den Leuten mehr Glück. Quelle: Facebook',
   },
   {
     img: 'assets/images/Geschenk_Set/14.jpeg',
@@ -238,12 +238,12 @@ export const geschenkSetImages: ImageData[] = [
     img: 'assets/images/Geschenk_Set/17.jpeg',
     id: 'Personalisiertes Geschenk',
     description:
-      'Dieses Geschenk eignet sich perfekt für Geburtstage und können persönlich gestaltet werden.',
+      'Dieses Geschenk eignet sich perfekt für Geburtstage und kann persönlich gestaltet werden.',
   },
   {
     img: 'assets/images/Geschenk_Set/18.jpeg',
     id: 'Erinnerungen Set',
-    description: 'Für abenteuerlustige Entdecker',
+    description: 'Für abenteuerlustige Entdecker.',
   },
   {
     img: 'assets/images/Geschenk_Set/19.jpeg',
@@ -262,7 +262,7 @@ export const geschenkSetImages: ImageData[] = [
   },
   {
     img: 'assets/images/Geschenk_Set/22.jpeg',
-    id: 'Fussball',
+    id: 'Fußball',
     description: 'Gut Kick!',
   },
   {
@@ -278,13 +278,13 @@ export const geschenkSetImages: ImageData[] = [
   {
     img: 'assets/images/Geschenk_Set/26.jpeg',
     id: 'Lama Set',
-    description: '...Beschreibung überflüssig',
+    description: '...Beschreibung überflüssig.',
   },
   {
     img: 'assets/images/Geschenk_Set/27.jpeg',
     id: 'Lama Set',
     description:
-      'Auch hier können weiter Sprüche und Ideen gerne an uns gesendet werden.',
+      'Auch hier können weitere Sprüche und Ideen gerne an uns gesendet werden.',
   },
 ];
 
