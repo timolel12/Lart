@@ -10,19 +10,17 @@ import { OrderDialogComponent } from '../../dialogs/order-dialog/order-dialog.co
   standalone: true,
   imports: [MatDividerModule, MatCardModule, MatButtonModule],
   templateUrl: './requests.component.html',
-  styleUrl: './requests.component.scss'
+  styleUrl: './requests.component.scss',
 })
 export class RequestsComponent {
-  
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog) {}
 
-  openOrderDialog(){
+  openOrderDialog() {
     let dialog = this.dialog.open(OrderDialogComponent, {
       disableClose: true,
-      height: '100vh', 
+      height: '100vh',
       width: '100vw',
-      maxWidth: '100vw'
+      maxWidth: '100vw',
     });
   }
-
 }

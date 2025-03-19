@@ -1,57 +1,121 @@
 <!-- order.component.html -->
-<form *ngIf="showOrderForm" [formGroup]="orderForm" (ngSubmit)="sendRequest()" class="order-form">
-    <mat-card class="order-card">
-      <mat-card-header class="custom-card-header">
-        <mat-card-title>Anfrage stellen</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-form-field appearance="outline">
-          <mat-label>Vorname</mat-label>
-          <input type="text" matInput maxlength="70" formControlName="customerSurname" />
-          <mat-error *ngIf="orderForm.get('customerSurname')?.hasError('required')">Erforderlich.</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Nachname</mat-label>
-          <input type="text" matInput maxlength="70" formControlName="customerName" />
-          <mat-error *ngIf="orderForm.get('customerName')?.hasError('required')">Erforderlich.</mat-error>  
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <button mat-icon-button matSuffix [matTooltip]="'Ihre E-Mail Adresse wird benötigt, damit wir zu Ihnen Kontakt aufnehmen können'">
-            <mat-icon>info</mat-icon>
-          </button>
-          <mat-label>E-Mail Adresse</mat-label>
-          <input type="email" matInput maxlength="100"formControlName="customerEmail" />
-          <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('required')">Erforderlich.</mat-error>  
-          <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('email')">Ungültige E-Mail Adresse.</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <button mat-icon-button matSuffix [matTooltip]="'Produktauswahl - Falls Sie eine individuelle Anfrage haben, wählen Sie bitte &quot;Sonstige Anfrage&quot;'">
-            <mat-icon>info</mat-icon>
-          </button>
-          <mat-label>Produkt</mat-label>
-          <mat-select formControlName="product">
-              <mat-option *ngFor="let product of products" [value]="product.name">
-                {{ product.name }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('required')">Erforderlich.</mat-error>  
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Sonstige Wünsche / Ihr Anliegen</mat-label>
-          <textarea matInput formControlName="customerOrderText"></textarea>
-          <mat-error *ngIf="orderForm.get('customerOrderText')?.hasError('invalidChars')">Nur Buchstaben und Zahlen sind erlaubt.</mat-error>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions class="custom-card-actions">
-        <button mat-button mat-dialog-close class="primary-button half-width-button" type="button" (click)="closeDialog()">Abbrechen</button>
-        <button mat-button mat-dialog-close class="primary-button half-width-button" type="submit">Anfrage abschicken</button>
-      </mat-card-actions>
-    </mat-card>
+<form
+  *ngIf="showOrderForm"
+  [formGroup]="orderForm"
+  (ngSubmit)="sendRequest()"
+  class="order-form"
+>
+  <mat-card class="order-card">
+    <mat-card-header class="custom-card-header">
+      <mat-card-title>Anfrage stellen</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Vorname</mat-label>
+        <input
+          type="text"
+          matInput
+          maxlength="70"
+          formControlName="customerSurname"
+        />
+        <mat-error
+          *ngIf="orderForm.get('customerSurname')?.hasError('required')"
+          >Erforderlich.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nachname</mat-label>
+        <input
+          type="text"
+          matInput
+          maxlength="70"
+          formControlName="customerName"
+        />
+        <mat-error *ngIf="orderForm.get('customerName')?.hasError('required')"
+          >Erforderlich.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <button
+          mat-icon-button
+          matSuffix
+          [matTooltip]="
+            'Ihre E-Mail Adresse wird benötigt, damit wir zu Ihnen Kontakt aufnehmen können'
+          "
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+        <mat-label>E-Mail Adresse</mat-label>
+        <input
+          type="email"
+          matInput
+          maxlength="100"
+          formControlName="customerEmail"
+        />
+        <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('required')"
+          >Erforderlich.</mat-error
+        >
+        <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('email')"
+          >Ungültige E-Mail Adresse.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <button
+          mat-icon-button
+          matSuffix
+          [matTooltip]="
+            'Produktauswahl - Falls Sie eine individuelle Anfrage haben, wählen Sie bitte &quot;Sonstige Anfrage&quot;'
+          "
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+        <mat-label>Produkt</mat-label>
+        <mat-select formControlName="product">
+          <mat-option *ngFor="let product of products" [value]="product.name">
+            {{ product.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="orderForm.get('customerEmail')?.hasError('required')"
+          >Erforderlich.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Sonstige Wünsche / Ihr Anliegen</mat-label>
+        <textarea matInput formControlName="customerOrderText"></textarea>
+        <mat-error
+          *ngIf="orderForm.get('customerOrderText')?.hasError('invalidChars')"
+          >Nur Buchstaben und Zahlen sind erlaubt.</mat-error
+        >
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="custom-card-actions">
+      <button
+        mat-button
+        mat-dialog-close
+        class="primary-button half-width-button"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Abbrechen
+      </button>
+      <button
+        mat-button
+        mat-dialog-close
+        class="primary-button half-width-button"
+        type="submit"
+      >
+        Anfrage abschicken
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </form>
 <div class="centered-container" *ngIf="showSuccessMessage">
   <mat-card class="message-card">
     <mat-card-header class="custom-card-header">
-      <mat-card-title>Anfrage wurde versendet. Wir werden uns in Kürze bei Ihnen melden.</mat-card-title>
+      <mat-card-title
+        >Anfrage wurde versendet. Wir werden uns in Kürze bei Ihnen
+        melden.</mat-card-title
+      >
     </mat-card-header>
     <mat-card-content class="message-content">
       <mat-icon color="primary" class="success-icon">check_circle</mat-icon>
@@ -61,11 +125,13 @@
 <div class="centered-container" *ngIf="showErrorMessage">
   <mat-card class="message-card">
     <mat-card-header class="custom-card-header">
-      <mat-card-title>Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.</mat-card-title>
+      <mat-card-title
+        >Es ist ein Fehler aufgetreten. Versuchen Sie es später
+        erneut.</mat-card-title
+      >
     </mat-card-header>
     <mat-card-content class="message-content">
       <mat-icon color="primary" class="error-icon">error</mat-icon>
     </mat-card-content>
   </mat-card>
 </div>
-  

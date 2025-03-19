@@ -1,23 +1,29 @@
 <!-- Main Content -->
 <div class="main-content">
-  <img
-  src="assets/images/other_background.png"
-  alt=""
-  class="banner"
-  />
+  <img src="assets/images/other_background.png" alt="" class="banner" />
   <div class="product-gallery">
-    <h1>Produktbeispiele</h1>  
+    <h1>Produktbeispiele</h1>
     <mat-divider></mat-divider>
     <div class="product-grid">
-      <div class="product-card" *ngFor="let product of products" (click)="viewProductDetails(product.id)">
-        <img [src]="product.mainImage" [alt]="product.name" class="product-image">
+      <div
+        class="product-card"
+        *ngFor="let product of products"
+        (click)="viewProductDetails(product.id)"
+      >
+        <img
+          [src]="product.mainImage"
+          [alt]="product.name"
+          class="product-image"
+        />
         <div class="overlay">
           <h3>{{ product.name }}</h3>
         </div>
       </div>
     </div>
   </div>
-  <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
+  <button mat-raised-button class="primary-button" (click)="openOrderDialog()">
+    Jetzt Anfrage stellen
+  </button>
   <!--mat-card class="content-card" style="text-align: center;">
     <h1 class="slideshowHeader">Weihnachtsmarkt Angebote</h1>
     <mat-card-content>

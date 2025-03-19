@@ -13,7 +13,7 @@ import { LoadingDialogComponent } from './dialogs/loading-dialog/loading-dialog.
   standalone: true,
   imports: [CommonModule, RouterOutlet, AppHeaderComponent, AppFooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'L.art';
@@ -21,27 +21,28 @@ export class AppComponent implements OnInit, OnDestroy {
   isMainPage: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
-  constructor(private routeService: RouteService,
-              private dialog: MatDialog) {}
+  constructor(private routeService: RouteService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(isSingleSegment => {
-      this.isMainPage = isSingleSegment;
-    });
+    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
+      (isSingleSegment) => {
+        this.isMainPage = isSingleSegment;
+      }
+    );
 
     //show loading animation for some seconds until page is loaded
     this.dialog.open(LoadingDialogComponent, {
-          panelClass: "transparent-dialog",
-          width: '100vw',
-          height: '100vh',
-          maxWidth: 'none',
-          maxHeight: 'none',
-          disableClose: true
-        });
+      panelClass: 'transparent-dialog',
+      width: '100vw',
+      height: '100vh',
+      maxWidth: 'none',
+      maxHeight: 'none',
+      disableClose: true,
+    });
 
     setTimeout(() => {
-          this.dialog.closeAll();
-        }, 1500);
+      this.dialog.closeAll();
+    }, 1500);
   }
 
   ngOnDestroy(): void {

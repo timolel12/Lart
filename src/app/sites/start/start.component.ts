@@ -8,36 +8,34 @@ import { RouteService } from '../../services/route.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './start.component.html',
-  styleUrl: './start.component.scss'
+  styleUrl: './start.component.scss',
 })
 export class StartComponent {
-
-  constructor (private router: Router, private routeService: RouteService){
-  }
+  constructor(private router: Router, private routeService: RouteService) {}
 
   buttonLabels: string[] = [
-    'Über Uns', 
+    'Über Uns',
     'Produktbeispiele',
-    'Märkte 2025', 
-    'Anfragen', 
-    'Kontakt', 
+    'Märkte 2025',
+    'Anfragen',
+    'Kontakt',
   ];
 
   buttonClicked(label: string): void {
-    if (label === "Über Uns") {
-      this.router.navigate(['/about-us'])
+    if (label === 'Über Uns') {
+      this.router.navigate(['/about-us']);
     }
-    if (label === "Produktbeispiele") {
-      this.router.navigate(['/products'])
+    if (label === 'Produktbeispiele') {
+      this.router.navigate(['/products']);
     }
-    if (label === "Märkte 2025") {
-      this.router.navigate(['/where-to-find-us'])
+    if (label === 'Märkte 2025') {
+      this.router.navigate(['/where-to-find-us']);
     }
-    if (label === "Anfragen") {
-      this.router.navigate(['/requests'])
+    if (label === 'Anfragen') {
+      this.router.navigate(['/requests']);
     }
-    if (label === "Kontakt") {
-      this.router.navigate(['/contact'])
+    if (label === 'Kontakt') {
+      this.router.navigate(['/contact']);
     }
   }
 }

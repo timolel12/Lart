@@ -64,9 +64,14 @@
 .overlay {
   position: absolute;
   bottom: 10px; /* Push the box slightly above the bottom */
-  left: 15px;  /* Adjust left side spacing */
+  left: 15px; /* Adjust left side spacing */
   right: 15px; /* Adjust right side spacing */
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background for better text visibility */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better text visibility */
   color: white;
   text-align: center;
   padding: 4px 10px; /* Reduced padding to make the box more compact */
@@ -95,4 +100,3 @@
     padding: 3px 8px; /* Smaller padding for even more compact box on mobile */
   }
 }
-

@@ -1,28 +1,33 @@
 <div class="slides">
-    <div class="slide"
-        [ngStyle]="{ 
-            'background-image': 'url(' + slides[currentSlide].img + ')',
-            opacity: hidden ? 0 : 1,
-            'transition': 'opacity 500ms ease-in-out'
-        }">
-    </div>
-    @if (indicatorsVisible){
-        <div id="indicators">
-            @for(slide of slides; track $index){
-            <div class="indicator" [ngClass]="{active: $index == currentSlide}" (click)="jumpToPicture($index)"></div>
-            }
-        </div>
+  <div
+    class="slide"
+    [ngStyle]="{
+      'background-image': 'url(' + slides[currentSlide].img + ')',
+      opacity: hidden ? 0 : 1,
+      transition: 'opacity 500ms ease-in-out'
+    }"
+  ></div>
+  @if (indicatorsVisible){
+  <div id="indicators">
+    @for(slide of slides; track $index){
+    <div
+      class="indicator"
+      [ngClass]="{ active: $index == currentSlide }"
+      (click)="jumpToPicture($index)"
+    ></div>
     }
+  </div>
+  }
 
-    <button mat-icon-button (click)="nextPicture()" class="diashowNext">
-        <mat-icon>chevron_right</mat-icon>
-    </button>
-    <button mat-icon-button (click)="previousPicture()" class="diashowPrev">
-        <mat-icon>chevron_left</mat-icon>
-    </button>    
+  <button mat-icon-button (click)="nextPicture()" class="diashowNext">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+  <button mat-icon-button (click)="previousPicture()" class="diashowPrev">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
 </div>
 <div class="description-container">
-    <div class="marker"></div>
-    <h3 class="slide-title">{{ slides[currentSlide].title }}</h3>
-    <p class="slide-description">{{ slides[currentSlide].description }}</p>
+  <div class="marker"></div>
+  <h3 class="slide-title">{{ slides[currentSlide].id }}</h3>
+  <p class="slide-description">{{ slides[currentSlide].description }}</p>
 </div>

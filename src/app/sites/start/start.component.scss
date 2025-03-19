@@ -2,38 +2,38 @@
 
 /* Ensure the component takes up the full height of the viewport */
 :host {
-    display: block;
-    height: 100vh; /* Full viewport height */
-    width: 100%; /* Full width */
-    background-color: $primary-color; /* Desired background color */
-    color: white; /* Optional: Set text color to white for better contrast */
-    margin: 0; /* Ensure no margin is applied */
-    padding: 0; /* Ensure no padding is applied */
-    overflow: hidden;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 100vh; /* Ensure the container takes up full viewport height */
-    padding: 0 20px; /* Optional: add padding to the container for spacing */
-    box-sizing: border-box; /* Ensure padding is included in the width calculation */
-  }
-  
-  .left-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: block;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  background-color: $primary-color; /* Desired background color */
+  color: white; /* Optional: Set text color to white for better contrast */
+  margin: 0; /* Ensure no margin is applied */
+  padding: 0; /* Ensure no padding is applied */
+  overflow: hidden;
+}
 
-    .home-image {
-      width: 95%;
-      margin-left: 40px;
-    }
-  }
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh; /* Ensure the container takes up full viewport height */
+  padding: 0 20px; /* Optional: add padding to the container for spacing */
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
 
- .right-side {
+.left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .home-image {
+    width: 95%;
+    margin-left: 40px;
+  }
+}
+
+.right-side {
   flex: 1;
   display: flex;
   flex-direction: column; /* Arrange children vertically */
@@ -45,29 +45,30 @@
   display: none;
 }
 .logo {
-    width: 300px; /* Adjust as needed */
-    height: auto;
-  }
-  
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the buttons horizontally */
+  width: 300px; /* Adjust as needed */
+  height: auto;
 }
-  
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the buttons horizontally */
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .container {
-      flex-direction: column; /* Stack left and right sides vertically */
-      align-items: center; /* Center contents */
-      justify-content: center; /* Center vertically */
-      height: auto; /* Allow the container to resize dynamically */
+    flex-direction: column; /* Stack left and right sides vertically */
+    align-items: center; /* Center contents */
+    justify-content: center; /* Center vertically */
+    height: auto; /* Allow the container to resize dynamically */
   }
 
-  .left-side, .right-side {
-      width: 100%;
-      align-items: center; /* Center images and content on smaller screens */
-      padding: 10px 0; /* Reduce padding for smaller screens */
+  .left-side,
+  .right-side {
+    width: 100%;
+    align-items: center; /* Center images and content on smaller screens */
+    padding: 10px 0; /* Reduce padding for smaller screens */
   }
 
   .home-image-mobile {
@@ -76,27 +77,27 @@
   }
 
   .home-image {
-      display: none;
+    display: none;
   }
 
   .logo {
-      width: 250px; /* Scale down the logo for smaller screens */
+    width: 250px; /* Scale down the logo for smaller screens */
   }
 
   .button-container {
-      width: 100%;
-      margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
   }
 
   .rectangle-button {
-      margin-bottom: 10px; /* Add spacing between buttons */
+    margin-bottom: 10px; /* Add spacing between buttons */
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-      font-size: 1.5rem; /* Smaller font size for the header */
-      margin-left: 10px;
+    font-size: 1.5rem; /* Smaller font size for the header */
+    margin-left: 10px;
   }
 
   .home-image-mobile {
@@ -106,14 +107,14 @@
   }
 
   .home-image {
-     display: none;
+    display: none;
   }
 
   .logo {
-      width: 150px; /* Further scale down logo */
+    width: 150px; /* Further scale down logo */
   }
 
   .rectangle-button {
-      width: 95%; /* Full width for very small screens */
+    width: 95%; /* Full width for very small screens */
   }
 }

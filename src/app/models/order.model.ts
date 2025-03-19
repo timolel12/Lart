@@ -1,13 +1,13 @@
 export interface Order {
-    id: number;
-    product: Product;
-    customerSurname: string;
-    customerName: string;
-    customerEmail: string;
-    customerOrderText: string;
-  }
+  id: number;
+  product: Product;
+  customerSurname: string;
+  customerName: string;
+  customerEmail: string;
+  customerOrderText: string;
+}
 
-export interface Product{
-    name: string;
-    id: number;
+export interface Product {
+  name: string;
+  id: number;
 }

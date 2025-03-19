@@ -7,32 +7,30 @@
     margin-bottom: 20px; // Adjust margin for mobile //
     width: 100%; // Full width for mobile //
   }
-  
 }
 
 .main-content {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Optional: Center items vertically */
-  }
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Optional: Center items vertically */
+}
 
 .content-card {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(243, 243, 232);
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 50px;
-  width: 800px; 
-   
+  width: 800px;
 }
 
-.diashow{
+.diashow {
   margin-bottom: 20px;
 }
 
 .buttons {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }

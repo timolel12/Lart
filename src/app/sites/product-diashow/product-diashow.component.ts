@@ -5,42 +5,41 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DiashowComponent } from '../../components/diashow/diashow.component';
+import {
+  allgemeinImages,
+  weihnachtenWinterImages,
+  osternImages,
+  herbstImages,
+  familienGeschenkeImages,
+  geschenkSetImages,
+  glueckImages,
+  hochzeitImages,
+  kerzenKerzenhalterImages,
+  kopfschmuckImages,
+  leinwaendeImages,
+  taufeUndMehrImages,
+} from '../../models/pictures.model';
+import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-diashow',
   standalone: true,
   imports: [
-      CommonModule,
-      MatCardModule,
-      MatButtonModule,
-      MatIconModule,
-      DiashowComponent],
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    DiashowComponent,
+  ],
   templateUrl: './product-diashow.component.html',
-  styleUrl: './product-diashow.component.scss'
+  styleUrl: './product-diashow.component.scss',
 })
 export class ProductDiashowComponent implements OnInit {
   product: any;
   currentImageIndex = 0;
   loadedDiashow = new Diashow();
 
-  xmasImages = [
-    { img: "assets/images/slideshow_xmas/slide171.jpeg", id: 'img171', title: 'Magical Christmas Night', description: 'A festive Christmas scene with warm lights.' },
-    { img: "assets/images/slideshow_xmas/slide172.jpeg", id: 'img172', title: 'Snowy Decorations', description: 'Snow-covered Christmas decorations in a cozy setting.' },
-    { img: "assets/images/slideshow_xmas/slide181.jpeg", id: 'img181', title: 'Christmas Tree Glow', description: 'A beautifully decorated Christmas tree at night.' },
-    { img: "assets/images/slideshow_xmas/slide182.jpeg", id: 'img182', title: 'Holiday Lights', description: 'Holiday lights shining brightly in the evening.' },
-    { img: "assets/images/slideshow_xmas/slide191.jpeg", id: 'img191', title: 'Christmas Joy', description: 'Christmas ornaments and gifts under the tree.' },
-];
-
-picsAndMoreImages = [
-    { img: "assets/images/slideshow/slide1.jpeg", id: 'img1', title: 'Sunset Over Mountains', description: 'A breathtaking sunset over the mountains.' },
-    { img: "assets/images/slideshow/slide2.jpeg", id: 'img2', title: 'Serene Beach', description: 'A calm beach with crystal-clear water.' },
-    { img: "assets/images/slideshow/slide3.jpeg", id: 'img3', title: 'Autumn Forest Path', description: 'A serene forest path in autumn colors.' },
-    { img: "assets/images/slideshow/slide4.jpeg", id: 'img4', title: 'City Lights', description: 'A vibrant city street full of life and color.' },
-    { img: "assets/images/slideshow/slide5.jpeg", id: 'img5', title: 'Snowy Peaks', description: 'A snowy mountain peak standing tall.' },
-];
-
-  constructor(private route: ActivatedRoute,
-              private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // Get the string id from the route
@@ -50,44 +49,85 @@ picsAndMoreImages = [
 
   // Method to load product details based on the string ID
   loadProductDetails(id: string) {
-    const productType = Object.values(DiashowType).find(value => value === id) as DiashowType;
-    
+    const productType = Object.values(DiashowType).find(
+      (value) => value === id
+    ) as DiashowType;
+
     if (!productType) {
-      console.log("Invalid product ID");
+      console.log('Invalid product ID');
       return;
     }
 
     switch (productType) {
+      case DiashowType.FAMILY:
+        this.loadedDiashow.images = familienGeschenkeImages;
+        break;
+      case DiashowType.PRESENTS:
+        this.loadedDiashow.images = geschenkSetImages;
+        break;
+      case DiashowType.LUCK:
+        this.loadedDiashow.images = glueckImages;
+        break;
+      case DiashowType.AUTUMN:
+        this.loadedDiashow.images = herbstImages;
+        break;
+      case DiashowType.MARIAGE:
+        this.loadedDiashow.images = hochzeitImages;
+        break;
+      case DiashowType.CANDLES:
+        this.loadedDiashow.images = kerzenKerzenhalterImages;
+        break;
+      case DiashowType.PAINTINGS:
+        this.loadedDiashow.images = leinwaendeImages;
+        break;
+      case DiashowType.EASTER:
+        this.loadedDiashow.images = osternImages;
+        break;
+      case DiashowType.RELIGION:
+        this.loadedDiashow.images = taufeUndMehrImages;
+        break;
+      case DiashowType.HEADDRESS:
+        this.loadedDiashow.images = kopfschmuckImages;
+        break;
       case DiashowType.XMAS:
-        this.loadedDiashow.id = "Weihnachten"
-        this.loadedDiashow.images = this.xmasImages
+        this.loadedDiashow.images = weihnachtenWinterImages;
         break;
       case DiashowType.OTHER:
-        this.loadedDiashow.id = "Bilder und mehr"
-        this.loadedDiashow.images = this.picsAndMoreImages;
+        this.loadedDiashow.images = allgemeinImages;
         break;
       default:
-        console.log("Unknown product type");
-  }
-
+        console.log('Unknown product type');
+    }
   }
 
   backToProducts() {
     //TODO: effect for navigating
-    this.router.navigate(["/products"]);
+    this.router.navigate(['/products']);
   }
 }
 
 export class Diashow {
   constructor(
-    public id: string = '', 
-    public images: { img: string; id: string; title: string; description: string }[] = [] 
-    
+    public id: string = '',
+    public images: {
+      img: string;
+      id: string;
+      description: string;
+    }[] = []
   ) {}
 }
 export enum DiashowType {
-  XMAS = "christmas",
-  OTHER = "other",
-  UNDEFINED = ""
+  FAMILY = 'family',
+  PRESENTS = 'presents',
+  LUCK = 'luck',
+  AUTUMN = 'autumn',
+  MARIAGE = 'mariage',
+  CANDLES = 'candles',
+  HEADDRESS = 'headdress',
+  PAINTINGS = 'paintings',
+  EASTER = 'easter',
+  RELIGION = 'religion',
+  XMAS = 'christmas',
+  OTHER = 'other',
+  UNDEFINED = '',
 }
-

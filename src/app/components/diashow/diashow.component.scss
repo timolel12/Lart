@@ -1,169 +1,170 @@
 @import "../../../styles.scss";
 
 .slides {
+  width: 100%;
+  height: 500px; /* Increased image size */
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .slide {
     width: 100%;
-    height: 500px; /* Increased image size */
+    height: 100%;
     border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
+  }
+
+  #indicators {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust both axes */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 8px;
+  }
 
-    .slide {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;     
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+
+    &.active {
+      background-color: black;
     }
-
-    #indicators {
-        position: absolute;
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust both axes */
-        display: flex;
-        gap: 8px;
-    }
-
-    .indicator {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: white;
-        cursor: pointer;
-        transition: background-color 0.5s ease-in-out;
-
-        &.active {
-            background-color: black;
-        }
-    }
+  }
 }
 
 /* === Updated Description Styling (NatGeo Style) === */
 .description-container {
-    width: 65%; /* More narrow for article-like formatting */
-    max-width: 700px;
-    text-align: left;
-    padding: 25px;
-    color: #333;
-    border-radius: 5px;
-    font-family: 'Georgia', serif;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.8;
+  width: 75%; /* More narrow for article-like formatting */
+  max-width: 700px;
+  text-align: left;
+  padding: 20px;
+  padding-bottom: 0px;
+  color: #333;
+  border-radius: 2px;
+  font-family: "Georgia", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 2;
 }
 
 .marker {
-    width: 8px;
-    height: 8px;
-    background-color: $complementary-color; /* Gold marker like NatGeo */
-    display: inline-block;
-    margin-right: 10px;
-    border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: $complementary-color; /* Gold marker like NatGeo */
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .slide-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
 }
 
 .slide-description {
-    font-size: 13px;
-    color: #444;
-    text-align: justify;
-    font-family: 'Georgia', serif;
-    letter-spacing: 0.3px;
+  font-size: 14px;
+  color: #444;
+  text-align: justify;
+  font-family: "Georgia", serif;
+  letter-spacing: 0.3px;
 }
 
 /* === Navigation Buttons === */
 .diashowNext,
 .diashowPrev {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-    border: 0px !important;
-    background-color: transparent !important;
-    color: white !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  border: 0px !important;
+  background-color: transparent !important;
+  color: white !important;
 
-    width: 70px !important;
-    height: 70px !important;
-    padding: 0px !important;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
- 
-    & > *[role=img] {
-       width: 36px;
-       height: 36px;
-       font-size: 36px;
- 
-       svg {
-          width: 36px;
-          height: 36px;
-       }
+  width: 70px !important;
+  height: 70px !important;
+  padding: 0px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  & > *[role="img"] {
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+
+    svg {
+      width: 36px;
+      height: 36px;
     }
- 
-    .mat-mdc-button-touch-target {
-       width: 50px !important;
-       height: 50px !important;
-    }
+  }
+
+  .mat-mdc-button-touch-target {
+    width: 50px !important;
+    height: 50px !important;
+  }
 }
 
 .diashowNext {
-    right: 30px !important;
+  right: 30px !important;
 }
 
 .diashowPrev {
-    left: 30px !important;
+  left: 30px !important;
 }
 
 /* === Responsive Styles === */
 @media (max-width: 768px) {
-    .slides {
-        height: 85vh; /* Bigger images on mobile */
-        border-radius: 0;
-    }
+  .slides {
+    height: 85vh; /* Bigger images on mobile */
+    border-radius: 0;
+  }
 
-    .slide {
-        height: 100%;
-    }
+  .slide {
+    height: 100%;
+  }
 
-    #indicators {
-        bottom: 50%;
-    }
+  #indicators {
+    bottom: 50%;
+  }
 
-    .indicator {
-        width: 10px;
-        height: 10px;
-        margin: 0 3px;
-    }
+  .indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+  }
 
-    .diashowNext,
-    .diashowPrev {
-        width: 50px !important;
-        height: 50px !important;
-    }
+  .diashowNext,
+  .diashowPrev {
+    width: 50px !important;
+    height: 50px !important;
+  }
 
-    .description-container {
-        width: 85%;
-        padding: 15px;
-        font-size: 12px;
-    }
+  .description-container {
+    width: 85%;
+    padding: 15px;
+    font-size: 12px;
+  }
 
-    .slide-title {
-        font-size: 16px;
-    }
+  .slide-title {
+    font-size: 16px;
+  }
 
-    .slide-description {
-        font-size: 12px;
-    }
+  .slide-description {
+    font-size: 12px;
+  }
 }

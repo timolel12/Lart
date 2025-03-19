@@ -1,22 +1,23 @@
 <div class="main-content">
-  <img
-  src="assets/images/other_background.png"
-  alt=""
-  class="banner"
-  />
-  <mat-card class="content-card" style="text-align: center;">
+  <img src="assets/images/other_background.png" alt="" class="banner" />
+  <mat-card class="content-card" style="text-align: center">
     <mat-card-content>
       <h1>Nächste Termine</h1>
       <mat-divider></mat-divider>
       <div class="appointments-container">
-        <div 
-          class="appointment" 
+        <div
+          class="appointment"
           *ngFor="let appointment of appointments"
           (click)="redirectTo(appointment.url)"
         >
-        <div class="appointment-date">
-          {{ formatAppointmentDateRange(appointment.startDate, appointment.endDate) }}
-        </div>
+          <div class="appointment-date">
+            {{
+              formatAppointmentDateRange(
+                appointment.startDate,
+                appointment.endDate
+              )
+            }}
+          </div>
           <div class="appointment-detail">
             <strong>Zeit:</strong> {{ appointment.time }}
           </div>

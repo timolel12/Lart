@@ -8,22 +8,22 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [MatButtonModule, MatIconModule, CommonModule],
   templateUrl: './diashow.component.html',
-  styleUrl: './diashow.component.scss'
+  styleUrl: './diashow.component.scss',
 })
 export class DiashowComponent {
   @Input() slides: any[] = [];
   @Input() indicatorsVisible = true;
   @Input() autoPlay = true;
-  
+
   currentSlide = 0;
   hidden = false;
 
-  constructor () {
-    if (this.autoPlay){
+  constructor() {
+    if (this.autoPlay) {
       setInterval(() => {
         this.nextPicture();
-      }, 4000);
-      }
+      }, 6000);
+    }
   }
 
   nextPicture() {
@@ -31,17 +31,17 @@ export class DiashowComponent {
     this.jumpToPicture(slide);
   }
 
-  previousPicture(){
-    let slide =  (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+  previousPicture() {
+    let slide =
+      (this.currentSlide - 1 + this.slides.length) % this.slides.length;
     this.jumpToPicture(slide);
   }
 
-  jumpToPicture(index: number){
+  jumpToPicture(index: number) {
     this.hidden = true;
-    setTimeout(() =>{
+    setTimeout(() => {
       this.currentSlide = index;
       this.hidden = false;
-    }, 500); 
+    }, 500);
   }
-
 }
