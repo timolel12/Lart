@@ -59,33 +59,8 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     this.menuOpen = !this.menuOpen;
   }
 
-  navigateContact() {
+  navigate(path: string) {
     this.menuOpen = false;
-    this.router.navigate(['/contact']);
-  }
-
-  navigateAboutUs() {
-    this.menuOpen = false;
-    this.router.navigate(['/about-us']);
-  }
-
-  navigateProducts() {
-    this.menuOpen = false;
-    this.router.navigate(['/products']);
-  }
-
-  navigateRequests() {
-    this.menuOpen = false;
-    this.router.navigate(['/requests']);
-  }
-
-  navigateWhereToFindUs() {
-    this.menuOpen = false;
-    this.router.navigate(['/where-to-find-us']);
-  }
-
-  navigateHome() {
-    this.menuOpen = false;
-    this.router.navigate(['']);
+    this.router.navigate([path]);
   }
 }

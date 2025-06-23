@@ -3,7 +3,7 @@
     <mat-toolbar>
       <img
         src="assets/images/logo_weiß_transparent.png"
-        (click)="navigateHome()"
+        (click)="navigate('')"
         class="logo"
         alt="Logo"
       />
@@ -15,37 +15,43 @@
         <a
           [class.active]="(activeLink$ | async) === ''"
           class="nav-bar-list-item"
-          (click)="navigateHome()"
+          (click)="navigate('')"
           >Home</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'products'"
           class="nav-bar-list-item"
-          (click)="navigateProducts()"
+          (click)="navigate('/products')"
           >Produktbeispiele</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'requests'"
           class="nav-bar-list-item"
-          (click)="navigateRequests()"
+          (click)="navigate('requests')"
           >Anfragen</a
+        >
+        <a
+          [class.active]="(activeLink$ | async) === 'online-shop'"
+          class="nav-bar-list-item"
+          (click)="navigate('online-shop')"
+          >Online-Shop</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'where-to-find-us'"
           class="nav-bar-list-item"
-          (click)="navigateWhereToFindUs()"
+          (click)="navigate('where-to-find-us')"
           >Märkte 2025</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'about-us'"
           class="nav-bar-list-item"
-          (click)="navigateAboutUs()"
+          (click)="navigate('about-us')"
           >Über uns</a
         >
         <a
           [class.active]="(activeLink$ | async) === 'contact'"
           class="nav-bar-list-item"
-          (click)="navigateContact()"
+          (click)="navigate('contact')"
           >Kontakt</a
         >
       </mat-nav-list>
