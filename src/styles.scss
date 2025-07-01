@@ -32,7 +32,7 @@ $Lart-theme: mat.define-light-theme(
 );
 
 $primary-color: #5d4037;
-$primary-dark-color: #3d2a24;
+$primary-dark-color: #472E1F;
 $complementary-color: #486c79;
 $complementary-dark-color: #2c454fba;
 
@@ -47,10 +47,11 @@ body {
 }
 
 body {
+  background-image: url('/assets/images/background_brown.png');
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y;
-  background-color: $primary-color;
+  background-color: $primary-dark-color;
   overflow-x: hidden;
 }
 
@@ -82,6 +83,7 @@ h1 {
 
 // secondary buttons
 .secondary-button {
+  background-color: $primary-dark-color !important;
   color: white !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
@@ -89,27 +91,8 @@ h1 {
 }
 
 .secondary-button:hover {
-  background-color: $complementary-color !important;
-  color: black !important;
-}
-
-// start page buttons
-.rectangle-button {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff; /* White border */
-  padding: 15px;
-  margin: 15px 0;
-  font-size: 20px;
-  cursor: pointer;
-  width: 500px; /* Increased width for buttons */
-  text-align: center;
-  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
-}
-
-.rectangle-button:hover {
-  background-color: #fff;
-  color: $primary-dark-color;
+  background-color: white !important;
+  color: $primary-dark-color !important;
 }
 
 .mdc-dialog__surface {

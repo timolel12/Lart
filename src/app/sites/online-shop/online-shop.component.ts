@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './online-shop.component.scss'
 })
 export class OnlineShopComponent {
-
+   openWhatsapp() {
+    window.open('https://wa.me/c/4915126593771', '_blank');
+  }
 }

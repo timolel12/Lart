@@ -1,9 +1,18 @@
 @import "../../../styles.scss";
 
 .main-content {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 650px;
+  display: grid;
+  align-items: center;
+}
+
+.img-content {
   width: 100%;
-  text-align: center;
-  height: 95%;
+  height: 100%;
+  display: grid;
+  align-items: center;
 }
 
 .banner {
@@ -17,8 +26,10 @@
 .content-card {
   background-color: $full-transparent-color;
   color: white;
+  width: auto;
   padding: 20px;
   margin-top: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .contact-buttons {

@@ -1,120 +1,85 @@
 @import "../../../styles.scss";
 
-/* Ensure the component takes up the full height of the viewport */
-:host {
-  display: block;
-  height: 100vh; /* Full viewport height */
-  width: 100%; /* Full width */
-  background-color: $primary-color; /* Desired background color */
-  color: white; /* Optional: Set text color to white for better contrast */
-  margin: 0; /* Ensure no margin is applied */
-  padding: 0; /* Ensure no padding is applied */
+.background-section {
+  width: 100%;
+  height: 99vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-section {
+  background-image: url('/assets/images/background_brown.png');
+}
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+.overlay-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.overlay-content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.second-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('/assets/images/background_light_brown.png');
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+  color: black; 
+}
+
+.product-image {
+  width: 300px;
+  height: 380px;
+  border-radius: 0.5rem;
+  position: relative;
+  cursor: pointer;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100vh; /* Ensure the container takes up full viewport height */
-  padding: 0 20px; /* Optional: add padding to the container for spacing */
-  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+.product-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.left-side {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  .home-image {
-    width: 95%;
-    margin-left: 40px;
-  }
-}
-
-.right-side {
-  flex: 1;
-  display: flex;
-  flex-direction: column; /* Arrange children vertically */
-  align-items: center; /* Center content horizontally */
-  padding-left: 20px; /* Space between images and text */
-}
-
-.home-image-mobile {
-  display: none;
-}
-.logo {
-  width: 300px; /* Adjust as needed */
-  height: auto;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the buttons horizontally */
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack left and right sides vertically */
-    align-items: center; /* Center contents */
-    justify-content: center; /* Center vertically */
-    height: auto; /* Allow the container to resize dynamically */
-  }
-
-  .left-side,
-  .right-side {
-    width: 100%;
-    align-items: center; /* Center images and content on smaller screens */
-    padding: 10px 0; /* Reduce padding for smaller screens */
-  }
-
-  .home-image-mobile {
-    display: block;
-    width: 100vw;
-  }
-
-  .home-image {
-    display: none;
-  }
-
-  .logo {
-    width: 250px; /* Scale down the logo for smaller screens */
-  }
-
-  .button-container {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  .rectangle-button {
-    margin-bottom: 10px; /* Add spacing between buttons */
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem; /* Smaller font size for the header */
-    margin-left: 10px;
-  }
-
-  .home-image-mobile {
-    display: block;
-    width: 100vw;
-    object-fit: cover; /* Ensure the image covers the width without distorting */
-  }
-
-  .home-image {
-    display: none;
-  }
-
-  .logo {
-    width: 150px; /* Further scale down logo */
-  }
-
-  .rectangle-button {
-    width: 95%; /* Full width for very small screens */
-  }
-}

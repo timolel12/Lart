@@ -1,41 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { RouteService } from '../../services/route.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-start',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './start.component.html',
   styleUrl: './start.component.scss',
 })
+
 export class StartComponent {
-  constructor(private router: Router, private routeService: RouteService) {}
+  constructor(private router: Router) {}
 
-  buttonLabels: string[] = [
-    'Über Uns',
-    'Produktbeispiele',
-    'Märkte 2025',
-    'Anfragen',
-    'Kontakt',
-  ];
-
-  buttonClicked(label: string): void {
-    if (label === 'Über Uns') {
-      this.router.navigate(['/about-us']);
-    }
-    if (label === 'Produktbeispiele') {
-      this.router.navigate(['/products']);
-    }
-    if (label === 'Märkte 2025') {
-      this.router.navigate(['/where-to-find-us']);
-    }
-    if (label === 'Anfragen') {
-      this.router.navigate(['/requests']);
-    }
-    if (label === 'Kontakt') {
-      this.router.navigate(['/contact']);
-    }
+  navigate(url: string): void {
+    this.router.navigate([url]);
   }
 }

@@ -29,20 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isMainPage = isSingleSegment;
       }
     );
-
-    //show loading animation for some seconds until page is loaded
-    this.dialog.open(LoadingDialogComponent, {
-      panelClass: 'transparent-dialog',
-      width: '100vw',
-      height: '100vh',
-      maxWidth: 'none',
-      maxHeight: 'none',
-      disableClose: true,
-    });
-
-    setTimeout(() => {
-      this.dialog.closeAll();
-    }, 1500);
   }
 
   ngOnDestroy(): void {
