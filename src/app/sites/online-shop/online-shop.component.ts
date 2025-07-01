@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './online-shop.component.html',
-  styleUrl: './online-shop.component.scss'
+  styleUrl: './online-shop.component.scss',
 })
 export class OnlineShopComponent {
-   openWhatsapp() {
+  openWhatsapp() {
     window.open('https://wa.me/c/4915126593771', '_blank');
   }
 }

@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +35,9 @@ import { MatDividerModule } from '@angular/material/divider';
 export class ProductsComponent implements AfterViewInit {
   constructor(public dialog: MatDialog, public router: Router) {}
 
-  @ViewChildren('imageRef') imageElements!: QueryList<ElementRef<HTMLImageElement>>;
+  @ViewChildren('imageRef') imageElements!: QueryList<
+    ElementRef<HTMLImageElement>
+  >;
 
   products = [
     {
@@ -84,7 +93,7 @@ export class ProductsComponent implements AfterViewInit {
       mainImage: 'assets/images/Weihnachten_Winter/1.jpeg',
     },
   ];
-  
+
   ngAfterViewInit() {
     // 1) Open the loading dialog
     let dialogRef = this.dialog.open(LoadingDialogComponent, {
@@ -93,9 +102,9 @@ export class ProductsComponent implements AfterViewInit {
     });
 
     // 2) Wait for all images
-    const loadPromises = this.imageElements.map(imgRef => {
+    const loadPromises = this.imageElements.map((imgRef) => {
       const img = imgRef.nativeElement;
-      return new Promise<void>(resolve => {
+      return new Promise<void>((resolve) => {
         if (img.complete && img.naturalHeight !== 0) {
           resolve();
         } else {

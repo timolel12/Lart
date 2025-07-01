@@ -32,7 +32,7 @@ $Lart-theme: mat.define-light-theme(
 );
 
 $primary-color: #5d4037;
-$primary-dark-color: #472E1F;
+$primary-dark-color: #472e1f;
 $complementary-color: #486c79;
 $complementary-dark-color: #2c454fba;
 
@@ -47,7 +47,7 @@ body {
 }
 
 body {
-  background-image: url('/assets/images/background_brown.png');
+  background-image: url("/assets/images/background_brown.png");
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y;

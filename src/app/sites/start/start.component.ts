@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './start.component.html',
   styleUrl: './start.component.scss',
 })
-
 export class StartComponent {
   constructor(private router: Router) {}
 
