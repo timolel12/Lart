@@ -1,4 +1,3 @@
-<!-- Main Content -->
 <div class="main-content">
   <img src="assets/images/other_background.png" alt="" class="banner" />
   <div class="product-gallery">
@@ -14,6 +13,7 @@
           [src]="product.mainImage"
           [alt]="product.name"
           class="product-image"
+          #imageRef
         />
         <div class="overlay">
           <h3>{{ product.name }}</h3>
@@ -24,18 +24,4 @@
   <button mat-raised-button class="primary-button" (click)="openOrderDialog()">
     Jetzt Anfrage stellen
   </button>
-  <!--mat-card class="content-card" style="text-align: center;">
-    <h1 class="slideshowHeader">Weihnachtsmarkt Angebote</h1>
-    <mat-card-content>
-      <diashow [slides]="xmasImages" [indicatorsVisible]="false"></diashow>
-      <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="content-card" style="text-align: center;">
-    <h1 class="slideshowHeader">Bilder und mehr</h1>
-    <mat-card-content>
-      <diashow [slides]="picsAndMoreImages" [indicatorsVisible]="false"></diashow>
-      <button mat-raised-button class="primary-button" (click)="openOrderDialog()">Jetzt Anfrage stellen</button>
-    </mat-card-content>
-  </mat-card-->
 </div>

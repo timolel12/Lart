@@ -1,22 +1,61 @@
-<div class="container">
-  <div class="left-side">
-    <img class="home-image" src="assets/images/home_background.png" alt="" />
+<div class="background-section light first-section">
+  <div class="overlay-content">
+    <h1>Handmade with Love</h1>
+    <p>Einzigartige handgefertigte Produkte</p>
+    <button
+      mat-raised-button
+      class="primary-button"
+      (click)="navigate('/online-shop')"
+    >
+      Zum Online-Shop
+    </button>
   </div>
-  <div class="right-side">
-    <img src="assets/images/logo_weiß_transparent.png" alt="" class="logo" />
-    <img
-      class="home-image-mobile"
-      src="assets/images/other_background.png"
-      alt=""
-    />
-    <div class="button-container">
+</div>
+<div class="background-section dark second-section">
+  <div class="product-grid">
+    <div class="product-card">
+      <img
+        src="assets/images/Geschenk_Set/1.png"
+        alt="Produkt 1"
+        class="product-image"
+      />
+      <h3>Geschenk-Sets</h3>
       <button
-        mat-raised-button
-        class="rectangle-button"
-        *ngFor="let label of buttonLabels"
-        (click)="buttonClicked(label)"
+        mat-button
+        class="secondary-button"
+        (click)="navigate('/products/presents')"
       >
-        {{ label }}
+        Jetzt anschauen
+      </button>
+    </div>
+    <div class="product-card">
+      <img
+        src="assets/images/Kopfschmuck/grgoe1.jpeg"
+        alt="Produkt 2"
+        class="product-image"
+      />
+      <h3>Kopfschmuck</h3>
+      <button
+        mat-button
+        class="secondary-button"
+        (click)="navigate('/products/headdress')"
+      >
+        Jetzt anschauen
+      </button>
+    </div>
+    <div class="product-card">
+      <img
+        src="assets/images/Weihnachten_Winter/20.jpeg"
+        alt="Produkt 3"
+        class="product-image"
+      />
+      <h3>Weihnachten</h3>
+      <button
+        mat-button
+        class="secondary-button"
+        (click)="navigate('/products/christmas')"
+      >
+        Jetzt anschauen
       </button>
     </div>
   </div>

@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,8 +32,12 @@ import { MatDividerModule } from '@angular/material/divider';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements AfterViewInit {
   constructor(public dialog: MatDialog, public router: Router) {}
+
+  @ViewChildren('imageRef') imageElements!: QueryList<
+    ElementRef<HTMLImageElement>
+  >;
 
   products = [
     {
@@ -83,17 +94,30 @@ export class ProductsComponent implements OnInit {
     },
   ];
 
-  ngOnInit(): void {
-    this.dialog.open(LoadingDialogComponent, {
+  ngAfterViewInit() {
+    // 1) Open the loading dialog
+    let dialogRef = this.dialog.open(LoadingDialogComponent, {
       disableClose: true,
-      height: '100vh',
-      width: '100vw',
-      maxWidth: '100vw',
+      panelClass: 'transparent-dialog',
     });
 
-    setTimeout(() => {
-      this.dialog.closeAll();
-    }, 500);
+    // 2) Wait for all images
+    const loadPromises = this.imageElements.map((imgRef) => {
+      const img = imgRef.nativeElement;
+      return new Promise<void>((resolve) => {
+        if (img.complete && img.naturalHeight !== 0) {
+          resolve();
+        } else {
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+        }
+      });
+    });
+
+    // 3) Close dialog when done
+    Promise.all(loadPromises).then(() => {
+      dialogRef.close();
+    });
   }
 
   viewProductDetails(id: string) {

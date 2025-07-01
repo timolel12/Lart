@@ -21,6 +21,10 @@ export class AppFooterComponent {
     this.router.navigate(['/datenschutz']);
   }
 
+  openWhatsapp() {
+    window.open('https://wa.me/c/4915126593771', '_blank');
+  }
+
   openInstagram() {
     window.open('https://www.instagram.com/l.art_handmade/', '_blank');
   }

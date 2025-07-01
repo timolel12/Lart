@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { CommonModule } from '@angular/common';
 import { filter, map } from 'rxjs/operators';
 import { RouteService } from '../../services/route.service';
 import { Subscription, Observable } from 'rxjs';
@@ -11,13 +11,13 @@ import { Subscription, Observable } from 'rxjs';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatListModule, MatCardModule], // Add CommonModule here
+  imports: [CommonModule, MatToolbarModule, MatListModule, MatCardModule],
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.scss'],
 })
 export class AppHeaderComponent implements OnInit, OnDestroy {
   activeLink$: Observable<string>;
-  isMainPage: boolean = false;
+  //isMainPage: boolean = false;
   menuOpen: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
@@ -33,11 +33,11 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
+    /*this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
       (isSingleSegment) => {
         this.isMainPage = isSingleSegment;
       }
-    );
+    );*/
 
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
@@ -59,33 +59,8 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     this.menuOpen = !this.menuOpen;
   }
 
-  navigateContact() {
+  navigate(path: string) {
     this.menuOpen = false;
-    this.router.navigate(['/contact']);
-  }
-
-  navigateAboutUs() {
-    this.menuOpen = false;
-    this.router.navigate(['/about-us']);
-  }
-
-  navigateProducts() {
-    this.menuOpen = false;
-    this.router.navigate(['/products']);
-  }
-
-  navigateRequests() {
-    this.menuOpen = false;
-    this.router.navigate(['/requests']);
-  }
-
-  navigateWhereToFindUs() {
-    this.menuOpen = false;
-    this.router.navigate(['/where-to-find-us']);
-  }
-
-  navigateHome() {
-    this.menuOpen = false;
-    this.router.navigate(['']);
+    this.router.navigate([path]);
   }
 }

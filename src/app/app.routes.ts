@@ -8,6 +8,7 @@ import { StartComponent } from './sites/start/start.component';
 import { RequestsComponent } from './sites/requests/requests.component';
 import { WhereToFindUsComponent } from './sites/where-to-find-us/where-to-find.us.component';
 import { ProductDiashowComponent } from './sites/product-diashow/product-diashow.component';
+import { OnlineShopComponent } from './sites/online-shop/online-shop.component';
 
 export const routes: Routes = [
   { path: '', component: StartComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'datenschutz', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },
+  { path: 'online-shop', component: OnlineShopComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDiashowComponent },
   { path: 'requests', component: RequestsComponent },
