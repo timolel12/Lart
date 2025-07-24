@@ -39,6 +39,9 @@ $complementary-dark-color: #2c454fba;
 $transparent-color: rgba(255, 255, 255, 0.1);
 $full-transparent-color: rgba(255, 255, 255, 0);
 
+$header-height: 140px;
+$footer-height: 90px;
+
 @include mat.all-component-themes($Lart-theme);
 
 body {

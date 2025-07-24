@@ -30,12 +30,28 @@
           (click)="navigate('requests')"
           >Anfragen</a
         >
-        <a
-          [class.active]="(activeLink$ | async) === 'online-shop'"
-          class="nav-bar-list-item"
-          (click)="navigate('online-shop')"
-          >Online-Shop</a
+        <li
+          class="nav-bar-list-item mega-menu-container"
+          (mouseenter)="showMegaMenu()"
+          (mouseleave)="hideMegaMenuDelayed()"
+          (focus)="showMegaMenu()"
+          tabindex="0"
         >
+          <div class="trigger">Online-Shop ▼</div>
+          <div class="mega-menu" *ngIf="megaMenuVisible">
+            <div class="category-column" *ngFor="let category of categories">
+              <div class="category-title">{{ category.name }}</div>
+              <div
+                class="subcategory"
+                *ngFor="let sub of category.children; let i = index"
+                [style.--i]="i"
+                (click)="navigate(sub.path)"
+              >
+                {{ sub.label }}
+              </div>
+            </div>
+          </div>
+        </li>
         <a
           [class.active]="(activeLink$ | async) === 'where-to-find-us'"
           class="nav-bar-list-item"

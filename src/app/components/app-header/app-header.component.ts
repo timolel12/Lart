@@ -21,6 +21,33 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   menuOpen: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
+  megaMenuVisible = false;
+  private hideTimeout: any = null;
+
+  categories = [
+    {
+      name: 'Electronics',
+      children: [
+        { label: 'Hardware', path: '/online-shop/electronics/hardware' },
+        { label: 'Software', path: '/online-shop/electronics/software' },
+      ],
+    },
+    {
+      name: 'Clothing',
+      children: [
+        { label: 'Men', path: '/online-shop/clothing/men' },
+        { label: 'Women', path: '/online-shop/clothing/women' },
+      ],
+    },
+    {
+      name: 'Books',
+      children: [
+        { label: 'Fantasy', path: '/online-shop/books/fantasy' },
+        { label: 'Non-fiction', path: '/online-shop/books/non-fiction' },
+      ],
+    },
+  ];
+
   constructor(private router: Router, private routeService: RouteService) {
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
@@ -53,6 +80,17 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     if (this.routeSubscription) {
       this.routeSubscription.unsubscribe();
     }
+  }
+
+  showMegaMenu() {
+    clearTimeout(this.hideTimeout);
+    this.megaMenuVisible = true;
+  }
+
+  hideMegaMenuDelayed() {
+    this.hideTimeout = setTimeout(() => {
+      this.megaMenuVisible = false;
+    }, 900); // 300ms delay before hiding
   }
 
   toggleMenu() {

@@ -19,7 +19,6 @@ import {
   leinwaendeImages,
   taufeUndMehrImages,
 } from '../../models/pictures.model';
-import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-diashow',

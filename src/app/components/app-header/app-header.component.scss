@@ -1,7 +1,8 @@
 @import "../../../styles.scss";
 
+/* === Toolbar === */
 .mat-toolbar {
-  height: 140px;
+  height: $header-height;
   position: fixed;
   top: 0;
   width: 100%;
@@ -9,40 +10,7 @@
   background-color: $transparent-color;
 }
 
-/* Navigation Bar */
-.nav-bar {
-  display: flex;
-  flex-direction: row; /* Align items horizontally */
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid $primary-dark-color;
-  padding-bottom: 5px;
-}
-
-/* Style for each nav bar item */
-.nav-bar-list-item {
-  text-decoration: none;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 3px;
-  transition: background-color 0.3s ease;
-  color: black;
-  cursor: pointer;
-}
-
-/* Hover effect */
-.nav-bar-list-item:hover {
-  background-color: $primary-dark-color;
-  color: white;
-}
-
-/* Active link style */
-.nav-bar-list-item.active {
-  background-color: $primary-dark-color;
-  color: white;
-}
-
-/* Logo Style */
+/* === Logo === */
 .logo {
   height: 140px;
   width: 140px;
@@ -50,9 +18,9 @@
   cursor: pointer;
 }
 
-/* Burger Menu Icon */
+/* === Burger Menu Icon === */
 .burger-menu {
-  display: none; /* Hide by default */
+  display: none;
   font-size: 30px;
   background: none;
   border: none;
@@ -61,8 +29,14 @@
   padding-right: 20px;
 }
 
-/* Responsive Menu - Hidden by default */
+/* === Nav Bar (Desktop) === */
 .nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid $primary-dark-color;
+  padding-bottom: 5px;
   transition: max-height 0.5s ease-out;
 }
 
@@ -70,7 +44,135 @@
   display: flex;
 }
 
-/* Media Queries for Responsive Behavior */
+/* === Nav Bar Items === */
+.nav-bar-list-item {
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-dark-color;
+    color: white;
+  }
+
+  &.active {
+    background-color: $primary-dark-color;
+    color: white;
+  }
+}
+
+/* === Mega Menu Container === */
+.mega-menu-container {
+  position: relative;
+  cursor: pointer;
+
+  .trigger {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    right: -90%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(145deg, #5a3c2f, #3b271f);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    min-width: 600px;
+    z-index: 999;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    animation: dropFadeIn 0.3s ease-out forwards;
+
+    .category-column {
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      min-width: 150px;
+
+      .category-title {
+        font-weight: bold;
+        color: #f0e3d4;
+        font-size: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #d9c4b1;
+        position: relative;
+        transition: color 0.3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: #ffe9c6;
+          transition: width 0.4s ease;
+        }
+
+        &:hover {
+          color: #ffe9c6;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+
+      .subcategory {
+        opacity: 0;
+        transform: translateX(-10px);
+        animation: fadeSlideIn 0.3s ease-out forwards;
+        animation-delay: calc(0.05s * var(--i));
+        color: #fff5e6;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+
+        &:hover {
+          background-color: #7c4f3a;
+          padding-left: 12px;
+          box-shadow: 0 0 10px rgba(255, 233, 198, 0.15);
+        }
+      }
+    }
+  }
+}
+
+/* === Keyframes === */
+@keyframes dropFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Responsive (Mobile) === */
 @media (max-width: 768px) {
   .mat-toolbar {
     justify-content: space-between;
@@ -99,8 +201,8 @@
     background-color: $primary-dark-color;
     max-height: 0;
     overflow-y: auto;
-    border: 2px solid black; /* Add a black edge around the menu */
-    border-radius: 8px; /* Rounded corners */
+    border: 2px solid black;
+    border-radius: 8px;
     transition: max-height 0.3s ease-out;
     width: 100%;
     display: none;
@@ -113,35 +215,64 @@
   }
 
   .nav-bar-list-item {
-    text-decoration: none; /* Remove underline from links */
-    padding: 12px 16px; /* Padding for menu items */
-    margin: 5px 0; /* Vertical margin between items */
+    padding: 12px 16px;
+    margin: 5px 0;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-    color: white; /* Text color */
-    background-color: $primary-dark-color; /* Background color for items */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 90%; /* Make items nearly full width */
-    text-align: center; /* Center text */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Add a slight border */
-    display: block; /* Make sure each item is a block element */
-    transition: transform 0.2s ease; /* Add a transition for scaling */
+    border-radius: 8px;
+    color: white;
+    background-color: $primary-dark-color;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: block;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      background-color: lighten($primary-dark-color, 10%);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      transform: scale(1.02);
+    }
+
+    &.active {
+      background-color: $primary-color;
+      color: white;
+      border: 1px solid $primary-color;
+    }
   }
 
-  /* Hover effect for menu items */
-  .nav-bar-list-item:hover {
-    background-color: lighten($primary-dark-color, 10%); /* Lighten on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-    transform: scale(1.02); /* Slightly scale up on hover */
-  }
+  .mega-menu-container {
+    .mega-menu {
+      flex-direction: column;
+      position: static;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 10px 0;
+      min-width: unset;
 
-  /* Active state for the currently selected link */
-  .nav-bar-list-item.active {
-    background-color: $primary-color; /* Different color for active state */
-    color: white; /* Ensure text is readable */
-    border: 1px solid $primary-color; /* Different border for active state */
+      .category-column {
+        margin: 10px 0;
+        padding: 0 16px;
+
+        .category-title {
+          font-size: 14px;
+          color: white;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          margin-bottom: 6px;
+        }
+
+        .subcategory {
+          color: white;
+          padding: 6px 0;
+          margin-left: 10px;
+          border-radius: 4px;
+
+          &:hover {
+            background-color: lighten($primary-dark-color, 10%);
+          }
+        }
+      }
+    }
   }
 }
