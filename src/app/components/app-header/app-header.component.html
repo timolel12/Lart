@@ -37,21 +37,27 @@
           (focus)="showMegaMenu()"
           tabindex="0"
         >
-          <div class="trigger">Online-Shop ▼</div>
+          <div class="trigger" (click)="navigateToShop()">Online-Shop ▼</div>
+
           <div class="mega-menu" *ngIf="megaMenuVisible">
             <div class="category-column" *ngFor="let category of categories">
-              <div class="category-title">{{ category.name }}</div>
+              <div
+                class="category-title"
+                (click)="navigateToCategory(category.name)"
+              >
+                {{ category.name }}
+              </div>
               <div
                 class="subcategory"
-                *ngFor="let sub of category.children; let i = index"
-                [style.--i]="i"
-                (click)="navigate(sub.path)"
+                *ngFor="let sub of category.children"
+                (click)="navigateToSubCategory(category.name, sub.label)"
               >
                 {{ sub.label }}
               </div>
             </div>
           </div>
         </li>
+
         <a
           [class.active]="(activeLink$ | async) === 'where-to-find-us'"
           class="nav-bar-list-item"

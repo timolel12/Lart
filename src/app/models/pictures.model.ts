@@ -37,13 +37,13 @@ export const allgemeinImages: ImageData[] = [
     img: 'assets/images/Allgemein/7.jpeg',
     id: 'Lieblingsplatz',
     description:
-      'Mit diesem Schmuckstand kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+      'Mit diesem Schmuckstück kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/8.jpeg',
     id: 'Lieblingsplatz',
     description:
-      'Mit diesem Schmuckstand kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
+      'Mit diesem Schmuckstück kannst du deinen persönlichen Lieblingsplatz kennzeichnen.',
   },
   {
     img: 'assets/images/Allgemein/9.jpeg',

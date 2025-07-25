@@ -48,7 +48,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  constructor(private router: Router, private routeService: RouteService) {
+  constructor(private router: Router) {
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       map(() => {
@@ -82,6 +82,31 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  navigate(path: string) {
+    this.menuOpen = false;
+    this.router.navigate([path]);
+  }
+
+  // online-shop functions
+  navigateToShop() {
+  this.router.navigate(['/online-shop']);
+}
+
+navigateToCategory(category: string) {
+  const categorySlug = this.slugify(category);
+  this.router.navigate(['/online-shop', categorySlug]);
+}
+
+navigateToSubCategory(category: string, subcategory: string) {
+  const categorySlug = this.slugify(category);
+  const subcategorySlug = this.slugify(subcategory);
+  this.router.navigate(['/online-shop', categorySlug, subcategorySlug]);
+}
+
+slugify(value: string): string {
+  return value.toLowerCase().replace(/\s+/g, '-');
+}
+
   showMegaMenu() {
     clearTimeout(this.hideTimeout);
     this.megaMenuVisible = true;
@@ -90,15 +115,11 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   hideMegaMenuDelayed() {
     this.hideTimeout = setTimeout(() => {
       this.megaMenuVisible = false;
-    }, 900); // 300ms delay before hiding
+    }, 800);
   }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-  navigate(path: string) {
-    this.menuOpen = false;
-    this.router.navigate([path]);
-  }
 }

@@ -1,14 +1,24 @@
 <div class="site-content">
-  <div class="shop-container">
-    <div class="grid">
-      <div class="product" *ngFor="let product of products">
-        <img [src]="product.imageUrl" [alt]="product.title" />
-        <div class="info">
-          <h2>{{ product.title }}</h2>
-          <p class="desc">{{ product.description }}</p>
-          <p class="price">{{ product.price | currency: "EUR" }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ng-container *ngIf="view === 'home'">
+    <h2>Best Sellers</h2>
+    <app-product-list [displayedProducts]="productList"></app-product-list>
+
+    <h2>Categories</h2>
+    <app-category-list [displayedCategories]="categoryList"></app-category-list>
+  </ng-container>
+
+  <ng-container *ngIf="view === 'category'">
+    <h2>{{ currentCategory | titlecase }}</h2>
+
+    <h3>Subcategories</h3>
+    <app-category-list [displayedCategories]="categoryList"></app-category-list>
+
+    <h3>Popular in {{ currentCategory }}</h3>
+    <app-product-list [displayedProducts]="productList"></app-product-list>
+  </ng-container>
+
+  <ng-container *ngIf="view === 'subcategory'">
+    <h2>{{ currentSubcategory | titlecase }}</h2>
+    <app-product-list [displayedProducts]="productList"></app-product-list>
+  </ng-container>
 </div>

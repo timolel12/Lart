@@ -18,6 +18,8 @@ export const routes: Routes = [
   { path: 'datenschutz', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'online-shop', component: OnlineShopComponent },
+  { path: 'online-shop/:category', component: OnlineShopComponent},
+  { path: 'online-shop/:category/:subcategory', component: OnlineShopComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDiashowComponent },
   { path: 'requests', component: RequestsComponent },

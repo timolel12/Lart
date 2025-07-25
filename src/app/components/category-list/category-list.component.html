@@ -1,0 +1,13 @@
+<div class="category-container">
+  <div class="grid">
+    <div
+      class="category-tile"
+      *ngFor="let category of displayedCategories; let i = index"
+      [style.--i]="i"
+      (click)="navigateToCategory(category.title)"
+    >
+      <img [src]="category.representingImageUrl" [alt]="category.title" />
+      <div class="label">{{ category.title }}</div>
+    </div>
+  </div>
+</div>
