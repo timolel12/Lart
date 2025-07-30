@@ -371,25 +371,25 @@ export const hochzeitImages: ImageData[] = [
     img: 'assets/images/Hochzeit/6.jpeg',
     id: 'Herzschatulle',
     description:
-      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+      'Auch diese Herzschatulle eignet sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/7.jpeg',
     id: 'Herzschatulle',
     description:
-      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+      'Auch diese Herzschatulle eignet sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/8.jpeg',
     id: 'Herzschatulle',
     description:
-      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+      'Auch diese Herzschatulle eignet sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/9.jpeg',
     id: 'Herzschatulle',
     description:
-      'Auch diese Herzschatulle eigent sich gut als Hochzeitsgeschenk',
+      'Auch diese Herzschatulle eignet sich gut als Hochzeitsgeschenk',
   },
   {
     img: 'assets/images/Hochzeit/10.jpeg',
@@ -624,7 +624,7 @@ export const osternImages: ImageData[] = [
   {
     img: 'assets/images/Ostern/2.jpeg',
     id: 'Osterhasen',
-    description: 'Ein süßer Osterhas mit Ü-Ei Inhalt.',
+    description: 'Ein süßer Osterhase mit Ü-Ei Inhalt.',
   },
   {
     img: 'assets/images/Ostern/3.jpeg',

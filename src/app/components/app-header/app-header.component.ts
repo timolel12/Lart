@@ -26,25 +26,35 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   categories = [
     {
-      name: 'Electronics',
+      name: 'Alle Produkte',
+    },
+    {
+      name: 'Anlässe',
       children: [
-        { label: 'Hardware', path: '/online-shop/electronics/hardware' },
-        { label: 'Software', path: '/online-shop/electronics/software' },
+        { label: 'Hochzeit', path: '/online-shop/anlässe/hochzeit' },
+        { label: 'Taufe', path: '/online-shop/anlässe/taufe' },
       ],
     },
     {
-      name: 'Clothing',
+      name: 'Feiertage',
       children: [
-        { label: 'Men', path: '/online-shop/clothing/men' },
-        { label: 'Women', path: '/online-shop/clothing/women' },
+        { label: 'Ostern', path: '/online-shop/feiertage/ostern' },
+        { label: 'Halloween/Herbst', path: '/online-shop/feiertage/halloween' },
+        { label: 'Weihnachten', path: '/online-shop/feiertage/weihnachten' },
       ],
     },
     {
-      name: 'Books',
+      name: 'Gipsfiguren',
+    },
+    {
+      name: 'Kerzen',
       children: [
-        { label: 'Fantasy', path: '/online-shop/books/fantasy' },
-        { label: 'Non-fiction', path: '/online-shop/books/non-fiction' },
+        { label: 'Kerzensets', path: '/online-shop/kerzen/kerzensets' },
+        { label: 'Kerzenzubehör', path: '/online-shop/kerzen/kerzenzubehör' },
       ],
+    },
+    {
+      name: 'Sonstige',
     },
   ];
 
@@ -89,23 +99,23 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   // online-shop functions
   navigateToShop() {
-  this.router.navigate(['/online-shop']);
-}
+    this.router.navigate(['/online-shop']);
+  }
 
-navigateToCategory(category: string) {
-  const categorySlug = this.slugify(category);
-  this.router.navigate(['/online-shop', categorySlug]);
-}
+  navigateToCategory(category: string) {
+    const categorySlug = this.slugify(category);
+    this.router.navigate(['/online-shop', categorySlug]);
+  }
 
-navigateToSubCategory(category: string, subcategory: string) {
-  const categorySlug = this.slugify(category);
-  const subcategorySlug = this.slugify(subcategory);
-  this.router.navigate(['/online-shop', categorySlug, subcategorySlug]);
-}
+  navigateToSubCategory(category: string, subcategory: string) {
+    const categorySlug = this.slugify(category);
+    const subcategorySlug = this.slugify(subcategory);
+    this.router.navigate(['/online-shop', categorySlug, subcategorySlug]);
+  }
 
-slugify(value: string): string {
-  return value.toLowerCase().replace(/\s+/g, '-');
-}
+  slugify(value: string): string {
+    return value.toLowerCase().replace(/\s+/g, '-');
+  }
 
   showMegaMenu() {
     clearTimeout(this.hideTimeout);
@@ -115,11 +125,10 @@ slugify(value: string): string {
   hideMegaMenuDelayed() {
     this.hideTimeout = setTimeout(() => {
       this.megaMenuVisible = false;
-    }, 800);
+    }, 300);
   }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-
 }

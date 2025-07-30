@@ -15,11 +15,12 @@
   grid-template-columns: repeat(
     auto-fit,
     minmax(280px, 1fr)
-  ); /* <- entscheidend */
+  );
   gap: 2rem;
 }
 
 .product {
+  cursor: pointer;
   background: #6e5755;
   padding: 1.5rem;
   border-radius: 16px;

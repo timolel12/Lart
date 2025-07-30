@@ -1,24 +1,27 @@
 <div class="site-content">
   <ng-container *ngIf="view === 'home'">
-    <h2>Best Sellers</h2>
+    <h2 class="section-title" appInView>Best Sellers</h2>
     <app-product-list [displayedProducts]="productList"></app-product-list>
 
-    <h2>Categories</h2>
+    <h3 class="section-subtitle" appInView>Angebote</h3>
     <app-category-list [displayedCategories]="categoryList"></app-category-list>
   </ng-container>
 
   <ng-container *ngIf="view === 'category'">
-    <h2>{{ currentCategory | titlecase }}</h2>
+    <h2 class="section-title" appInView>{{ currentCategory | titlecase }}</h2>
 
-    <h3>Subcategories</h3>
-    <app-category-list [displayedCategories]="categoryList"></app-category-list>
+    <div *ngIf="categoryList.length !== 0">
+      <app-category-list
+        [displayedCategories]="categoryList"
+      ></app-category-list>
+    </div>
 
-    <h3>Popular in {{ currentCategory }}</h3>
+    <h3 class="section-subtitle" appInView>Beliebt in {{ currentCategory }}</h3>
     <app-product-list [displayedProducts]="productList"></app-product-list>
   </ng-container>
 
   <ng-container *ngIf="view === 'subcategory'">
-    <h2>{{ currentSubcategory | titlecase }}</h2>
+    <h2 class="section-title" appInView>{{ currentSubcategory | titlecase }}</h2>
     <app-product-list [displayedProducts]="productList"></app-product-list>
   </ng-container>
 </div>

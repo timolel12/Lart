@@ -8,23 +8,19 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './category-list.component.html',
-  styleUrl: './category-list.component.scss'
+  styleUrl: './category-list.component.scss',
 })
 export class CategoryListComponent {
+  constructor(private router: Router) {}
 
-   constructor(private router: Router) {
-     
-    }
-
-  @Input() displayedCategories: ShopCategory[] = []
+  @Input() displayedCategories: ShopCategory[] = [];
 
   navigateToCategory(category: string) {
-  const categorySlug = this.slugify(category);
-  this.router.navigate(['/online-shop', categorySlug]);
-}
+    const categorySlug = this.slugify(category);
+    this.router.navigate(['/online-shop', categorySlug]);
+  }
 
-slugify(value: string): string {
-  return value.toLowerCase().replace(/\s+/g, '-');
-}
-
+  slugify(value: string): string {
+    return value.toLowerCase().replace(/\s+/g, '-');
+  }
 }
