@@ -77,6 +77,17 @@
           >Kontakt</a
         >
       </mat-nav-list>
+      <button
+        mat-icon-button
+        class="cart-button"
+        (click)="cartService.openCart()"
+        [matBadge]="(cartService.cart$ | async)?.totalQuantity"
+        matBadgeColor="accent"
+        matBadgeOverlap="false"
+        aria-label="Warenkorb öffnen"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
     </mat-toolbar>
   </mat-card>
 </header>

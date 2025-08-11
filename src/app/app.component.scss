@@ -1,0 +1,21 @@
+.cart-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  height: 100dvh;
+  background: transparent;
+}
+
+.cart-shell .mat-drawer-content {
+  background: transparent;
+}
+
+/* When the cart is CLOSED, let clicks pass through to the page */
+.cart-shell--inactive {
+  pointer-events: none;
+}
+
+/* (Optional) make sure no invisible backdrop blocks clicks when closed */
+.cart-shell--inactive .mat-drawer-backdrop {
+  display: none;
+}

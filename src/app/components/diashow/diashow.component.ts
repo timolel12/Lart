@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './diashow.component.html',
   styleUrl: './diashow.component.scss',
 })
-export class DiashowComponent {
+export class DiashowComponent implements OnInit {
   @Input() slides: any[] = [];
   @Input() indicatorsVisible = true;
   @Input() autoPlay = true;
@@ -18,7 +18,9 @@ export class DiashowComponent {
   currentSlide = 0;
   hidden = false;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     if (this.autoPlay) {
       setInterval(() => {
         this.nextPicture();

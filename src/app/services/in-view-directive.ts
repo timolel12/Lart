@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostBinding, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appInView]',
-  standalone: true
+  standalone: true,
 })
 export class InViewDirective implements OnInit {
   @HostBinding('class.in-view') isInView = false;

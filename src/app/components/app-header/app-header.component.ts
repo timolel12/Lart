@@ -7,11 +7,21 @@ import { CommonModule } from '@angular/common';
 import { filter, map } from 'rxjs/operators';
 import { RouteService } from '../../services/route.service';
 import { Subscription, Observable } from 'rxjs';
+import { CartService } from '../../services/cart.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatListModule, MatCardModule],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatBadgeModule,
+  ],
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.scss'],
 })
@@ -58,7 +68,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  constructor(private router: Router) {
+  constructor(public cartService: CartService, private router: Router) {
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       map(() => {

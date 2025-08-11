@@ -21,7 +21,9 @@
   </ng-container>
 
   <ng-container *ngIf="view === 'subcategory'">
-    <h2 class="section-title" appInView>{{ currentSubcategory | titlecase }}</h2>
+    <h2 class="section-title" appInView>
+      {{ currentSubcategory | titlecase }}
+    </h2>
     <app-product-list [displayedProducts]="productList"></app-product-list>
   </ng-container>
 </div>

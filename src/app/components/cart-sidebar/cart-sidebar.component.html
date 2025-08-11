@@ -1,0 +1,21 @@
+<ng-container *ngIf="cart$ | async as cart">
+  <div class="cart-body" *ngIf="cart.items.length; else emptyCart">
+    <app-cart-item
+      *ngFor="let item of cart.items"
+      [item]="item"
+      (qtyChange)="onQtyChange($event)"
+      (remove)="onRemove($event)"
+    ></app-cart-item>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty">Ihr Warenkorb ist leer.</div>
+  </ng-template>
+
+  <div class="cart-footer" *ngIf="cart.items.length">
+    <div>Total: {{ cart.totalPrice | currency: "EUR" }}</div>
+    <button mat-raised-button color="primary" (click)="checkout()">
+      Zur Kasse
+    </button>
+  </div>
+</ng-container>

@@ -1,3 +1,17 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+<mat-sidenav-container
+  class="cart-shell"
+  [class.cart-shell--inactive]="!(isCartOpen$ | async)"
+>
+  <mat-sidenav
+    mode="over"
+    position="end"
+    [opened]="isCartOpen$ | async"
+    (closedStart)="cartService.closeCart()"
+  >
+    <app-cart-sidebar></app-cart-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content></mat-sidenav-content>
+</mat-sidenav-container>

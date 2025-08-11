@@ -10,11 +10,15 @@ import { InViewDirective } from '../../services/in-view-directive';
 @Component({
   selector: 'app-online-shop',
   standalone: true,
-  imports: [CommonModule, ProductListComponent, CategoryListComponent, InViewDirective],
+  imports: [
+    CommonModule,
+    ProductListComponent,
+    CategoryListComponent,
+    InViewDirective,
+  ],
   templateUrl: './online-shop.component.html',
   styleUrl: './online-shop.component.scss',
 })
-
 export class OnlineShopComponent implements OnInit {
   currentCategory: string | null = null;
   currentSubcategory: string | null = null;
@@ -24,21 +28,21 @@ export class OnlineShopComponent implements OnInit {
 
   sampleProducts: ShopProduct[] = [
     {
-      id: 1,
+      id: '1',
       title: 'Glücksbärchen',
       description: 'Ein kleiner Glücksbringer als Deko',
       price: 8.99,
       imageUrl: 'assets/images/Geschenk_Set/13.jpeg',
     },
     {
-      id: 2,
+      id: '2',
       title: '... Ich hab dich lieb',
       description: 'Gruß an einen deiner Liebsten',
       price: 10.99,
       imageUrl: 'assets/images/Familien_Geschenke/2.jpeg',
     },
     {
-      id: 3,
+      id: '3',
       title: 'Untersetzer mit Botschaft',
       description:
         'Für Getränke. Oder andere Sachen. Hauptsächlich für Getränke',
@@ -52,7 +56,7 @@ export class OnlineShopComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const category = this.reslugify(params.get('category'));
-      const subcategory = this. reslugify(params.get('subcategory'));
+      const subcategory = this.reslugify(params.get('subcategory'));
 
       if (!category && !subcategory) {
         this.view = 'home'; // default view
@@ -162,16 +166,14 @@ export class OnlineShopComponent implements OnInit {
     }
   }
 
-  private reslugify(slug: string | null): string | null{
-  if (slug === null)
-  {
-    return null;
-  }
-  
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  }
+  private reslugify(slug: string | null): string | null {
+    if (slug === null) {
+      return null;
+    }
 
+    return slug
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
 }

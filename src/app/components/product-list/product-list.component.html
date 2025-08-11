@@ -7,6 +7,69 @@
         <p class="desc">{{ product.description }}</p>
         <p class="price">{{ product.price | currency: "EUR" }}</p>
       </div>
+      <div class="actions actions--center">
+        <button
+          *ngIf="qtyVisibleFor !== product.id"
+          mat-flat-button
+          color="primary"
+          (click)="startAdd(product)"
+          [attr.aria-label]="'Add ' + product.title + ' to cart'"
+        >
+          <mat-icon>add_shopping_cart</mat-icon>
+          In den Warenkorb
+        </button>
+        <div
+          *ngIf="qtyVisibleFor === product.id"
+          class="qty-picker"
+          role="group"
+          [attr.aria-label]="'Choose quantity for ' + product.title"
+        >
+          <div class="qty-row">
+            <button
+              mat-mini-fab
+              color="accent"
+              (click)="changeQty(product, -1)"
+              [disabled]="qty(product.id) <= 1"
+              [attr.aria-label]="'Decrease quantity for ' + product.title"
+            >
+              <mat-icon>remove</mat-icon>
+            </button>
+
+            <span class="qty" aria-live="polite">{{ qty(product.id) }}</span>
+
+            <button
+              mat-mini-fab
+              color="accent"
+              (click)="changeQty(product, +1)"
+              [attr.aria-label]="'Increase quantity for ' + product.title"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div class="qty-actions">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="confirmAdd(product)"
+              [attr.aria-label]="
+                'Add ' + qty(product.id) + ' of ' + product.title + ' to cart'
+              "
+            >
+              <mat-icon>shopping_cart_checkout</mat-icon>
+              {{ qty(product.id) }} Stück hinzufügen
+            </button>
+
+            <button
+              mat-button
+              color="warn"
+              (click)="cancelAdd()"
+              [attr.aria-label]="'Cancel adding ' + product.title"
+            >
+              Abbrechen
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
