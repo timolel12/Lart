@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
-import { RouteService } from './services/route.service';
-import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CartService } from './services/cart.service';
 import { CartSidebarComponent } from './components/cart-sidebar/cart-sidebar.component';
@@ -28,24 +26,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   isMainPage: boolean = false;
   isCartOpen$ = this.cartService.cartOpen$;
-  routeSubscription: Subscription = new Subscription();
 
-  constructor(
-    private routeService: RouteService,
-    public cartService: CartService
-  ) {}
+  constructor(public cartService: CartService) {}
 
-  ngOnInit(): void {
-    this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
-      (isSingleSegment) => {
-        this.isMainPage = isSingleSegment;
-      }
-    );
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-    if (this.routeSubscription) {
-      this.routeSubscription.unsubscribe();
-    }
-  }
+  ngOnDestroy(): void {}
 }

@@ -9,11 +9,13 @@ import { RequestsComponent } from './sites/requests/requests.component';
 import { WhereToFindUsComponent } from './sites/where-to-find-us/where-to-find.us.component';
 import { ProductDiashowComponent } from './sites/product-diashow/product-diashow.component';
 import { OnlineShopComponent } from './sites/online-shop/online-shop.component';
+import { CheckoutComponent } from './sites/checkout/checkout.component';
 
 export const routes: Routes = [
   { path: '', component: StartComponent },
   { path: 'home', component: StartComponent },
   { path: 'about-us', component: AboutUsComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'datenschutz', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },

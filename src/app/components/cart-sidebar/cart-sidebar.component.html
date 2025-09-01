@@ -1,21 +1,33 @@
 <ng-container *ngIf="cart$ | async as cart">
-  <div class="cart-body" *ngIf="cart.items.length; else emptyCart">
-    <app-cart-item
-      *ngFor="let item of cart.items"
-      [item]="item"
-      (qtyChange)="onQtyChange($event)"
-      (remove)="onRemove($event)"
-    ></app-cart-item>
+  <div class="cart-container" *ngIf="cart.items.length; else emptyCart">
+    <div class="cart-header">
+      <h2>🛒 Dein Warenkorb</h2>
+    </div>
+
+    <div class="cart-body">
+      <app-cart-item
+        *ngFor="let item of cart.items"
+        [item]="item"
+        (qtyChange)="onQtyChange($event)"
+        (remove)="onRemove($event)"
+      ></app-cart-item>
+    </div>
+
+    <div class="cart-footer">
+      <div class="total">Total: {{ cart.totalPrice | currency: "EUR" }}</div>
+      <button mat-raised-button color="primary" (click)="checkout()">
+        Zur Kasse
+      </button>
+    </div>
   </div>
 
   <ng-template #emptyCart>
-    <div class="empty">Ihr Warenkorb ist leer.</div>
+    <div class="empty">
+      <div class="empty-icon">🛒</div>
+      <div class="empty-text">Ihr Warenkorb ist leer</div>
+      <div class="empty-subtext">
+        Fügen Sie Produkte hinzu, um weiterzumachen.
+      </div>
+    </div>
   </ng-template>
-
-  <div class="cart-footer" *ngIf="cart.items.length">
-    <div>Total: {{ cart.totalPrice | currency: "EUR" }}</div>
-    <button mat-raised-button color="primary" (click)="checkout()">
-      Zur Kasse
-    </button>
-  </div>
 </ng-container>

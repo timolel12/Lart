@@ -27,7 +27,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 })
 export class AppHeaderComponent implements OnInit, OnDestroy {
   activeLink$: Observable<string>;
-  //isMainPage: boolean = false;
+  showHeader: boolean = true;
   menuOpen: boolean = false;
   routeSubscription: Subscription = new Subscription();
 
@@ -68,7 +68,11 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  constructor(public cartService: CartService, private router: Router) {
+  constructor(
+    public cartService: CartService,
+    private routeService: RouteService,
+    private router: Router
+  ) {
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       map(() => {
@@ -80,11 +84,11 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    /*this.routeSubscription = this.routeService.singleSegmentRoute$.subscribe(
-      (isSingleSegment) => {
-        this.isMainPage = isSingleSegment;
+    this.routeSubscription = this.routeService.isCheckout$.subscribe(
+      (isCheckout) => {
+        this.showHeader = !isCheckout;
       }
-    );*/
+    );
 
     this.activeLink$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),

@@ -7,28 +7,24 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RouteService {
-  private singleSegmentRouteSubject = new BehaviorSubject<boolean>(false);
-  singleSegmentRoute$ = this.singleSegmentRouteSubject.asObservable();
+  private isCheckoutSubject = new BehaviorSubject<boolean>(false);
+  isCheckout$ = this.isCheckoutSubject.asObservable();
 
   constructor(private router: Router) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        const isSingleSegment = this.checkSingleSegmentRoute();
-        this.singleSegmentRouteSubject.next(isSingleSegment);
+        const isCheckout = this.checkIfCheckout();
+        this.isCheckoutSubject.next(isCheckout);
       });
   }
 
-  private checkSingleSegmentRoute(): boolean {
-    const currentUrl = this.router.url;
+  private checkIfCheckout(): boolean {
+    const currentUrl = this.router.url.split('?')[0];
     const segments = currentUrl
       .split('/')
       .filter((segment) => segment.length > 0);
 
-    if (segments.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return segments.includes('checkout');
   }
 }

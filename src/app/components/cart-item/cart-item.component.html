@@ -7,11 +7,13 @@
         <mat-icon>remove</mat-icon>
       </button>
       <span>{{ item.quantity }}</span>
-      <button mat-icon-button (click)="inc()"><mat-icon>add</mat-icon></button>
+      <button mat-icon-button (click)="inc()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <div class="price">{{ item.price | currency: "EUR" }}</div>
+      <button mat-icon-button class="remove" (click)="remove.emit(item.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
-    <div class="price">{{ item.price | currency: "EUR" }}</div>
   </div>
-  <button mat-icon-button class="remove" (click)="remove.emit(item.id)">
-    <mat-icon>delete</mat-icon>
-  </button>
 </div>

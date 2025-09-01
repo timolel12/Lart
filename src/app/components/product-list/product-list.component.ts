@@ -43,6 +43,7 @@ export class ProductListComponent {
       title: product.title,
       price: product.price,
       quantity: qty,
+      imageUrl: product.imageUrl,
     };
 
     this.cartService.addItem(item);

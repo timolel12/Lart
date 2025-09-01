@@ -1,0 +1,93 @@
+<div class="checkout-page" *ngIf="cart$ | async as cart">
+  <!-- Header -->
+  <div class="checkout-header">
+    <h1 class="checkout-title">Checkout</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="cart.items.length; else emptyCheckout" class="checkout-content">
+    <!-- Cart Summary -->
+    <div class="checkout-cart">
+      <h2 class="section-title">Dein Warenkorb</h2>
+      <div class="cart-items">
+        <div *ngFor="let item of cart.items" class="cart-item">
+          <img
+            [src]="item.imageUrl"
+            alt="{{ item.title }}"
+            class="cart-image"
+          />
+          <div class="cart-details">
+            <div class="cart-title">{{ item.title }}</div>
+            <div class="cart-qty">Menge: {{ item.quantity }}</div>
+            <div class="cart-price">
+              {{ item.price * item.quantity | currency: "EUR" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-total">
+        Gesamt: <strong>{{ cart.totalPrice | currency: "EUR" }}</strong>
+      </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <form (ngSubmit)="onSubmit()" class="checkout-form">
+      <h2 class="section-title">Lieferdetails</h2>
+      <label>
+        Name
+        <input type="text" [(ngModel)]="customer.name" name="name" required />
+      </label>
+
+      <label>
+        E-Mail
+        <input
+          type="email"
+          [(ngModel)]="customer.email"
+          name="email"
+          required
+        />
+      </label>
+
+      <label>
+        Adresse
+        <textarea
+          [(ngModel)]="customer.address"
+          name="address"
+          required
+        ></textarea>
+      </label>
+
+      <h2 class="section-title">Zahlung</h2>
+      <label class="radio-option">
+        <input
+          type="radio"
+          [(ngModel)]="customer.payment"
+          name="payment"
+          value="card"
+          checked
+        />
+        Kreditkarte
+      </label>
+      <label class="radio-option">
+        <input
+          type="radio"
+          [(ngModel)]="customer.payment"
+          name="payment"
+          value="paypal"
+        />
+        PayPal
+      </label>
+
+      <button type="submit" class="checkout-submit">
+        Bestellung abschließen
+      </button>
+    </form>
+  </div>
+
+  <!-- Empty Cart -->
+  <ng-template #emptyCheckout>
+    <div class="checkout-empty">
+      🛒 Dein Warenkorb ist leer. <a routerLink="/">Jetzt shoppen</a>
+    </div>
+  </ng-template>
+</div>
