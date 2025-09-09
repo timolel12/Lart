@@ -21,51 +21,43 @@ import { MatListModule } from '@angular/material/list';
 export class WhereToFindUsComponent {
   appointments = [
     {
-      startDate: new Date(2025, 2, 16),
-      endDate: new Date(2025, 2, 16),
+      startDate: new Date(2025, 8, 14),
+      endDate: new Date(2025, 8, 14),
       time: '11:00 - 18:00',
-      description: 'Frühlingsmarkt Großheubach',
-      url: 'https://www.grossheubach.de/freizeit-veranstaltungen/termine/veranstaltungskalender/fruehlingsmarkt/',
+      description: 'Kerbmarkt Eschau',
+      url: 'https://www.eschau.de/rathaus-und-buergerservice/maerkte/',
     },
     {
-      startDate: new Date(2025, 2, 30),
-      endDate: new Date(2025, 2, 30),
-      time: '13:00 - 18:00',
-      description: 'Dürmer Frühling - Walldürn',
-      url: 'https://www.wallduern.de/de/Rathaus-Leben/Aktuelles/Stadtnachrichten/Stadtnachricht?view=publish&item=article&id=3486',
-    },
-    {
-      startDate: new Date(2025, 3, 13),
-      endDate: new Date(2025, 3, 13),
+      startDate: new Date(2025, 8, 28),
+      endDate: new Date(2025, 8, 28),
       time: '11:00 - 18:00',
-      description: 'Frühlingsmarkt Klingenberg',
-      url: 'https://www.stadt-klingenberg.de/seite/de/churfranken/036:584/-/Maerkte_in_Klingenberg.html',
-    },
-    {
-      startDate: new Date(2025, 4, 4),
-      endDate: new Date(2025, 4, 4),
-      time: '11:00 - 18:00',
-      description: 'Frühjahrsmarkt Großwallstadt',
+      description: 'Kirchweihmarkt Großwallstadt',
       url: 'https://grosswallstadt.de/freizeit-tourismus/veranstaltungen/veranstaltungskalender',
     },
     {
-      startDate: new Date(2025, 4, 18),
-      endDate: new Date(2025, 4, 18),
+      startDate: new Date(2025, 9, 19),
+      endDate: new Date(2025, 9, 19),
       time: '13:00 - 18:00',
-      description: 'Kunst Genuss Markt - Elsenfeld',
-      url: 'https://www.elsenfeld.de/freizeit-vereine/veranstaltungen/2505-kunstgenuss/',
+      description: 'Dürmer Herbst - Walldürn',
+      url: 'https://www.wallduern.de/de/Rathaus-Leben/Aktuelles/Maerkte-und-Feste/Duermer-Herbst-',
+    },
+    {
+      startDate: new Date(2025, 10, 29),
+      endDate: new Date(2025, 10, 30),
+      time: '12:00 - 20:00',
+      description: 'Weihnachtsmarkt Dettingen',
+      url: '',
     },
     {
       startDate: new Date(2025, 11, 5),
       endDate: new Date(2025, 11, 7),
-      time: '16:00 - 21:00',
-      description: 'Kläusschenmarkt Elsenfeld',
-      url: 'https://www.elsenfeld.de/freizeit-vereine/veranstaltungen/2512-klaeuschenmarkt/',
+      time: '14:00 - 21:00',
+      description: 'Weihnachtsmarkt Wertheim',
+      url: 'https://www.weihnachtsmarkt-wertheim.de/',
     },
   ];
   constructor() {}
 
-  // Method to format the appointment date range
   formatAppointmentDateRange(startDate: Date, endDate: Date): string {
     const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
@@ -77,13 +69,15 @@ export class WhereToFindUsComponent {
     const end = endDate.toLocaleDateString('de-DE', options);
 
     if (startDate.getTime() === endDate.getTime()) {
-      return start; // Same day appointment
+      return start;
     } else {
-      return `${start} - ${end}`; // Multi-day appointment
+      return `${start} - ${end}`;
     }
   }
 
   redirectTo(url: string): void {
-    window.open(url, '_blank'); // Opens the URL in a new tab
+    if (url) {
+      window.open(url, '_blank');
+    }
   }
 }
