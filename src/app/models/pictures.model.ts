@@ -580,7 +580,7 @@ export const leinwaendeImages: ImageData[] = [
     description: 'Zoom Zoom.',
   },
   {
-    img: 'assets/images/Leinwaende/7.jpeg',
+    img: 'assets/images/Leinwaende/7.png',
     id: 'Eras Tour',
     description: 'In welcher Era befindest du dich?',
   },
