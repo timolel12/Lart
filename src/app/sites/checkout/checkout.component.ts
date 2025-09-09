@@ -35,6 +35,8 @@ export class CheckoutComponent implements OnInit {
   cart$!: Observable<Cart>;
   step: 1 | 2 = 1;
 
+  shippingCost = 4.99;
+  
   paymentControl = new FormControl<PaymentMethod>('paypal', {
     nonNullable: true,
   });

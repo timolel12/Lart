@@ -353,7 +353,7 @@
                   "
                 >
                   <mat-icon aria-hidden="true">lock</mat-icon>
-                  ZAHLE {{ cart.totalPrice | currency: "EUR":"symbol":"1.2-2" }}
+                  ZAHLE {{ cart.totalPrice + shippingCost | currency: "EUR":"symbol":"1.2-2" }}
                 </button>
               </form>
             </div>
@@ -376,7 +376,7 @@
           </span>
         </div>
 
-        <!-- WIEDER DA: Artikel-Liste -->
+        <!-- Artikel-Liste -->
         <ul class="summary-list">
           <li *ngFor="let item of cart.items" class="summary-item">
             <img [src]="item.imageUrl" [alt]="item.title" />
@@ -396,10 +396,18 @@
             <span>Zwischensumme</span>
             <span>{{ cart.totalPrice | currency: "EUR" }}</span>
           </div>
+          <div class="row">
+            <span>Versand (DHL)</span>
+            <span>{{ shippingCost | currency: "EUR" }}</span>
+          </div>
           <div class="row strong">
             <span>Gesamt</span>
-            <span>{{ cart.totalPrice | currency: "EUR" }}</span>
+            <span>{{ cart.totalPrice + shippingCost | currency: "EUR" }}</span>
           </div>
+          <p class="price-note" aria-live="polite">
+            Alle Preise sind Endpreise zzgl. Versandkosten.
+            Aufgrund der Kleinunternehmerregelung nach § 19 UStG wird keine Umsatzsteuer erhoben.
+          </p>
         </div>
 
         <!-- Widerruf (steuert Button-Disable in Step 2) -->
