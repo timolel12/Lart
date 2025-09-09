@@ -29,7 +29,7 @@ type PaymentMethod = 'paypal' | 'sofort' | 'applepay' | 'card';
     MatIconModule,
   ],
   templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss', // (keep as you had it)
+  styleUrl: './checkout.component.scss', // ok
 })
 export class CheckoutComponent implements OnInit {
   cart$!: Observable<Cart>;
@@ -42,6 +42,8 @@ export class CheckoutComponent implements OnInit {
 
   addressForm!: FormGroup;
   cardForm!: FormGroup;
+
+  processing = false;
 
   constructor(
     private cartService: CartService,
@@ -71,7 +73,7 @@ export class CheckoutComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(12),
-          Validators.maxLength(22), // allows spaces
+          Validators.maxLength(22),
           digitsAndSpacesOnly(),
           luhnValidator(),
         ],
@@ -85,6 +87,11 @@ export class CheckoutComponent implements OnInit {
   invalid(ctrlPath: string): boolean {
     const ctrl = this.addressForm.get(ctrlPath);
     return !!ctrl && ctrl.invalid && (ctrl.dirty || ctrl.touched);
+  }
+
+  cardInvalid(path: keyof CheckoutComponent['cardForm']['value']): boolean {
+    const c = this.cardForm.get(path as string);
+    return !!c && c.invalid && (c.dirty || c.touched);
   }
 
   nextStep() {
@@ -105,7 +112,6 @@ export class CheckoutComponent implements OnInit {
     this.nextStep();
   }
 
-  // --- Payment actions (stubs) ---
   payWithPaypal() {
     /* start PayPal flow */
   }
@@ -116,17 +122,38 @@ export class CheckoutComponent implements OnInit {
     /* start Apple Pay session */
   }
 
-  payWithCard() {
+  formatCardNumber(e: Event) {
+    const el = e.target as HTMLInputElement;
+    const digits = el.value.replace(/\D/g, '').slice(0, 19);
+    el.value = digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+    this.cardForm.get('number')!.setValue(el.value, { emitEvent: false });
+  }
+
+  formatExpiry(e: Event) {
+    const el = e.target as HTMLInputElement;
+    const digits = el.value.replace(/\D/g, '').slice(0, 4);
+    const mm = digits.slice(0, 2);
+    const yy = digits.slice(2, 4);
+    el.value = yy ? `${mm}/${yy}` : mm;
+    this.cardForm.get('expiry')!.setValue(el.value, { emitEvent: false });
+  }
+
+  async payWithCard() {
     if (this.cardForm.invalid) {
       this.cardForm.markAllAsTouched();
       return;
     }
-    const { number, expiry, cvc, remember } = this.cardForm.value;
-    const sanitizedNumber = String(number ?? '').replace(/\s+/g, '');
-    const [mm, yy] = String(expiry ?? '').split(/[\/\s]/);
+    this.processing = true;
+    try {
+      const { number, expiry, cvc, remember } = this.cardForm.value;
+      const sanitizedNumber = String(number ?? '').replace(/\s+/g, '');
+      const [mm, yy] = String(expiry ?? '').split(/[\/\s]/);
 
-    // send sanitizedNumber, mm, yy, cvc, remember to your gateway
-    // ...
+      // send sanitizedNumber, mm, yy, cvc, remember to your gateway
+      // await charge(...)
+    } finally {
+      this.processing = false;
+    }
   }
 
   placeOrder() {
@@ -146,16 +173,15 @@ export class CheckoutComponent implements OnInit {
 }
 
 /* ================= Validators ================= */
-
 function digitsAndSpacesOnly(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const v = (control.value ?? '').toString();
-    if (!v) return null; // required handles empties
+    if (!v) return null;
     return /^[\d\s]+$/.test(v) ? null : { digitsOnly: true };
   };
 }
 
-/** Luhn checksum validator (works with/without spaces). */
+// checks if credit card number is valid
 function luhnValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const raw = (control.value ?? '').toString().replace(/\s+/g, '');
@@ -165,7 +191,7 @@ function luhnValidator(): ValidatorFn {
     let sum = 0;
     let dbl = false;
     for (let i = raw.length - 1; i >= 0; i--) {
-      let d = raw.charCodeAt(i) - 48; // fast parse
+      let d = raw.charCodeAt(i) - 48;
       if (dbl) {
         d *= 2;
         if (d > 9) d -= 9;
@@ -191,7 +217,6 @@ function expiryValidator(): ValidatorFn {
     if (mm < 1 || mm > 12) return { expiryMonth: true };
 
     const fullYear = 2000 + yy;
-    // card valid through end of expiry month → compare first day of next month
     const expiryEdge = new Date(fullYear, mm, 1);
     const now = new Date();
     const currentEdge = new Date(now.getFullYear(), now.getMonth(), 1);

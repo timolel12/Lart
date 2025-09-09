@@ -39,7 +39,7 @@
             <span>Vorname</span>
             <input type="text" formControlName="firstName" placeholder="Max" />
             <small class="error" *ngIf="invalid('personal.firstName')"
-              >Mind. 2 Zeichen.</small
+              >Bitte Vornamen eingeben</small
             >
           </label>
 
@@ -51,7 +51,7 @@
               placeholder="Mustermann"
             />
             <small class="error" *ngIf="invalid('personal.lastName')"
-              >Mind. 2 Zeichen.</small
+              >Bitte Nachnamen eingeben</small
             >
           </label>
         </div>
@@ -163,7 +163,6 @@
             >
               <button class="paypal-btn" (click)="payWithPaypal()">
                 <img src="assets/images/PayPal.svg" alt="" />
-                PayPal
               </button>
             </div>
           </label>
@@ -188,7 +187,7 @@
               (click)="$event.stopPropagation()"
             >
               <button class="sofort-btn" (click)="payWithSofort()">
-                Mit Sofort bezahlen
+                Mit Sofortüberweisung bezahlen
               </button>
             </div>
           </label>
@@ -216,9 +215,7 @@
               *ngIf="paymentControl.value === 'applepay'"
               (click)="$event.stopPropagation()"
             >
-              <button class="apple-btn" (click)="payWithApplePay()">
-                 Pay
-              </button>
+              <button class="apple-btn" (click)="payWithApplePay()">Pay</button>
             </div>
           </label>
 
@@ -248,8 +245,6 @@
                 />
               </div>
             </div>
-
-            <!-- expand area with full card form -->
             <div
               class="tile-expand"
               *ngIf="paymentControl.value === 'card'"
@@ -262,7 +257,7 @@
                 </p>
 
                 <!-- Kartennummer -->
-                <div class="field">
+                <label class="field" [class.invalid]="cardInvalid('number')">
                   <span>Kartennummer</span>
                   <div style="position: relative">
                     <input
@@ -270,6 +265,9 @@
                       type="text"
                       inputmode="numeric"
                       placeholder="1234 5678 9012 3456"
+                      autocomplete="cc-number"
+                      maxlength="23"
+                      (input)="formatCardNumber($event)"
                     />
                     <mat-icon
                       style="
@@ -282,74 +280,78 @@
                       >credit_card</mat-icon
                     >
                   </div>
-                  <div class="tile-right" style="margin-top: 6px">
-                    <img
-                      src="assets/images/mastercard.svg"
-                      alt="Mastercard"
-                      style="height: 22px"
-                    />
-                    <img
-                      src="assets/images/Visa.png"
-                      alt="Visa"
-                      style="height: 20px"
-                    />
-                  </div>
-                </div>
+                  <small class="error" *ngIf="cardInvalid('number')">
+                    Bitte gültige Kartennummer eingeben.
+                  </small>
+                </label>
 
-                <!-- Grid for Expiry + CVC -->
-                <div class="grid two">
-                  <div class="field">
-                    <span>Ablaufdatum</span>
-                    <div style="position: relative">
-                      <input
-                        formControlName="expiry"
-                        type="text"
-                        inputmode="numeric"
-                        placeholder="MM/JJ"
-                      />
-                      <mat-icon
-                        style="
-                          position: absolute;
-                          right: 10px;
-                          top: 50%;
-                          transform: translateY(-50%);
-                          opacity: 0.8;
-                        "
-                        >event</mat-icon
-                      >
-                    </div>
-                    <small class="summary-sub"
-                      >Vorderseite der Karte im Format MM/JJ</small
+                <!-- Ablaufdatum -->
+                <label class="field" [class.invalid]="cardInvalid('expiry')">
+                  <span>Ablaufdatum</span>
+                  <div style="position: relative">
+                    <input
+                      formControlName="expiry"
+                      type="text"
+                      inputmode="numeric"
+                      placeholder="MM/JJ"
+                      autocomplete="cc-exp"
+                      maxlength="5"
+                      (input)="formatExpiry($event)"
+                    />
+                    <mat-icon
+                      style="
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        opacity: 0.8;
+                      "
+                      >event</mat-icon
                     >
                   </div>
+                  <small class="error" *ngIf="cardInvalid('expiry')">
+                    Bitte gültiges Ablaufdatum (MM/JJ) eingeben.
+                  </small>
+                </label>
 
-                  <div class="field">
-                    <span>Sicherheitscode</span>
-                    <div style="position: relative">
-                      <input
-                        formControlName="cvc"
-                        type="text"
-                        inputmode="numeric"
-                        placeholder="CVC"
-                      />
-                      <mat-icon
-                        style="
-                          position: absolute;
-                          right: 10px;
-                          top: 50%;
-                          transform: translateY(-50%);
-                          opacity: 0.8;
-                        "
-                        >lock</mat-icon
-                      >
-                    </div>
-                    <small class="summary-sub"
-                      >3 Ziffern auf der Rückseite der Karte</small
+                <!-- Sicherheitscode -->
+                <label class="field" [class.invalid]="cardInvalid('cvc')">
+                  <span>Sicherheitscode</span>
+                  <div style="position: relative">
+                    <input
+                      formControlName="cvc"
+                      type="text"
+                      inputmode="numeric"
+                      placeholder="CVC"
+                      autocomplete="cc-csc"
+                      maxlength="3"
+                    />
+                    <mat-icon
+                      style="
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        opacity: 0.8;
+                      "
+                      >lock</mat-icon
                     >
                   </div>
-                </div>
+                  <small class="error" *ngIf="cardInvalid('cvc')">
+                    Der CVC muss 3 Ziffern enthalten.
+                  </small>
+                </label>
+
                 <!-- Pay button -->
-                <button type="submit" class="pay-btn">
+                <button
+                  type="submit"
+                  class="primary-button pay-btn"
+                  [disabled]="
+                    cardForm.invalid ||
+                    processing ||
+                    paymentControl.value !== 'card'
+                  "
+                >
                   <mat-icon aria-hidden="true">lock</mat-icon>
                   ZAHLE {{ cart.totalPrice | currency: "EUR":"symbol":"1.2-2" }}
                 </button>

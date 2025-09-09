@@ -43,8 +43,8 @@
   }
 
   .step-dot {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 999px;
     outline: 2px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.08);
@@ -61,8 +61,8 @@
   }
 
   .step-label {
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-weight: 800;
+    font-size: 1rem;
   }
 }
 
@@ -70,6 +70,16 @@
 .stepper-left {
   margin-bottom: 14px;
   justify-content: flex-start;
+}
+
+.step-tag {
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* Layout */
@@ -111,15 +121,6 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 6px;
-}
-.step-tag {
-  font-size: 0.75rem;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.04);
 }
 .panel-title {
   font-size: 1.35rem;
@@ -248,7 +249,7 @@ $field-error: #ff6b6b;
   padding-top: 12px;
 }
 
-/* Action buttons (match your screenshots; move inline styles here if you like) */
+/* Action buttons */
 .paypal-btn,
 .sofort-btn,
 .apple-btn,
@@ -277,11 +278,6 @@ $field-error: #ff6b6b;
   background: #000;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
-.pay-btn {
-  background: #39a8d8;
-  color: #fff;
-  letter-spacing: 0.3px;
 }
 
 .payment-tile:hover {
