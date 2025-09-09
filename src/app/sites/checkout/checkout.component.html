@@ -1,90 +1,429 @@
 <div class="checkout-page" *ngIf="cart$ | async as cart">
-  <!-- Header -->
-  <div class="checkout-header">
-    <h1 class="checkout-title">Checkout</h1>
-  </div>
+  <header class="checkout-header">
+    <h1 class="checkout-title">Bestellung abschließen</h1>
+  </header>
+  <nav class="stepper stepper-left" aria-label="Checkout Schritte">
+    <div class="step" [class.active]="step === 1" [class.done]="step > 1">
+      <span class="step-dot"></span>
+      <span class="step-label">Lieferdaten</span>
+    </div>
+    <div class="step-sep"></div>
+    <div class="step" [class.active]="step === 2" [class.disabled]="step < 2">
+      <span class="step-dot"></span>
+      <span class="step-label">Zahlung</span>
+    </div>
+  </nav>
+  <div *ngIf="cart.items.length; else emptyCheckout" class="layout">
+    <!-- LEFT -->
+    <section class="stage">
+      <!-- STEP 1 -->
+      <form
+        *ngIf="step === 1"
+        class="panel"
+        [formGroup]="addressForm"
+        (ngSubmit)="submitAddress()"
+        novalidate
+      >
+        <div class="panel-head">
+          <span class="step-tag">Schritt 1/2</span>
+          <h2 class="panel-title">Lieferdetails</h2>
+        </div>
+        <p class="panel-sub">
+          Wir nutzen deine Angaben ausschließlich zur Abwicklung der Bestellung.
+        </p>
 
-  <!-- Main Content -->
-  <div *ngIf="cart.items.length; else emptyCheckout" class="checkout-content">
-    <!-- Cart Summary -->
-    <div class="checkout-cart">
-      <h2 class="section-title">Dein Warenkorb</h2>
-      <div class="cart-items">
-        <div *ngFor="let item of cart.items" class="cart-item">
-          <img
-            [src]="item.imageUrl"
-            alt="{{ item.title }}"
-            class="cart-image"
+        <!-- Persönliche Daten -->
+        <h3 class="group-title">Persönliche Daten</h3>
+        <div class="grid two" formGroupName="personal">
+          <label class="field" [class.invalid]="invalid('personal.firstName')">
+            <span>Vorname</span>
+            <input type="text" formControlName="firstName" placeholder="Max" />
+            <small class="error" *ngIf="invalid('personal.firstName')"
+              >Mind. 2 Zeichen.</small
+            >
+          </label>
+
+          <label class="field" [class.invalid]="invalid('personal.lastName')">
+            <span>Nachname</span>
+            <input
+              type="text"
+              formControlName="lastName"
+              placeholder="Mustermann"
+            />
+            <small class="error" *ngIf="invalid('personal.lastName')"
+              >Mind. 2 Zeichen.</small
+            >
+          </label>
+        </div>
+
+        <label
+          class="field"
+          formGroupName="personal"
+          [class.invalid]="invalid('personal.email')"
+        >
+          <span>E-Mail</span>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="max@beispiel.de"
           />
-          <div class="cart-details">
-            <div class="cart-title">{{ item.title }}</div>
-            <div class="cart-qty">Menge: {{ item.quantity }}</div>
-            <div class="cart-price">
-              {{ item.price * item.quantity | currency: "EUR" }}
-            </div>
+          <small class="error" *ngIf="invalid('personal.email')"
+            >Bitte gültige E-Mail eingeben.</small
+          >
+        </label>
+
+        <!-- Adresse -->
+        <h3 class="group-title">Adresse</h3>
+        <div formGroupName="location">
+          <label class="field" [class.invalid]="invalid('location.street')">
+            <span>Straße und Nr.</span>
+            <input
+              type="text"
+              formControlName="street"
+              placeholder="Musterstraße 1"
+            />
+            <small class="error" *ngIf="invalid('location.street')"
+              >Bitte Straße & Hausnr. angeben.</small
+            >
+          </label>
+
+          <div class="grid three">
+            <label class="field" [class.invalid]="invalid('location.zip')">
+              <span>PLZ</span>
+              <input
+                type="text"
+                inputmode="numeric"
+                maxlength="5"
+                formControlName="zip"
+                placeholder="12345"
+              />
+              <small class="error" *ngIf="invalid('location.zip')"
+                >5-stellige PLZ.</small
+              >
+            </label>
+
+            <label
+              class="field span-two"
+              [class.invalid]="invalid('location.city')"
+            >
+              <span>Ort</span>
+              <input type="text" formControlName="city" placeholder="Berlin" />
+              <small class="error" *ngIf="invalid('location.city')"
+                >Bitte Ort angeben.</small
+              >
+            </label>
           </div>
         </div>
+
+        <div class="actions">
+          <button
+            mat-raised-button
+            color="primary"
+            class="primary-button"
+            type="submit"
+            [disabled]="
+              addressForm.pending ||
+              addressForm.invalid ||
+              !consentControl.value
+            "
+          >
+            Weiter zur Zahlung
+          </button>
+        </div>
+      </form>
+
+      <!-- STEP 2 -->
+      <div *ngIf="step === 2" class="panel">
+        <div class="panel-head">
+          <span class="step-tag">Schritt 2/2</span>
+          <h2 class="panel-title">Bestellung bezahlen</h2>
+        </div>
+        <p class="panel-sub">Wähle deine Zahlungsart.</p>
+
+        <div class="payment-list">
+          <!-- PayPal -->
+          <label
+            class="payment-tile"
+            [class.active]="paymentControl.value === 'paypal'"
+          >
+            <input type="radio" [formControl]="paymentControl" value="paypal" />
+
+            <div class="tile-main">
+              <div class="tile-left">
+                <img src="assets/images/PayPal.svg" alt="PayPal" />
+                <span>PayPal</span>
+              </div>
+              <div class="tile-right"><span class="badge">Empfohlen</span></div>
+            </div>
+
+            <div
+              class="tile-expand"
+              *ngIf="paymentControl.value === 'paypal'"
+              (click)="$event.stopPropagation()"
+            >
+              <button class="paypal-btn" (click)="payWithPaypal()">
+                <img src="assets/images/PayPal.svg" alt="" />
+                PayPal
+              </button>
+            </div>
+          </label>
+
+          <!-- Sofort -->
+          <label
+            class="payment-tile"
+            [class.active]="paymentControl.value === 'sofort'"
+          >
+            <input type="radio" [formControl]="paymentControl" value="sofort" />
+
+            <div class="tile-main">
+              <div class="tile-left">
+                <img src="assets/images/klarna_logo.png" alt="Klarna Sofort" />
+                <span>Sofortüberweisung</span>
+              </div>
+            </div>
+
+            <div
+              class="tile-expand"
+              *ngIf="paymentControl.value === 'sofort'"
+              (click)="$event.stopPropagation()"
+            >
+              <button class="sofort-btn" (click)="payWithSofort()">
+                Mit Sofort bezahlen
+              </button>
+            </div>
+          </label>
+
+          <!-- Apple Pay -->
+          <label
+            class="payment-tile"
+            [class.active]="paymentControl.value === 'applepay'"
+          >
+            <input
+              type="radio"
+              [formControl]="paymentControl"
+              value="applepay"
+            />
+
+            <div class="tile-main">
+              <div class="tile-left">
+                <img src="assets/images/Apple_Pay_logo.svg" alt="Apple Pay" />
+                <span>Apple Pay</span>
+              </div>
+            </div>
+
+            <div
+              class="tile-expand"
+              *ngIf="paymentControl.value === 'applepay'"
+              (click)="$event.stopPropagation()"
+            >
+              <button class="apple-btn" (click)="payWithApplePay()">
+                 Pay
+              </button>
+            </div>
+          </label>
+
+          <!-- Card -->
+          <label
+            class="payment-tile"
+            [class.active]="paymentControl.value === 'card'"
+          >
+            <input type="radio" [formControl]="paymentControl" value="card" />
+
+            <!-- header row -->
+            <div class="tile-main">
+              <div class="tile-left">
+                <mat-icon class="card-icon">credit_card</mat-icon>
+                <span>Kartenzahlung</span>
+              </div>
+              <div class="tile-right card-brands">
+                <img
+                  src="assets/images/mastercard.svg"
+                  alt="Mastercard"
+                  class="brand-logo-mastercard"
+                />
+                <img
+                  src="assets/images/Visa.png"
+                  alt="Visa"
+                  class="brand-logo-visa"
+                />
+              </div>
+            </div>
+
+            <!-- expand area with full card form -->
+            <div
+              class="tile-expand"
+              *ngIf="paymentControl.value === 'card'"
+              (click)="$event.stopPropagation()"
+            >
+              <form [formGroup]="cardForm" (ngSubmit)="payWithCard()">
+                <p class="panel-sub">
+                  Alle Felder sind Pflichtfelder, sofern nicht anders
+                  gekennzeichnet.
+                </p>
+
+                <!-- Kartennummer -->
+                <div class="field">
+                  <span>Kartennummer</span>
+                  <div style="position: relative">
+                    <input
+                      formControlName="number"
+                      type="text"
+                      inputmode="numeric"
+                      placeholder="1234 5678 9012 3456"
+                    />
+                    <mat-icon
+                      style="
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        opacity: 0.8;
+                      "
+                      >credit_card</mat-icon
+                    >
+                  </div>
+                  <div class="tile-right" style="margin-top: 6px">
+                    <img
+                      src="assets/images/mastercard.svg"
+                      alt="Mastercard"
+                      style="height: 22px"
+                    />
+                    <img
+                      src="assets/images/Visa.png"
+                      alt="Visa"
+                      style="height: 20px"
+                    />
+                  </div>
+                </div>
+
+                <!-- Grid for Expiry + CVC -->
+                <div class="grid two">
+                  <div class="field">
+                    <span>Ablaufdatum</span>
+                    <div style="position: relative">
+                      <input
+                        formControlName="expiry"
+                        type="text"
+                        inputmode="numeric"
+                        placeholder="MM/JJ"
+                      />
+                      <mat-icon
+                        style="
+                          position: absolute;
+                          right: 10px;
+                          top: 50%;
+                          transform: translateY(-50%);
+                          opacity: 0.8;
+                        "
+                        >event</mat-icon
+                      >
+                    </div>
+                    <small class="summary-sub"
+                      >Vorderseite der Karte im Format MM/JJ</small
+                    >
+                  </div>
+
+                  <div class="field">
+                    <span>Sicherheitscode</span>
+                    <div style="position: relative">
+                      <input
+                        formControlName="cvc"
+                        type="text"
+                        inputmode="numeric"
+                        placeholder="CVC"
+                      />
+                      <mat-icon
+                        style="
+                          position: absolute;
+                          right: 10px;
+                          top: 50%;
+                          transform: translateY(-50%);
+                          opacity: 0.8;
+                        "
+                        >lock</mat-icon
+                      >
+                    </div>
+                    <small class="summary-sub"
+                      >3 Ziffern auf der Rückseite der Karte</small
+                    >
+                  </div>
+                </div>
+                <!-- Pay button -->
+                <button type="submit" class="pay-btn">
+                  <mat-icon aria-hidden="true">lock</mat-icon>
+                  ZAHLE {{ cart.totalPrice | currency: "EUR":"symbol":"1.2-2" }}
+                </button>
+              </form>
+            </div>
+          </label>
+        </div>
       </div>
-      <div class="cart-total">
-        Gesamt: <strong>{{ cart.totalPrice | currency: "EUR" }}</strong>
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="summary" aria-labelledby="summaryTitle">
+      <div class="summary-card">
+        <div class="summary-head">
+          <h3 id="summaryTitle">Bestätige deine Bestellung</h3>
+          <span class="summary-sub">
+            {{ cart.items.length }} Gegenstand<span
+              *ngIf="cart.items.length > 1"
+              >e</span
+            >
+            im Warenkorb
+          </span>
+        </div>
+
+        <!-- WIEDER DA: Artikel-Liste -->
+        <ul class="summary-list">
+          <li *ngFor="let item of cart.items" class="summary-item">
+            <img [src]="item.imageUrl" [alt]="item.title" />
+            <div class="info">
+              <div class="title">{{ item.title }}</div>
+              <div class="meta">Menge: {{ item.quantity }}</div>
+            </div>
+            <div class="price">
+              {{ item.price * item.quantity | currency: "EUR" }}
+            </div>
+          </li>
+        </ul>
+
+        <!-- Summe -->
+        <div class="summary-total">
+          <div class="row">
+            <span>Zwischensumme</span>
+            <span>{{ cart.totalPrice | currency: "EUR" }}</span>
+          </div>
+          <div class="row strong">
+            <span>Gesamt</span>
+            <span>{{ cart.totalPrice | currency: "EUR" }}</span>
+          </div>
+        </div>
+
+        <!-- Widerruf (steuert Button-Disable in Step 2) -->
+        <div class="summary-consent">
+          <label class="check">
+            <input type="checkbox" [formControl]="consentControl" />
+            <span
+              >Von meinem <a href="#">Widerrufsrecht</a> habe ich Kenntnis
+              genommen …</span
+            >
+          </label>
+        </div>
+
+        <button
+          *ngIf="step === 2"
+          mat-raised-button
+          class="primary-button wide"
+          (click)="placeOrder()"
+          [disabled]="addressForm.invalid || !consentControl.value"
+        >
+          Jetzt bezahlen
+        </button>
       </div>
-    </div>
-
-    <!-- Checkout Form -->
-    <form (ngSubmit)="onSubmit()" class="checkout-form">
-      <h2 class="section-title">Lieferdetails</h2>
-      <label>
-        Name
-        <input type="text" [(ngModel)]="customer.name" name="name" required />
-      </label>
-
-      <label>
-        E-Mail
-        <input
-          type="email"
-          [(ngModel)]="customer.email"
-          name="email"
-          required
-        />
-      </label>
-
-      <label>
-        Adresse
-        <textarea
-          [(ngModel)]="customer.address"
-          name="address"
-          required
-        ></textarea>
-      </label>
-
-      <h2 class="section-title">Zahlung</h2>
-      <label class="radio-option">
-        <input
-          type="radio"
-          [(ngModel)]="customer.payment"
-          name="payment"
-          value="card"
-          checked
-        />
-        Kreditkarte
-      </label>
-      <label class="radio-option">
-        <input
-          type="radio"
-          [(ngModel)]="customer.payment"
-          name="payment"
-          value="paypal"
-        />
-        PayPal
-      </label>
-
-      <button type="submit" class="checkout-submit">
-        Bestellung abschließen
-      </button>
-    </form>
+    </aside>
   </div>
 
-  <!-- Empty Cart -->
   <ng-template #emptyCheckout>
     <div class="checkout-empty">
       🛒 Dein Warenkorb ist leer. <a routerLink="/">Jetzt shoppen</a>

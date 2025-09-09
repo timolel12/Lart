@@ -15,7 +15,7 @@
 
     <div class="cart-footer">
       <div class="total">Total: {{ cart.totalPrice | currency: "EUR" }}</div>
-      <button mat-raised-button color="primary" (click)="checkout()">
+      <button mat-raised-button class="secondary-button" (click)="checkout()">
         Zur Kasse
       </button>
     </div>

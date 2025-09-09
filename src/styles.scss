@@ -35,6 +35,9 @@ $primary-color: #5d4037;
 $primary-dark-color: #472e1f;
 $complementary-color: #486c79;
 $complementary-dark-color: #2c454fba;
+$accent-color: #f5d3b0;
+$accent-light-color: #ffe4ca;
+$description-text-color: #e0d5ce;
 
 $transparent-color: rgba(255, 255, 255, 0.1);
 $full-transparent-color: rgba(255, 255, 255, 0);
@@ -96,6 +99,35 @@ h1 {
 .secondary-button:hover {
   background-color: white !important;
   color: $primary-dark-color !important;
+}
+
+// back or standard button
+.default-button {
+  color: #ffffff; // weißer Text
+  border-color: #ffffff; // weißer Rand
+  background-color: transparent;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08); // sanftes Overlay beim Hover
+  }
+
+  &:disabled {
+    color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+// disabled buttons
+button:disabled,
+.primary-button:disabled,
+.secondary-button:disabled {
+  background-color: #ccc !important; // fallback gray
+  color: #666 !important;
+  cursor: not-allowed;
+  opacity: 0.7; // slight fade to indicate inactive
+  pointer-events: none; // prevent hover/clicks
 }
 
 .mdc-dialog__surface {
