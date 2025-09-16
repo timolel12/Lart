@@ -1,17 +1,20 @@
 @import "../../../styles.scss";
 
+/* Base Styles */
 .main-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px;
+  height: 100vh;
 }
+
 .banner {
   width: 100%;
-  height: auto; /* Maintain the aspect ratio */
-  max-height: 20vh; /* Limit the height to 20% of the viewport height */
-  object-fit: cover; /* Ensure the image covers the width without distorting */
+  height: auto;
+  max-height: 20vh;
+  object-fit: cover;
   margin-top: 160px;
 }
 
@@ -25,35 +28,28 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
-.content-card {
-  background-color: $full-transparent-color;
-  color: white;
-  width: auto;
-  padding: 20px;
-  margin-top: 60px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-}
-
 .appointments-container {
-  max-height: 300px; /* Set a maximum height for scrollability */
-  overflow-y: scroll; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Optional: Disable horizontal scrolling */
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   margin-top: 16px;
   padding: 8px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
 .appointments-container::-webkit-scrollbar {
   display: none;
 }
 
 .appointment {
   padding: 12px;
-  margin-bottom: 16px; /* Increased margin between items */
-  border-radius: 8px; /* Rounded corners */
-  color: white; /* Text color */
+  margin-bottom: 16px;
+  border-radius: 8px;
+  color: white;
   cursor: pointer;
+}
+.appointment:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .appointment-date {
@@ -67,16 +63,100 @@
   margin-bottom: 4px;
 }
 
-.appointment:hover {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Slightly brighter background on hover */
-}
-
 .logo-contact {
   height: 200px;
   width: 200px;
+}
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .content-card {
+    width: 80%;
+    margin-top: 40px;
+    padding: 16px;
+  }
+
+  .appointment-date {
+    font-size: 16px;
+  }
+
+  .appointment-detail {
+    font-size: 13px;
+  }
+
+  .logo-contact {
+    height: 160px;
+    width: 160px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 10px;
+    height: auto;
+  }
+
+  .banner {
+    max-height: 15vh;
+    margin-top: 100px;
+  }
+
+  .content-card {
+    width: 95%;
+    margin-top: 30px;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .appointment {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .appointment-date {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .appointment-detail {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .logo-contact {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .banner {
+    margin-top: 80px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .appointment-date {
+    font-size: 14px;
+  }
+
+  .appointment-detail {
+    font-size: 11px;
+  }
+
+  .logo-contact {
+    height: 100px;
+    width: 100px;
+  }
 }

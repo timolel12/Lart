@@ -9,9 +9,22 @@
       />
 
       <!-- Burger Menu Icon for mobile -->
-      <button class="burger-menu" (click)="toggleMenu()">&#9776;</button>
+      <button
+        class="burger-menu"
+        (click)="toggleMenu()"
+        aria-label="Navigation umschalten"
+        [attr.aria-expanded]="menuOpen ? 'true' : 'false'"
+        aria-controls="main-nav"
+      >
+        &#9776;
+      </button>
 
-      <mat-nav-list class="nav-bar" [class.active]="menuOpen">
+      <mat-nav-list
+        id="main-nav"
+        class="nav-bar"
+        [class.active]="menuOpen"
+        role="navigation"
+      >
         <a
           [class.active]="(activeLink$ | async) === ''"
           class="nav-bar-list-item"
