@@ -10,14 +10,14 @@
   background: transparent;
 }
 
-/* When the cart is CLOSED, let clicks pass through to the page */
 .cart-shell--inactive {
   pointer-events: none;
 }
 
-/* (Optional) make sure no invisible backdrop blocks clicks when closed */
 .cart-shell--inactive .mat-drawer-backdrop {
   display: none;
+}
+
 .page {
   flex: 1 0 auto;
 }
