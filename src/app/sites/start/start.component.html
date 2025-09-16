@@ -1,3 +1,4 @@
+<!-- HERO -->
 <div class="background-section light first-section">
   <div class="overlay-content">
     <h1>Handmade with Love</h1>
@@ -6,54 +7,71 @@
       mat-raised-button
       class="primary-button"
       (click)="navigate('/online-shop')"
+      aria-label="Zum Online-Shop"
     >
       Zum Online-Shop
     </button>
   </div>
 </div>
+
+<!-- GRID -->
 <div class="background-section dark second-section">
   <div class="product-grid">
     <div class="product-card">
       <img
         src="assets/images/Geschenk_Set/1.png"
-        alt="Produkt 1"
+        alt="Geschenk-Sets"
         class="product-image"
+        loading="lazy"
+        width="640"
+        height="480"
       />
       <h3>Geschenk-Sets</h3>
       <button
         mat-button
         class="secondary-button"
         (click)="navigate('/products/presents')"
+        aria-label="Geschenk-Sets ansehen"
       >
         Jetzt anschauen
       </button>
     </div>
+
     <div class="product-card">
       <img
         src="assets/images/Kopfschmuck/grgoe1.jpeg"
-        alt="Produkt 2"
+        alt="Kopfschmuck"
         class="product-image"
+        loading="lazy"
+        width="640"
+        height="480"
       />
       <h3>Kopfschmuck</h3>
       <button
         mat-button
         class="secondary-button"
         (click)="navigate('/products/headdress')"
+        aria-label="Kopfschmuck ansehen"
       >
         Jetzt anschauen
       </button>
     </div>
+
     <div class="product-card">
       <img
         src="assets/images/Weihnachten_Winter/20.jpeg"
-        alt="Produkt 3"
+        alt="Weihnachten"
         class="product-image"
+        loading="lazy"
+        width="640"
+        height="480"
       />
       <h3>Weihnachten</h3>
       <button
         mat-button
         class="secondary-button"
         (click)="navigate('/products/christmas')"
+        aria-label="Weihnachtsprodukte ansehen"
       >
         Jetzt anschauen
       </button>

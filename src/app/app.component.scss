@@ -18,4 +18,6 @@
 /* (Optional) make sure no invisible backdrop blocks clicks when closed */
 .cart-shell--inactive .mat-drawer-backdrop {
   display: none;
+.page {
+  flex: 1 0 auto;
 }

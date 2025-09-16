@@ -1,34 +1,35 @@
 @import "../../../styles.scss";
 
+/* Base Styles */
 .mat-toolbar {
   background-color: $primary-dark-color;
   color: white;
 }
 
 .footer {
-  height: $footer-height;
-  width: 100vw;
+  height: 90px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; /* Add padding to the toolbar */
+  padding: 0 20px;
 }
 
 .footer-content {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Allow the content to grow and take available space */
+  flex-grow: 1;
 }
 
 .footer-text {
-  flex-grow: 1; /* Allow the text to grow and take available space */
-  margin-right: auto; /* Pushes buttons to the right */
+  flex-grow: 1;
+  margin-right: auto;
   font-size: medium;
 }
 
 .spacer {
-  flex-grow: 1; /* Pushes buttons to the right */
-  margin-left: auto; /* Pushes buttons to the right */
+  flex-grow: 1;
+  margin-left: auto;
 }
 
 .logo-footer {
@@ -42,15 +43,28 @@
   cursor: pointer !important;
 }
 
+/* Tablet */
 @media (max-width: 1000px) {
   .footer-text {
-    display: none;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Phones */
+@media (max-width: 600px) {
+  .footer {
+    height: auto;
+    padding: 0 10px;
+  }
+
+  .footer-content {
+    background-color: $primary-dark-color;
+  }
+
   .footer-text {
-    display: none;
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: center;
   }
 
   .spacer {
@@ -58,16 +72,6 @@
   }
 
   .formal-links {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15px;
-  }
-
-  .icon-button {
-    margin-right: 5px;
-  }
-
-  .footer {
-    padding: 0;
+    display: none;
   }
 }

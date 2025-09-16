@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from './services/cart.service';
 import { CartSidebarComponent } from './components/cart-sidebar/cart-sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
