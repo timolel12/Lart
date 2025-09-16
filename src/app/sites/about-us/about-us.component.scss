@@ -2,28 +2,28 @@
 
 :host {
   display: block;
-  width: 100%; /* Full width */
-  color: white; /* Optional: Set text color to white for better contrast */
-  margin: 0; /* Ensure no margin is applied */
-  padding: 0; /* Ensure no padding is applied */
+  width: 100%;
+  color: white;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
-/* Container to hold everything */
 .container {
   width: 100%;
+  height: 100vh;
   text-align: center;
+  overflow: auto;
 }
 
 .banner {
   width: 100%;
-  height: auto; /* Maintain the aspect ratio */
-  max-height: 20vh; /* Limit the height to 20% of the viewport height */
-  object-fit: cover; /* Ensure the image covers the width without distorting */
+  height: auto;
+  max-height: 20vh;
+  object-fit: cover;
   margin-top: 160px;
 }
 
-/* Box that contains the headline */
 .headline-box {
   margin: 20px auto;
   margin-top: 60px;
@@ -34,14 +34,12 @@
   text-align: center;
 }
 
-/* Headline style */
 .headline {
   margin: 0;
   font-size: 2.5em;
   color: white;
 }
 
-/* Box that contains the text */
 .text-box {
   margin: 20px auto;
   margin-bottom: 60px;
@@ -50,12 +48,11 @@
   border: 2px solid white;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  line-height: 1.6em; /* Improves readability */
+  line-height: 1.6em;
 }
 
-/* Content text style */
 .content-text {
   font-size: 1.2em;
   color: white;
-  white-space: pre-line; /* Preserves line breaks */
+  white-space: pre-line;
 }

@@ -6,7 +6,6 @@ import { RouteService } from './services/route.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { LoadingDialogComponent } from './dialogs/loading-dialog/loading-dialog.component';
 
 @Component({
   selector: 'app-root',
