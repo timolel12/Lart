@@ -109,11 +109,12 @@
     font-size: 0.95rem;
   }
 
-  /* make 2-up grid on medium screens (your base is flex) */
+  /* make 2-up grid on medium screens */
   .second-section .product-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
+    justify-items: center;
   }
 
   @supports not (display: grid) {
@@ -131,14 +132,12 @@
 
 /* Tablet & large phones (portrait) */
 @media (max-width: 900px) {
-  /* Center hero content in the brown area */
   .first-section {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
     min-height: 70vh !important;
-    padding: 48px 16px !important;
     position: relative !important;
     overflow: hidden !important;
   }
@@ -151,11 +150,13 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 0.75rem !important;
+    justify-content: center !important;
+    text-align: center !important;
 
     width: min(92vw, 700px) !important;
     margin: 0 auto !important;
     padding: 0 !important;
+    gap: 0.75rem !important;
   }
 
   .first-section .overlay-content h1 {
@@ -182,12 +183,17 @@
     content: none !important;
   }
 
-  /* Start tan section cleanly and stack items */
   .second-section {
-    padding-top: 20px !important;
+    padding: 0;
     position: relative !important;
     overflow: auto !important;
     clear: both !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+    text-align: center;
   }
 
   .second-section .product-grid {
@@ -195,23 +201,27 @@
     grid-template-columns: 1fr !important;
     justify-items: center !important;
     gap: 14px !important;
-    max-height: 100%;
     margin-top: 20px;
+    width: 100%;
   }
 
   .second-section .product-card {
     margin-top: 12px;
     padding: 12px !important;
-    max-width: 420px !important; /* keep cards from getting too wide */
+    max-width: 420px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* ↓ smaller, uncropped pictures on tablets/phones */
-  .second-section .product-image,
-  .second-section img.product-image {
+  .second-section .product-image {
     display: block !important;
     width: 90% !important;
     max-width: 360px !important;
-    height: auto !important; /* prevent cropping */
+    height: auto !important;
     margin: 0 auto !important;
     object-fit: cover !important;
   }
@@ -226,7 +236,6 @@
 /* Phones */
 @media (max-width: 600px) {
   .first-section .overlay-content {
-    padding: 2.25rem 1rem;
     gap: 0.6rem;
   }
 
@@ -248,23 +257,25 @@
     font-size: 1rem;
   }
 
-  /* still single column; make pictures a bit smaller again */
   .second-section .product-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.9rem;
     justify-items: center;
+    width: 100%;
   }
 
   .second-section .product-card {
     max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .second-section .product-image,
-  .second-section img.product-image {
+  .second-section .product-image {
     width: 85% !important;
     max-width: 320px !important;
     height: auto !important;
+    margin: 0 auto;
   }
 
   .second-section .secondary-button {
@@ -275,16 +286,13 @@
 /* micro phones */
 @media (max-width: 380px) {
   .first-section {
-    padding: 32px 12px !important;
     min-height: 64vh !important;
   }
   .first-section .overlay-content h1 {
     font-size: 1.45rem !important;
   }
 
-  /* tiniest pictures so everything fits comfortably */
-  .second-section .product-image,
-  .second-section img.product-image {
+  .second-section .product-image {
     width: 80% !important;
     max-width: 260px !important;
   }
