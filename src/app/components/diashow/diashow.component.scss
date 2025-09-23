@@ -129,17 +129,30 @@
 
 /* === Responsive Styles === */
 @media (max-width: 768px) {
-  .slides {
-    height: 85vh; /* Bigger images on mobile */
+    .slides {
+    height: 60vh;
     border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .slide {
+    width: 100%;
     height: 100%;
+    background-size: cover;
+    background-position: center center
+  }
+
+  .slide-title {
+    font-size: 16px;
+    text-align: center;
   }
 
   #indicators {
-    bottom: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%);
   }
 
   .indicator {
@@ -148,23 +161,8 @@
     margin: 0 3px;
   }
 
-  .diashowNext,
-  .diashowPrev {
-    width: 50px !important;
-    height: 50px !important;
-  }
-
-  .description-container {
-    width: 85%;
-    padding: 15px;
-    font-size: 12px;
-  }
-
-  .slide-title {
-    font-size: 16px;
-  }
-
-  .slide-description {
-    font-size: 12px;
-  }
+.diashowNext mat-icon,
+.diashowPrev mat-icon {
+  display: none;
+}
 }
