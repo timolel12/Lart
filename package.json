@@ -1,15 +1,19 @@
 {
   "name": "lart",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "publish": "ng build --configuration production && npm run postbuild && npm run copy",
+    "start": "npm run bump:patch && npm run setversion && ng serve",
+    "build": "npm run bump:patch && npm run setversion && ng build",
+    "publish": "npm run bump:minor && npm run setversion && ng build --configuration production && npm run postbuild && npm run copy",
     "format": "npx prettier --write src/**/*.{js,ts,html,scss}",
     "watch": "ng build --watch --configuration development",
     "copy": "copyfiles CNAME docs/",
     "postbuild": "node -e \"require('ncp').ncp('docs/index.html', 'docs/404.html', function (err) { if (err) { return console.error(err); } console.log('Datei erfolgreich kopiert!'); })\"",
+    "setversion": "node scripts/set-version.js",
+    "bump:patch": "node scripts/bump-version.js patch",
+    "bump:minor": "node scripts/bump-version.js minor",
+    "bump:major": "node scripts/bump-version.js major",
     "test": "ng test"
   },
   "private": true,
