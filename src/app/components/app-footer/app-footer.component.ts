@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,9 @@ import { Router } from '@angular/router';
   styleUrl: './app-footer.component.scss',
 })
 export class AppFooterComponent {
+
+  version = environment.version;
+
   constructor(private router: Router) {}
 
   navigateImpressum() {
