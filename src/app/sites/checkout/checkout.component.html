@@ -409,8 +409,6 @@
             Aufgrund der Kleinunternehmerregelung nach § 19 UStG wird keine Umsatzsteuer erhoben.
           </p>
         </div>
-
-        <!-- Widerruf (steuert Button-Disable in Step 2) -->
         <div class="summary-consent">
           <label class="check">
             <input type="checkbox" [formControl]="consentControl" />
@@ -420,7 +418,6 @@
             >
           </label>
         </div>
-
         <button
           *ngIf="step === 2"
           mat-raised-button
