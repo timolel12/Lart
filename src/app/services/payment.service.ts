@@ -8,13 +8,13 @@ declare var Stripe: any;
 @Injectable({ providedIn: 'root' })
 export class PaymentService {
   private stripe: any;
-  
+
   constructor(private apiClient: ApiService) {}
 
   async initStripe(): Promise<void> {
     if (!this.stripe) {
       const config = await firstValueFrom(
-        this.apiClient.get<{ publishableKey: string }>('config/stripe-key')
+        this.apiClient.get<{ publishableKey: string }>('api/config/stripe-key')
       );
       this.stripe = Stripe(config.publishableKey);
     }
@@ -24,13 +24,15 @@ export class PaymentService {
     if (!this.stripe) throw new Error('Stripe is not initialized');
     return this.stripe;
   }
-  
-  async createCheckoutSession(cart: Cart): Promise<{ sessionId: string }> {
+
+  async createCheckoutSession(cart: Cart, paymentMethod: number): Promise<{ sessionId: string }> {
     try {
       return await firstValueFrom(
         this.apiClient.post<{ sessionId: string }>(
-          'payment/create-checkout-session',
-          { items: cart.items }
+          'api/payment/create-checkout-session',
+          { items: cart.items,
+            paymentMethod: paymentMethod
+          }
         )
       );
     } catch (error) {

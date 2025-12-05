@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, Cart } from '../../services/cart.service';
 import { firstValueFrom, Observable, switchMap, take } from 'rxjs';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -19,6 +19,8 @@ import { PaymentService } from '../../services/payment.service';
 import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessingPaymentDialogComponent } from '../../dialogs/processing-payment-dialog/processing-payment-dialog.component';
+import { Dialog } from '@angular/cdk/dialog';
+import { LoadingDialogComponent } from '../../dialogs/loading-dialog/loading-dialog.component';
 
 type PaymentMethod = 'paypal' | 'sofort' | 'applepay' | 'card';
 
@@ -38,15 +40,13 @@ declare var Stripe: any;
   styleUrl: './checkout.component.scss', // ok
 })
 export class CheckoutComponent implements OnInit {
-  private stripe = Stripe(environment.stripePublishableKey);
   stripeUnavailable = false;
 
   cart$!: Observable<Cart>;
   step: 1 | 2 = 1;
 
   shippingCost = 4.99;
-  
-  
+
   paymentControl = new FormControl<PaymentMethod>('paypal', {
     nonNullable: true,
   });
@@ -61,11 +61,15 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private paymentService: PaymentService,
     private dialog: MatDialog,
-
+    private router: Router,
     private fb: FormBuilder
   ) {}
 
   async ngOnInit(): Promise<void> {
+    const loadingDialog = this.dialog.open(LoadingDialogComponent, {
+      disableClose: true,
+    });
+
     this.cart$ = this.cartService.cart$;
 
     this.addressForm = this.fb.group({
@@ -103,9 +107,9 @@ export class CheckoutComponent implements OnInit {
     } catch (err) {
       console.error('Failed to initialize Stripe', err);
       // optionally show an error message to the user
-      this.stripeUnavailable = true; 
-      // e.g., template: *ngIf="stripeUnavailable" -> "Payments are temporarily unavailable."
-      //TODO 
+      this.stripeUnavailable = true;
+    } finally {
+      loadingDialog.close();
     }
   }
 
@@ -182,31 +186,38 @@ export class CheckoutComponent implements OnInit {
   }
 
   async placeOrder() {
-  if (this.addressForm.invalid || !this.consentControl.value) return;
+    if (this.addressForm.invalid || !this.consentControl.value) return;
 
-  const processingDialog = this.dialog.open(ProcessingPaymentDialogComponent, {
-    disableClose: true
-  });
+    const processingDialog = this.dialog.open(
+      ProcessingPaymentDialogComponent,
+      {
+        disableClose: true,
+      }
+    );
 
-  try {
-    const cart = await firstValueFrom(this.cart$.pipe(take(1)));
+    try {
+      const cart = await firstValueFrom(this.cart$.pipe(take(1)));
 
-    // call service to get sessionId
-    const { sessionId } = await this.paymentService.createCheckoutSession(cart);
+      // call service to get sessionId
+      const { sessionId } = await this.paymentService.createCheckoutSession(
+        cart, 10
+      );
 
-    // close the dialog BEFORE redirect
-    processingDialog.close();
+      // close the dialog BEFORE redirect
+      processingDialog.close();
 
-    // redirect to Stripe
-    const stripe = this.paymentService.getStripeInstance();
-    stripe.redirectToCheckout({ sessionId });
-
-  } catch (error) {
-    processingDialog.close();
-    console.error(error);
+      // redirect to Stripe
+      const stripe = this.paymentService.getStripeInstance();
+      stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+      processingDialog.close();
+      console.error(error);
+    }
   }
-}
 
+  backToHome() {
+    this.router.navigate(['/']);
+  }
 }
 
 /* ================= Validators ================= */

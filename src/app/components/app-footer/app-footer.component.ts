@@ -12,7 +12,6 @@ import { environment } from '../../../environments/environment';
   styleUrl: './app-footer.component.scss',
 })
 export class AppFooterComponent {
-
   version = environment.version;
 
   constructor(private router: Router) {}

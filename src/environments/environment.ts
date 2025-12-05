@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  version: '1.2.1',
+  version: '1.2.5',
   stripePublishableKey: '',
-  apiUrl: 'localhost:5301',
+  apiUrl: 'http://localhost:5000',
 };

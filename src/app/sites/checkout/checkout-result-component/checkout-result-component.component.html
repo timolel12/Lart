@@ -1,0 +1,15 @@
+<div class="result-container">
+  <img [src]="image" alt="Result image" class="result-image" />
+
+  <h1 class="result-title" [ngClass]="colorClass">
+    {{ title }}
+  </h1>
+
+  <p class="result-message">
+    {{ message }}
+  </p>
+
+  <a [routerLink]="buttonLink" class="result-button" [ngClass]="colorClass">
+    {{ buttonLabel }}
+  </a>
+</div>

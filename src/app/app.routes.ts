@@ -10,12 +10,15 @@ import { WhereToFindUsComponent } from './sites/where-to-find-us/where-to-find.u
 import { ProductDiashowComponent } from './sites/product-diashow/product-diashow.component';
 import { OnlineShopComponent } from './sites/online-shop/online-shop.component';
 import { CheckoutComponent } from './sites/checkout/checkout.component';
+import { CheckoutResultComponent } from './sites/checkout/checkout-result-component/checkout-result-component.component';
 
 export const routes: Routes = [
   { path: '', component: StartComponent },
   { path: 'home', component: StartComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout/success', component: CheckoutResultComponent },
+  { path: 'checkout/cancel', component: CheckoutResultComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'datenschutz', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },
