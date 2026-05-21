@@ -1,7 +1,7 @@
 <div class="result-container">
   <img [src]="image" alt="Result image" class="result-image" />
 
-  <h1 class="result-title" [ngClass]="colorClass">
+  <h1 class="result-title">
     {{ title }}
   </h1>
 
@@ -9,7 +9,7 @@
     {{ message }}
   </p>
 
-  <a [routerLink]="buttonLink" class="result-button" [ngClass]="colorClass">
+  <a mat-raised-button [routerLink]="buttonLink" class="primary-button">
     {{ buttonLabel }}
   </a>
 </div>

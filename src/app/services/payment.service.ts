@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { ApiService } from './api-client.service';
 import { Cart } from './cart.service';
+import { PaymentMethod } from '../models/payment-method.model';
 
 declare var Stripe: any;
 
@@ -25,7 +26,7 @@ export class PaymentService {
     return this.stripe;
   }
 
-  async createCheckoutSession(cart: Cart, paymentMethod: number): Promise<{ sessionId: string }> {
+  async createCheckoutSession(cart: Cart, paymentMethod: PaymentMethod): Promise<{ sessionId: string }> {
     try {
       return await firstValueFrom(
         this.apiClient.post<{ sessionId: string }>(

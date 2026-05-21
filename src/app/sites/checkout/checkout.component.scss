@@ -21,6 +21,18 @@
 }
 
 /* Stepper */
+.stepper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-btn {
+  margin-left: 16px;
+  height: 40px;
+  width: 40px;
+}
+
 .stepper {
   display: flex;
   align-items: center;
@@ -35,10 +47,10 @@
       opacity: 1;
     }
     &.done {
-      opacity: 0.9;
+      opacity: 0.8;
     }
     &.disabled {
-      opacity: 0.4;
+      opacity: 0.3;
     }
   }
 
@@ -101,6 +113,23 @@
 .summary-card {
   flex: 1;
 }
+
+.panel-head--inline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-btn {
+  margin: 0;
+  padding: 0;
+}
+
+.panel-title {
+  margin: 0;
+}
+
+
 @supports (height: 100%) {
   .layout.equal-height .panel,
   .layout.equal-height .summary-card {

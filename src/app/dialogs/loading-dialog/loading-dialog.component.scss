@@ -19,9 +19,15 @@ progress::-ms-fill {
 }
 
 .spinner-container {
+  position: fixed;
+  inset: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+
+  background: transparent; 
+  z-index: 10000;
+  pointer-events: all;
 }
+

@@ -1,6 +1,6 @@
 {
   "name": "lart",
-  "version": "1.2.5",
+  "version": "1.2.8",
   "scripts": {
     "ng": "ng",
     "start": "npm run bump:patch && npm run setversion && ng serve",

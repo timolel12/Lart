@@ -4,21 +4,34 @@
       <header class="checkout-header">
         <h1 class="checkout-title">Bestellung abschließen</h1>
       </header>
-      <nav class="stepper stepper-left" aria-label="Checkout Schritte">
-        <div class="step" [class.active]="step === 1" [class.done]="step > 1">
-          <span class="step-dot"></span>
-          <span class="step-label">Lieferdaten</span>
-        </div>
-        <div class="step-sep"></div>
-        <div
-          class="step"
-          [class.active]="step === 2"
-          [class.disabled]="step < 2"
-        >
-          <span class="step-dot"></span>
-          <span class="step-label">Zahlung</span>
-        </div>
-      </nav>
+      <nav class="stepper-wrapper">
+  <nav class="stepper stepper-left" aria-label="Checkout Schritte">
+    <div class="step" [class.active]="step === 1" [class.done]="step > 1">
+      <span class="step-dot"></span>
+      <span class="step-label">Lieferdaten</span>
+    </div>
+    <div class="step-sep"></div>
+    <div
+      class="step"
+      [class.active]="step === 2"
+      [class.disabled]="step < 2"
+    >
+      <span class="step-dot"></span>
+      <span class="step-label">Zahlung</span>
+    </div>
+  </nav>
+
+  <!-- HOME BUTTON -->
+  <button
+    mat-icon-button
+    class="home-btn"
+    aria-label="Zur Homepage"
+    routerLink="/"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+</nav>
+
       <div *ngIf="cart.items.length; else emptyCheckout" class="layout">
         <!-- LEFT -->
         <section class="stage">
@@ -155,10 +168,21 @@
 
           <!-- STEP 2 -->
           <div *ngIf="step === 2" class="panel">
-            <div class="panel-head">
-              <span class="step-tag">Schritt 2/2</span>
-              <h2 class="panel-title">Bestellung bezahlen</h2>
-            </div>
+            <div class="panel-head panel-head--inline">
+  <button
+    mat-icon-button
+    class="back-btn"
+    aria-label="Zurück zu Lieferdaten"
+    (click)="goBackToStep1()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <span class="step-tag">Schritt 2/2</span>
+  <h2 class="panel-title">Bestellung bezahlen</h2>
+</div>
+
+
             <p class="panel-sub">Wähle deine Zahlungsart.</p>
 
             <div class="payment-list">
@@ -188,7 +212,7 @@
                   *ngIf="paymentControl.value === 'paypal'"
                   (click)="$event.stopPropagation()"
                 >
-                  <button class="paypal-btn" (click)="payWithPaypal()">
+                  <button class="paypal-btn" (click)="placeOrder(PaymentMethod.PayPal)">
                     <img src="assets/images/PayPal.svg" alt="" />
                   </button>
                 </div>
@@ -220,197 +244,44 @@
                   *ngIf="paymentControl.value === 'sofort'"
                   (click)="$event.stopPropagation()"
                 >
-                  <button class="sofort-btn" (click)="payWithSofort()">
+                  <button class="sofort-btn" (click)="placeOrder(PaymentMethod.Klarna)">
                     Mit Sofortüberweisung bezahlen
                   </button>
                 </div>
               </label>
 
-              <!-- Apple Pay -->
-              <label
-                class="payment-tile"
-                [class.active]="paymentControl.value === 'applepay'"
-              >
-                <input
-                  type="radio"
-                  [formControl]="paymentControl"
-                  value="applepay"
-                />
+              <!-- Credit Card Payment Tile -->
+<label
+  class="payment-tile"
+  [class.active]="paymentControl.value === 'card'"
+  (click)="paymentControl.setValue('card')"
+>
+  <!-- header -->
+  <div class="tile-main">
+    <div class="tile-left">
+      <mat-icon class="card-icon">credit_card</mat-icon>
+      <span>Kreditkarte</span>
+    </div>
+  </div>
 
-                <div class="tile-main">
-                  <div class="tile-left">
-                    <img
-                      src="assets/images/Apple_Pay_logo.svg"
-                      alt="Apple Pay"
-                    />
-                    <span>Apple Pay</span>
-                  </div>
-                </div>
+  <!-- expanded area -->
+  <div
+    class="tile-expand"
+    *ngIf="paymentControl.value === 'card'"
+    (click)="$event.stopPropagation()"
+  >
+    <button
+      type="button"
+      class="primary-button pay-btn"
+      (click)="placeOrder(PaymentMethod.Card)"
+      [disabled]="processing"
+    >
+      <mat-icon aria-hidden="true">lock</mat-icon>
+      Mit Kreditkarte bezahlen
+    </button>
+  </div>
+</label>
 
-                <div
-                  class="tile-expand"
-                  *ngIf="paymentControl.value === 'applepay'"
-                  (click)="$event.stopPropagation()"
-                >
-                  <button class="apple-btn" (click)="payWithApplePay()">
-                    Pay
-                  </button>
-                </div>
-              </label>
-
-              <!-- Card -->
-              <label
-                class="payment-tile"
-                [class.active]="paymentControl.value === 'card'"
-              >
-                <input
-                  type="radio"
-                  [formControl]="paymentControl"
-                  value="card"
-                />
-
-                <!-- header row -->
-                <div class="tile-main">
-                  <div class="tile-left">
-                    <mat-icon class="card-icon">credit_card</mat-icon>
-                    <span>Kartenzahlung</span>
-                  </div>
-                  <div class="tile-right card-brands">
-                    <img
-                      src="assets/images/mastercard.svg"
-                      alt="Mastercard"
-                      class="brand-logo-mastercard"
-                    />
-                    <img
-                      src="assets/images/Visa.png"
-                      alt="Visa"
-                      class="brand-logo-visa"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="tile-expand"
-                  *ngIf="paymentControl.value === 'card'"
-                  (click)="$event.stopPropagation()"
-                >
-                  <form [formGroup]="cardForm" (ngSubmit)="payWithCard()">
-                    <p class="panel-sub">
-                      Alle Felder sind Pflichtfelder, sofern nicht anders
-                      gekennzeichnet.
-                    </p>
-
-                    <!-- Kartennummer -->
-                    <label
-                      class="field"
-                      [class.invalid]="cardInvalid('number')"
-                    >
-                      <span>Kartennummer</span>
-                      <div style="position: relative">
-                        <input
-                          formControlName="number"
-                          type="text"
-                          inputmode="numeric"
-                          placeholder="1234 5678 9012 3456"
-                          autocomplete="cc-number"
-                          maxlength="23"
-                          (input)="formatCardNumber($event)"
-                        />
-                        <mat-icon
-                          style="
-                            position: absolute;
-                            right: 10px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            opacity: 0.8;
-                          "
-                          >credit_card</mat-icon
-                        >
-                      </div>
-                      <small class="error" *ngIf="cardInvalid('number')">
-                        Bitte gültige Kartennummer eingeben.
-                      </small>
-                    </label>
-
-                    <!-- Ablaufdatum -->
-                    <label
-                      class="field"
-                      [class.invalid]="cardInvalid('expiry')"
-                    >
-                      <span>Ablaufdatum</span>
-                      <div style="position: relative">
-                        <input
-                          formControlName="expiry"
-                          type="text"
-                          inputmode="numeric"
-                          placeholder="MM/JJ"
-                          autocomplete="cc-exp"
-                          maxlength="5"
-                          (input)="formatExpiry($event)"
-                        />
-                        <mat-icon
-                          style="
-                            position: absolute;
-                            right: 10px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            opacity: 0.8;
-                          "
-                          >event</mat-icon
-                        >
-                      </div>
-                      <small class="error" *ngIf="cardInvalid('expiry')">
-                        Bitte gültiges Ablaufdatum (MM/JJ) eingeben.
-                      </small>
-                    </label>
-
-                    <!-- Sicherheitscode -->
-                    <label class="field" [class.invalid]="cardInvalid('cvc')">
-                      <span>Sicherheitscode</span>
-                      <div style="position: relative">
-                        <input
-                          formControlName="cvc"
-                          type="text"
-                          inputmode="numeric"
-                          placeholder="CVC"
-                          autocomplete="cc-csc"
-                          maxlength="3"
-                        />
-                        <mat-icon
-                          style="
-                            position: absolute;
-                            right: 10px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            opacity: 0.8;
-                          "
-                          >lock</mat-icon
-                        >
-                      </div>
-                      <small class="error" *ngIf="cardInvalid('cvc')">
-                        Der CVC muss 3 Ziffern enthalten.
-                      </small>
-                    </label>
-
-                    <!-- Pay button -->
-                    <button
-                      type="submit"
-                      class="primary-button pay-btn"
-                      [disabled]="
-                        cardForm.invalid ||
-                        processing ||
-                        paymentControl.value !== 'card'
-                      "
-                    >
-                      <mat-icon aria-hidden="true">lock</mat-icon>
-                      ZAHLE
-                      {{
-                        cart.totalPrice + shippingCost
-                          | currency: "EUR":"symbol":"1.2-2"
-                      }}
-                    </button>
-                  </form>
-                </div>
-              </label>
             </div>
           </div>
         </section>
@@ -478,7 +349,7 @@
               *ngIf="step === 2"
               mat-raised-button
               class="primary-button wide"
-              (click)="placeOrder()"
+              (click)="placeOrder(PaymentMethod.All)"
               [disabled]="addressForm.invalid || !consentControl.value"
             >
               Jetzt bezahlen

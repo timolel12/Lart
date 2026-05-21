@@ -1,6 +1,7 @@
 /* Main container */
 .result-container {
   min-height: 70vh;
+  margin-top: 80px;
   padding: 40px 20px;
   text-align: center;
   display: flex;
@@ -27,39 +28,11 @@
 /* Text */
 .result-message {
   max-width: 420px;
-  color: #666;
+  color: white;
   margin-bottom: 30px;
   font-size: 1.05rem;
 }
 
-/* Button */
-.result-button {
-  padding: 12px 28px;
-  border-radius: 12px;
-  color: white;
-  font-weight: 600;
-  display: inline-block;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-/* Success styles */
-.success {
-  background-color: #16a34a;
-}
-
-.success:hover {
-  background-color: #15803d;
-}
-
-/* Cancel styles */
-.cancel {
-  background-color: #dc2626;
-}
-
-.cancel:hover {
-  background-color: #b91c1c;
-}
 
 /* Pop-in animation */
 @keyframes popIn {

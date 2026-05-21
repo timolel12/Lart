@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-checkout-result-component',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatButtonModule],
   templateUrl: './checkout-result-component.component.html',
   styleUrl: './checkout-result-component.component.scss',
 })
@@ -17,26 +19,27 @@ export class CheckoutResultComponent implements OnInit {
   buttonLabel: string = '';
   buttonLink: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService ) {}
 
   ngOnInit(): void {
     const resultType = this.route.snapshot.routeConfig?.path;
 
     if (resultType?.includes('success')) {
-      this.title = 'Thank you for your purchase! ❤️';
+      this.cartService.clearCart();
+      this.title = 'Danke für deinen Einkauf! ❤️';
       this.message =
-        'Your payment was completed successfully. A confirmation email has been sent.';
+        'Deine Bezahlung war erfolgreich. Eine Bestätigungsmail wurde versendet.';
       this.image = 'https://cdn-icons-png.flaticon.com/512/845/845646.png';
       this.colorClass = 'success';
-      this.buttonLabel = 'Back to Home';
+      this.buttonLabel = 'Zurück zur Homepage';
       this.buttonLink = '/';
     } else {
-      this.title = 'Transaction Canceled';
+      this.title = 'Transaktion abgebrochen';
       this.message =
-        'Your payment did not go through. You can try again anytime.';
+        'Die Bezahlung wurde nicht durchgeführt. Bitte probiere es noch einmal.';
       this.image = 'https://cdn-icons-png.flaticon.com/512/463/463612.png';
       this.colorClass = 'cancel';
-      this.buttonLabel = 'Try Again';
+      this.buttonLabel = 'Nochmal Probieren';
       this.buttonLink = '/checkout';
     }
   }
